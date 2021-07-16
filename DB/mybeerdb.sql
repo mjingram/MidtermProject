@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `account_info_id` INT NOT NULL,
+  `account_info_id` INT NULL,
   `enabled` TINYINT(100) NOT NULL,
   `role` VARCHAR(45) NULL,
   PRIMARY KEY (`id`),
@@ -201,3 +201,13 @@ GRANT SELECT, INSERT, TRIGGER, UPDATE, DELETE ON TABLE * TO 'beeruser'@'localhos
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+-- -----------------------------------------------------
+-- Data for table `user`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `mybeerdb`;
+INSERT INTO `user` (`id`, `username`, `password`, `account_info_id`, `enabled`, `role`) VALUES (1, 'admin', 'admin90', NULL, 1, NULL);
+
+COMMIT;
+
