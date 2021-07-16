@@ -8,5 +8,9 @@
 </head>
 <body>
 <h1>Buzz Finder</h1>
+
+${DEBUG}
+
+
 </body>
 </html>
