@@ -6,6 +6,7 @@
     <!-- List Entities Here -->
    
 	<class>com.skilldistillery.jpabuzzfinder.entities.User</class>
+	<class>com.skilldistillery.jpabuzzfinder.entities.AccountInfo</class>
 
 	 <!-- End Entities -->
     <properties>
