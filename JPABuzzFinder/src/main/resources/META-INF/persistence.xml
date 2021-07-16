@@ -6,6 +6,7 @@
     <!-- List Entities Here -->
    
 	<class>com.skilldistillery.jpabuzzfinder.entities.User</class>
+
 	<class>com.skilldistillery.jpabuzzfinder.entities.Address</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.Brewery</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.BeerReview</class>
@@ -16,6 +17,7 @@
 	<class>com.skilldistillery.jpabuzzfinder.entities.BreweryReview</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.FavoriteStyle</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.BeerStyle</class>
+
 	 <!-- End Entities -->
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/mybeerdb?useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=US/Mountain" />
