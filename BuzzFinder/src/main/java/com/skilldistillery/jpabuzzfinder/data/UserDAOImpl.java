@@ -17,8 +17,8 @@ public class UserDAOImpl implements UserDAO{
 
 	@Override
 	public User findById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		// 
+		return em.find(User.class, 1);
 	}
 	
 }
