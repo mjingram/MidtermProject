@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -27,6 +29,12 @@ public class User {
 	
 	private String role;
 	
+	@OneToMany
+	@JoinTable(name = "favorite_beer", 
+	joinColumns = @JoinColumn(name = "user_id"), 
+	inverseJoinColumns = @JoinColumn(name = "beer_id"))
+	private List<Beer> beers;
+	
 	@OneToOne
     @JoinTable(name="favorite_style", joinColumns = @JoinColumn(name="user_id"),
 	inverseJoinColumns = @JoinColumn(name="beer_style_id"))
@@ -36,6 +44,7 @@ public class User {
 			inverseJoinColumns = @JoinColumn(name="beer_id"))
 	private List<Beer> favoriteBeers;
 	
+	@OneToMany
 	@JoinTable(name="favorite_brewery", joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name="brewery_id"))
 	private List<Beer> favoriteBreweries;
