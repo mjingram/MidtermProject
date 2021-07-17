@@ -30,6 +30,7 @@ class FavoriteStyleTest {
 	@Test
 	void test_beerStyle_mapping() {
 		assertNotNull(faveStyle);
+		
 	}
 
 }
