@@ -47,6 +47,9 @@ class UserTest {
 	void test() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
+		assertEquals(1, user.getFavoriteBeers().size());
+		assertEquals(1, user.getFavoriteBreweries().size());
+		assertEquals("India Pale Ale", user.getFavoriteStyle().getName());
 	}
 
 }

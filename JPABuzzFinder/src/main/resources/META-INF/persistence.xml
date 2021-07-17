@@ -12,10 +12,7 @@
 	<class>com.skilldistillery.jpabuzzfinder.entities.BeerReview</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.AccountInfo</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.Beer</class>
-	<class>com.skilldistillery.jpabuzzfinder.entities.FavoriteBeer</class>
-	<class>com.skilldistillery.jpabuzzfinder.entities.FavoriteBrewery</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.BreweryReview</class>
-	<class>com.skilldistillery.jpabuzzfinder.entities.FavoriteStyle</class>
 	<class>com.skilldistillery.jpabuzzfinder.entities.BeerStyle</class>
 
 	 <!-- End Entities -->

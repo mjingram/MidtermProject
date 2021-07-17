@@ -1,26 +1,30 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
+import java.time.LocalDateTime;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class FavoriteStyle {
-
-////////////////////////// Fields ////////////////////////////////
+public class BreweryReview {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-//	@Column(name="user_id")
-//	private int userId;
-
+	
+	@Column(name="review_date")
+	private LocalDateTime reviewDate;
+	
+	private String comment;
+	
+	@Column(name="user_id")
 	private User user;
-
-///////////////////////// Methods ///////////////////////////////
-	public FavoriteStyle() {
-		super();
-	}
+	
+	@Column(name="brewery_id")
+	private Brewery brewery;
 
 	public int getId() {
 		return id;
@@ -28,6 +32,22 @@ public class FavoriteStyle {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public LocalDateTime getReviewDate() {
+		return reviewDate;
+	}
+
+	public void setReviewDate(LocalDateTime reviewDate) {
+		this.reviewDate = reviewDate;
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	public User getUser() {
@@ -38,9 +58,12 @@ public class FavoriteStyle {
 		this.user = user;
 	}
 
-	@Override
-	public String toString() {
-		return "FavoriteStyle [id=" + id + ", user=" + user + "]";
+	public Brewery getBrewery() {
+		return brewery;
+	}
+
+	public void setBrewery(Brewery brewery) {
+		this.brewery = brewery;
 	}
 
 	@Override
@@ -48,7 +71,6 @@ public class FavoriteStyle {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + id;
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 
@@ -60,16 +82,12 @@ public class FavoriteStyle {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		FavoriteStyle other = (FavoriteStyle) obj;
+		BreweryReview other = (BreweryReview) obj;
 		if (id != other.id)
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
+	
 	
 
 }

@@ -21,9 +21,29 @@ public class AccountInfo {
 	@Column(name="last_name")
 	private String lastName;
 	
+	private Address address;
 	
+	private User user;
 	
 	public AccountInfo() {}
+
+	
+	
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public int getId() {
 		return id;

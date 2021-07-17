@@ -1,9 +1,16 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
+
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToOne;
+
 
 @Entity
 public class User {
@@ -19,10 +26,54 @@ public class User {
 	private int enabled;
 	
 	private String role;
+	
+	@OneToOne
+    @JoinTable(name="favorite_style", joinColumns = @JoinColumn(name="user_id"),
+	inverseJoinColumns = @JoinColumn(name="beer_style_id"))
+	private BeerStyle favoriteStyle;
+	
+	@JoinTable(name="favorite_beer", joinColumns = @JoinColumn(name="user_id"),
+			inverseJoinColumns = @JoinColumn(name="beer_id"))
+	private List<Beer> favoriteBeers;
+	
+	@JoinTable(name="favorite_brewery", joinColumns = @JoinColumn(name="user_id"),
+			inverseJoinColumns = @JoinColumn(name="brewery_id"))
+	private List<Beer> favoriteBreweries;
 
 /////////////////////// Methods /////////////////////////////
 	
 	public User() {}
+
+	
+	public BeerStyle getFavoriteStyle() {
+		return favoriteStyle;
+	}
+
+
+	public void setFavoriteStyle(BeerStyle favoriteStyle) {
+		this.favoriteStyle = favoriteStyle;
+	}
+
+
+	public List<Beer> getFavoriteBeers() {
+		return favoriteBeers;
+	}
+
+
+	public void setFavoriteBeers(List<Beer> favoriteBeers) {
+		this.favoriteBeers = favoriteBeers;
+	}
+
+
+	public List<Beer> getFavoriteBreweries() {
+		return favoriteBreweries;
+	}
+
+
+	public void setFavoriteBreweries(List<Beer> favoriteBreweries) {
+		this.favoriteBreweries = favoriteBreweries;
+	}
+
 
 	public int getId() {
 		return id;
