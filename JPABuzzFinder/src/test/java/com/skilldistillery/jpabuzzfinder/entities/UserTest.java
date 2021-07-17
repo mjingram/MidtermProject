@@ -47,9 +47,30 @@ class UserTest {
 	void test() {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
-		assertEquals(1, user.getFavoriteBeers().size());
-		assertEquals(1, user.getFavoriteBreweries().size());
+		assertEquals( 1, user.getEnabled());
+	}
+	
+	@Test
+	@DisplayName("testing user to beer style mapping")
+	void test1() {
+		assertNotNull(user);
 		assertEquals("India Pale Ale", user.getFavoriteStyle().getName());
 	}
+	
+	@Test
+	@DisplayName("testing user to beer mapping")
+	void test2() {
+		assertNotNull(user);
+		assertEquals(1, user.getFavoriteBeers().size());
+	}
+	
+	@Test
+	@DisplayName("testing user to brewery mapping")
+	void test3() {
+		assertNotNull(user);
+		assertEquals(1, user.getFavoriteBreweries().size());
+	}
+	
+	
 
 }

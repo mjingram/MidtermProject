@@ -1,6 +1,6 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,7 +20,7 @@ public class BeerReview {
 	private int id;
 	
 	@Column(name="review_date")
-	private LocalDateTime reviewDate;
+	private LocalDate reviewDate;
 	
 	private String comment;
 	
@@ -32,6 +32,9 @@ public class BeerReview {
 	@JoinColumn(name="beer_id")
 	private Beer beer;
 
+	
+	public BeerReview() {}
+	
 	public int getId() {
 		return id;
 	}
@@ -40,11 +43,12 @@ public class BeerReview {
 		this.id = id;
 	}
 
-	public LocalDateTime getReviewDate() {
+
+	public LocalDate getReviewDate() {
 		return reviewDate;
 	}
 
-	public void setReviewDate(LocalDateTime reviewDate) {
+	public void setReviewDate(LocalDate reviewDate) {
 		this.reviewDate = reviewDate;
 	}
 
