@@ -2,6 +2,7 @@ package com.skilldistillery.jpabuzzfinder.entities;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,8 +29,10 @@ public class Brewery {
     @JoinColumn(name="address_id")
 	private Address address;
 	
+	@Column(name="image_url")
 	private String imageUrl;
 	
+	@Column(name="logo_image_url")
 	private String logo;
 
 	public int getId() {

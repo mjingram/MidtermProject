@@ -1,6 +1,9 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+import java.time.LocalDate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -13,11 +16,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class AccountInfoTest {
+class BreweryReviewTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private AccountInfo ai;
+	private BreweryReview br;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -32,38 +35,38 @@ class AccountInfoTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		ai = em.find(AccountInfo.class, 1);
+		br = em.find(BreweryReview.class, 1);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		ai = null;
+		br = null;
 		em.close();
 	}
 
 	@Test
-	@DisplayName("testing accountInfo mapping")
+	@DisplayName("testing brewery_review mapping")
 	void test() {
-		assertNotNull(ai);
-		assertEquals("Paul", ai.getFirstName());
-		assertEquals("Noodle", ai.getLastName());
+		LocalDate reviewDate =  LocalDate.of(2021, 07, 12);
+		assertNotNull(br);
+		assertEquals("This is the bestest brewery eva!", br.getComment());
+		assertEquals( reviewDate, br.getReviewDate());
 	}
 	
 	@Test
-	@DisplayName("testing accountInfo to address mapping")
+	@DisplayName("testing brewery_review to user mapping")
 	void test1() {
-		assertNotNull(ai);
-		assertEquals("Minneapolis", ai.getAddress().getCity());
-		assertEquals("MN", ai.getAddress().getState());
-		assertEquals("55111", ai.getAddress().getZipcode());
+		assertNotNull(br);
+		assertEquals("admin", br.getUser().getUsername());
+		assertEquals( 1, br.getUser().getEnabled());
 	}
 	
 	@Test
-	@DisplayName("testing accountInfo to user mapping")
+	@DisplayName("testing brewery_review to brewery mapping")
 	void test2() {
-		assertNotNull(ai);
-		assertEquals("admin", ai.getUser().getUsername());
-		assertEquals( 1, ai.getUser().getEnabled());
+		assertNotNull(br);
+		assertEquals("NorthGate Brewing", br.getBrewery().getName());
+		assertEquals( "Minneapolis", br.getBrewery().getAddress().getCity());
 		
 	}
 
