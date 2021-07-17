@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -36,6 +37,7 @@ public class User {
 			inverseJoinColumns = @JoinColumn(name="beer_id"))
 	private List<Beer> favoriteBeers;
 	
+	@OneToMany
 	@JoinTable(name="favorite_brewery", joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name="brewery_id"))
 	private List<Beer> favoriteBreweries;

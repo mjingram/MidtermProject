@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class BreweryReview {
@@ -20,12 +22,16 @@ public class BreweryReview {
 	
 	private String comment;
 	
-	@Column(name="user_id")
+	@ManyToOne
+	@JoinColumn(name="user_id")
 	private User user;
 	
-	@Column(name="brewery_id")
+	@ManyToOne
+	@JoinColumn(name="brewery_id")
 	private Brewery brewery;
 
+	
+	
 	public int getId() {
 		return id;
 	}
