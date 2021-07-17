@@ -5,31 +5,40 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Beer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private double abv;
-	
+
 	private double ibu;
-	
+
 	private String name;
-	
+
 	private double ounces;
-	
+
 //	@Column(name = "brewery_id")
 //	private int breweryId;
-	
+
 	private Brewery brewery;
-	
+
 	@Column(name = "beer_style_id")
 	private int beerStyleId;
-	
+
 	@Column(name = "image_url")
 	private String imageUrl;
+
+	@ManyToOne
+	@JoinTable(name="favorite_beer",
+	joinColumns = @JoinColumn(name = "beer_id"), 
+	inverseJoinColumns = @JoinColumn(name = "user_id"))
+	private User user;
 
 	public Beer() {
 		super();
@@ -75,7 +84,6 @@ public class Beer {
 		this.ounces = ounces;
 	}
 
-
 	public int getBeerStyleId() {
 		return beerStyleId;
 	}
@@ -103,7 +111,7 @@ public class Beer {
 	@Override
 	public String toString() {
 		return "Beer [id=" + id + ", abv=" + abv + ", ibu=" + ibu + ", name=" + name + ", ounces=" + ounces
-				 + ", beerStyleId=" + beerStyleId + ", imageUrl=" + imageUrl + "]";
+				+ ", beerStyleId=" + beerStyleId + ", imageUrl=" + imageUrl + "]";
 	}
 
 	@Override
@@ -127,6 +135,5 @@ public class Beer {
 			return false;
 		return true;
 	}
-	
 
 }
