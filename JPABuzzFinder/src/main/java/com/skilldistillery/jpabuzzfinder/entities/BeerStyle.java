@@ -10,7 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="beer_style")
+@Table(name = "beer_style")
 public class BeerStyle {
 
 ////////////////////////////// Fields ////////////////////////////
@@ -18,11 +18,18 @@ public class BeerStyle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	
-	@OneToMany(mappedBy="beerStyle")
+
+	@OneToMany(mappedBy = "beerStyle")
 	private List<Beer> beers;
 
 //////////////////////////// Methods /////////////////////////////
+	public List<Beer> getBeers() {
+		return beers;
+	}
+
+	public void setBeers(List<Beer> beers) {
+		this.beers = beers;
+	}
 
 	public BeerStyle() {
 		super();
@@ -76,5 +83,5 @@ public class BeerStyle {
 			return false;
 		return true;
 	}
-	
+
 }

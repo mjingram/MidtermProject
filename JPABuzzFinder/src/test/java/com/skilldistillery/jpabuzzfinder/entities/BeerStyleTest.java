@@ -1,6 +1,9 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -30,7 +33,12 @@ private BeerStyle beerStyle;
 	@Test
 	void test_beerStyle_mapping() {
 		assertNotNull(beerStyle);
-//		assertEquals(?);
+		assertEquals("India Pale Ale", beerStyle.getName());
+	}
+	@Test
+	void test_beerlist_mapping() {
+		assertNotNull(beerStyle.getBeers());
+		assertTrue(beerStyle.getBeers().size() > 0);
 	}
 
 }
