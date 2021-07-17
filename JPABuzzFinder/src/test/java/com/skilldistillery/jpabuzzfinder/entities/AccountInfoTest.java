@@ -47,6 +47,7 @@ class AccountInfoTest {
 		assertNotNull(ai);
 		assertEquals("Paul", ai.getFirstName());
 		assertEquals("Noodle", ai.getLastName());
+		assertEquals("Minneapolis", ai.getAddress().getCity());
 	}
 
 }
