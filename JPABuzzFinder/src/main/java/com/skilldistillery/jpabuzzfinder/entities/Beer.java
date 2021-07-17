@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Beer {
@@ -19,6 +21,10 @@ public class Beer {
 	private String name;
 	
 	private double ounces;
+	
+	@ManyToOne
+	@JoinColumn(name="beer_style_id")
+	private BeerStyle beerStyle;
 	
 //	@Column(name = "brewery_id")
 //	private int breweryId;

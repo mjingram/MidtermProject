@@ -1,9 +1,12 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class BeerStyle {
@@ -13,6 +16,9 @@ public class BeerStyle {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	
+	@OneToMany(mappedBy="beerStyle")
+	private List<Beer> beers;
 
 //////////////////////////// Methods /////////////////////////////
 
