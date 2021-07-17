@@ -101,6 +101,22 @@ public class Beer {
 		this.brewery = brewery;
 	}
 
+	public BeerStyle getBeerStyle() {
+		return beerStyle;
+	}
+
+	public void setBeerStyle(BeerStyle beerStyle) {
+		this.beerStyle = beerStyle;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	@Override
 	public String toString() {
 		return "Beer [id=" + id + ", abv=" + abv + ", ibu=" + ibu + ", name=" + name + ", ounces=" + ounces
