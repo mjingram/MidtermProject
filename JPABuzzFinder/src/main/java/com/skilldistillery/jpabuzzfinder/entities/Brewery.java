@@ -1,9 +1,14 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,10 +21,11 @@ public class Brewery {
 	
 	private String name;
 	
-	//beer_id
-	private Beer beer;
+	@OneToMany(mappedBy="brewery")
+	private List<Beer> beer;
 	
-	//address_id
+	@OneToOne
+    @JoinColumn(name="address_id")
 	private Address address;
 	
 	private String imageUrl;
@@ -42,11 +48,12 @@ public class Brewery {
 		this.name = name;
 	}
 
-	public Beer getBeer() {
+
+	public List<Beer> getBeer() {
 		return beer;
 	}
 
-	public void setBeer(Beer beer) {
+	public void setBeer(List<Beer> beer) {
 		this.beer = beer;
 	}
 

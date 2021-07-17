@@ -19,6 +19,8 @@ public class Address {
 	private String zipcode;
 	
 	private String street;
+	
+	
 
 	public int getId() {
 		return id;

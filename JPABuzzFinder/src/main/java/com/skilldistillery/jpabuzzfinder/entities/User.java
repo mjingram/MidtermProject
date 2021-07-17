@@ -40,6 +40,7 @@ public class User {
 	inverseJoinColumns = @JoinColumn(name="beer_style_id"))
 	private BeerStyle favoriteStyle;
 	
+	@OneToMany
 	@JoinTable(name="favorite_beer", joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name="beer_id"))
 	private List<Beer> favoriteBeers;

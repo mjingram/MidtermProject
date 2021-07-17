@@ -27,11 +27,9 @@ public class Beer {
 	@JoinColumn(name="beer_style_id")
 	private BeerStyle beerStyle;
 	
-
+	@ManyToOne
+	@JoinColumn(name="brewery_id")
 	private Brewery brewery;
-
-	@Column(name = "beer_style_id")
-	private int beerStyleId;
 
 	@Column(name = "image_url")
 	private String imageUrl;
@@ -86,13 +84,6 @@ public class Beer {
 		this.ounces = ounces;
 	}
 
-	public int getBeerStyleId() {
-		return beerStyleId;
-	}
-
-	public void setBeerStyleId(int beerStyleId) {
-		this.beerStyleId = beerStyleId;
-	}
 
 	public String getImageUrl() {
 		return imageUrl;
@@ -113,7 +104,7 @@ public class Beer {
 	@Override
 	public String toString() {
 		return "Beer [id=" + id + ", abv=" + abv + ", ibu=" + ibu + ", name=" + name + ", ounces=" + ounces
-				+ ", beerStyleId=" + beerStyleId + ", imageUrl=" + imageUrl + "]";
+				 + ", imageUrl=" + imageUrl + "]";
 	}
 
 	@Override
