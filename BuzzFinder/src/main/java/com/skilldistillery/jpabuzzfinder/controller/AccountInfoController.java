@@ -51,9 +51,9 @@ public class AccountInfoController {
 	
 	//Send new info to the database and return to profile
 	@RequestMapping(path={"sendAccountUpdate.do"})
-		public String updateAccount(int id, AccountInfo updateAccount, Model model) {
+		public String updateAccount(int id, AccountInfo updateAccount, Model model, HttpSession session) {
 
-			model.addAttribute("account", accountDAO.update(id, updateAccount)); 
+			session.setAttribute("account", accountDAO.update(id, updateAccount)); 
 			return "profile";
 		}
 	
@@ -105,5 +105,14 @@ public class AccountInfoController {
 		return "signup";
 	}
 	
+	@RequestMapping(path={"search.do"})
+	public String search() {
+		return "search";
+	}
 	
+	@RequestMapping(path={"profile.do"})
+	public String profile() {
+		return "profile";
+	}
+
 }

@@ -9,13 +9,20 @@
 <body>
 <h1>Update Account</h1>
 <form action="sendUpdateAccount.do">
-<!-- Form input boxes here -->
+<input type="hidden" name="id" value="${accountInfo.id }" />
+<input type="text" name="firstName" value="${accountInfo.firstName }">
+<input type="text" name="lastName" value="${accountInfo.lastName }">
+<input type="text" name="street" value="${addressInfo.street }">
+<input type="text" name="city" value="${addressInfo.city }">
+<input type="text" name="state" value="${addressInfo.state }">
+<input type="text" name="zipcode" value="${addressInfo.city }">
+<input type="submit" value="Send">
 
-<button type="submit"></button>
+<button type="submit">Submit</button>
 </form>
 
 <form action="profile.do">
-<button type="submit"></button>
+<button type="submit">Profile</button>
 </form>
 
 </body>
