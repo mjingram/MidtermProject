@@ -7,10 +7,23 @@
 <title>Buzz Finder</title>
 </head>
 <body>
+<div class="splashPage"></div>
 <h1>Buzz Finder</h1>
 
 ${DEBUG}
+<form action="signup.do">
+<button type="submit">Sign Up</button>
+</form>
 
+<form action="login.do"> <!--Login Page  -->
+<button type="submit">Login</button>
+</form>
+
+<!-- Welcome info, Analytics? -->
+
+<form action="search.do"> <!--Login Page  -->
+<button type="submit">Search</button>
+</form>
 
 </body>
 </html>
