@@ -64,16 +64,14 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	
-	public boolean deleteByUsername(String username, String password) {
+	public boolean deleteUser(User user) {
 		EntityManager em = emf.createEntityManager();
 		
-		User removedUser = em.find(User.class, username);
+		User removedUser = em.find(User.class, user);
 		
 		em.getTransaction().begin();
-		if(em.find(User.class, username).getPassword().equals(password) 
-				&& em.find(User.class, username).getUsername().equals(username)) {
+		
 		em.remove(removedUser);
-		}
 		boolean success = !em.contains(removedUser);
 		
 		em.getTransaction().commit();
