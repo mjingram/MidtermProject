@@ -15,10 +15,10 @@ public class AddressController {
 	@Autowired
 	AddressDAO addressDAO;
 	
-	@RequestMapping(path = { "/", "home.do" })
-	public String index() {
-		return "home";
-	}
+//	@RequestMapping(path = { "/", "home.do" })
+//	public String index() {
+//		return "home";
+//	}
 	@RequestMapping(path="createAddress.do", method = RequestMethod.POST)
 	public String createBrew(Address addr, Model model) {
 		model.addAttribute("Address", addressDAO.createAddress(addr));

@@ -20,7 +20,15 @@ public class Address {
 	
 	private String street;
 	
-	
+	public Address() {}
+
+	public Address(String city, String state, String zipcode, String street) {
+		super();
+		this.city = city;
+		this.state = state;
+		this.zipcode = zipcode;
+		this.street = street;
+	}
 
 	public int getId() {
 		return id;

@@ -7,9 +7,10 @@
 <title>Login</title>
 </head>
 <body>
-<form action="getUserProfile.do">
-<input type="text" name="username">
-<input type="text" name="password">
+<form action="getUserProfile.do" method="POST">
+<input type="text" name="username" placeholder="User Name">
+
+<input type="text" name="password" placeholder="Password">
 
 <input type="submit">
 </form>

@@ -19,6 +19,7 @@ public class BreweryController {
 	@Autowired
 	BreweryDAO breweryDAO;
 	
+
 	@RequestMapping(path = { "/", "home.do" })
 	public String index() {
 		return "home";
@@ -26,7 +27,12 @@ public class BreweryController {
 //	getBreweryByName.do shows one brewery
 //	getBreweryByLocation.do shows list of breweries
 	
-	
+
+//	@RequestMapping(path = { "/", "home.do" })
+//	public String index() {
+//		return "home";
+//	}
+
 ///////// Methods below for Admin Use only //////////////
 	
 	@RequestMapping(path="createBrewery.do", method = RequestMethod.POST)

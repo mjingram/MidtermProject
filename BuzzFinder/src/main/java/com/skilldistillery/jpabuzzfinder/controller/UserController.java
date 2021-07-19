@@ -1,5 +1,7 @@
 package com.skilldistillery.jpabuzzfinder.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,11 +29,11 @@ public class UserController {
 	
 	
 	@RequestMapping("createUserProfile.do")
-	public String createUserProfile(User user, Model model) {
+	public String createUserProfile(User user, Model model, HttpSession session) {
 		
-		model.addAttribute("user", userDao.createUser(user));
+		session.setAttribute("user", userDao.createUser(user));
 		
-		return "profile";
+		return "account";
 	}
 	
 	

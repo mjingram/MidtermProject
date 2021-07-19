@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,8 @@
 </head>
 <body>
 <h1>Are you sure you wish to delete your account?</h1>
-<form action="sendDeleteAccount.do">
+<form action="sendAccountDelete.do">
+<input type="hidden" name="id" value="${accountInfo.id }" />
 <button type="submit">Delete</button>
 </form>
 

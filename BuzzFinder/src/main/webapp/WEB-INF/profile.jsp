@@ -18,18 +18,18 @@
 	
 	<!-- Update/Delete Account Buttons -->
 	<form action="deleteAccountPage.do" method="GET">
-		<input type="hidden" name="id" value="${accountInfo.accountId }" /> <input
+		<input type="hidden" name="id" value="${accountInfo.id }" /> <input
 			type="submit" value="Delete Account" />
 	</form>
 
 	<form action="updateAccountPage.do" method="GET">
-		<input type="hidden" name="id" value="${accountInfo.accountId }" /> <input
+		<input type="hidden" name="id" value="${accountInfo.id }" /> <input
 			type="submit" value="Update Account" />
 	</form>
 	<!-- Show Favorite Beers/Breweries -->
-	<c:forEach var="" items="">
+	<%-- <c:forEach var="" items="">
 	
-	</c:forEach>
+	</c:forEach> --%>
 	<!-- Add a Beer Review -->
 <%-- 	<form action="createBeerReview.do" method="GET">
 		<input type="hidden" name="id" value="${ }" /> <input
