@@ -24,6 +24,7 @@ public class BreweryController {
 //	public String index() {
 //		return "home";
 //	}
+
 //	getBreweryByName.do shows one brewery
 //	getBreweryByLocation.do shows list of breweries
 	
