@@ -26,4 +26,7 @@ model.addAttribute("review", beerDao.findBeerById(beerId));
 	return "profile";
 }
 
+//	getBeerByName.do shows one beer
+//	getBeerByStyle.do shows a list of beers
+	
 }

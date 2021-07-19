@@ -16,7 +16,11 @@ public class BreweryDAOImpl implements BreweryDAO {
 	private EntityManager em;
 
 
-///////////// Find Brewery By Id ////////////////	
+///////////// Find Brewery By Id ////////////////
+	
+//	findBreweryByName
+//	findBreweryByLocation
+	
 	@Override
 	public Brewery findBreweryById(int id) {
 		return em.find(Brewery.class, id);

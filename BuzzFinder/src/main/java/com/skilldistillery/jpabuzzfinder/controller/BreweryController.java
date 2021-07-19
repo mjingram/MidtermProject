@@ -23,6 +23,10 @@ public class BreweryController {
 	public String index() {
 		return "home";
 	}
+//	getBreweryByName.do shows one brewery
+//	getBreweryByLocation.do shows list of breweries
+	
+	
 ///////// Methods below for Admin Use only //////////////
 	
 	@RequestMapping(path="createBrewery.do", method = RequestMethod.POST)
@@ -37,6 +41,9 @@ public class BreweryController {
 		}
 		return "home";
 	}
+	
+	
+	
 /////////// Brewery Can Not Be Edited by Users, Method below is just in case /////////
 //	@RequestMapping(path="updateBrewery.do")
 //	public String updateBrewery(Integer id, String name, Address addr, List<Beer> beers, String logo) {

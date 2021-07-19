@@ -8,22 +8,22 @@
 </head>
 <body>
 
-	<form action="GetBreweryByName.do" method="GET">
+	<form action="getBreweryByName.do" method="GET">
 		Enter Brewery Name Here: <input type="text" name="id" size="4" /> <input
 			type="submit" value="Get Brewery" />
 	</form>
 	<br>
-	<form action="GetBeerByName.do" method="GET">
+	<form action="getBeerByName.do" method="GET">
 		Enter Beer Name Here: <input type="text" name="search" size="25" /> <input
 			type="submit" value="Get Beer" />
 	</form>
 	<br>
-	<form action="GetBeerByStyle.do" method="GET">
+	<form action="getBeerByStyle.do" method="GET">
 		Beer Style: <input type="text" name="search" size="25" />
 		<input type="submit" value="Get Beers" />
 	</form>
 	<br>
-	<form action="GetBreweryByLocation.do" method="GET">
+	<form action="getBreweryByLocation.do" method="GET">
 		Enter City Here: <input type="text" name="search" size="25" />
 		<input type="submit" value="Find Breweries" />
 	</form>
