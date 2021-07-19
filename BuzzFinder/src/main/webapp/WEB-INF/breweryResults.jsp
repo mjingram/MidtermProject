@@ -13,7 +13,7 @@
 <button type="submit">Search</button>
 </form><form action="login.do"> <!--Login Page  -->
 <button type="submit">Login</button>
-</form>
+</form><br>
 
 	<h1>Your Results are listed below.</h1>
 		<h2>Click on a brewery name to view more information, and what to drink there!</h2>
