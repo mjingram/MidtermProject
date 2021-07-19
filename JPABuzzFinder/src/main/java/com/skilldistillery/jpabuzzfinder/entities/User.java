@@ -29,12 +29,6 @@ public class User {
 	
 	private String role;
 	
-	@OneToMany
-	@JoinTable(name = "favorite_beer", 
-	joinColumns = @JoinColumn(name = "user_id"), 
-	inverseJoinColumns = @JoinColumn(name = "beer_id"))
-	private List<Beer> beers;
-	
 	@OneToOne
     @JoinTable(name="favorite_style", joinColumns = @JoinColumn(name="user_id"),
 	inverseJoinColumns = @JoinColumn(name="beer_style_id"))
@@ -48,7 +42,13 @@ public class User {
 	@OneToMany
 	@JoinTable(name="favorite_brewery", joinColumns = @JoinColumn(name="user_id"),
 			inverseJoinColumns = @JoinColumn(name="brewery_id"))
-	private List<Beer> favoriteBreweries;
+	private List<Brewery> favoriteBreweries;
+	
+	@OneToMany(mappedBy="user")
+	private List<BeerReview> beerReviews;
+	
+	@OneToMany(mappedBy="user")
+	private List<BreweryReview> breweryReviews;
 
 /////////////////////// Methods /////////////////////////////
 	
@@ -75,12 +75,12 @@ public class User {
 	}
 
 
-	public List<Beer> getFavoriteBreweries() {
+	public List<Brewery> getFavoriteBreweries() {
 		return favoriteBreweries;
 	}
 
 
-	public void setFavoriteBreweries(List<Beer> favoriteBreweries) {
+	public void setFavoriteBreweries(List<Brewery> favoriteBreweries) {
 		this.favoriteBreweries = favoriteBreweries;
 	}
 
@@ -124,6 +124,27 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	
+
+	public List<BeerReview> getBeerReviews() {
+		return beerReviews;
+	}
+
+
+	public void setBeerReviews(List<BeerReview> beerReviews) {
+		this.beerReviews = beerReviews;
+	}
+
+
+	public List<BreweryReview> getBreweryReviews() {
+		return breweryReviews;
+	}
+
+
+	public void setBreweryReviews(List<BreweryReview> breweryReviews) {
+		this.breweryReviews = breweryReviews;
+	}
+
 
 	@Override
 	public String toString() {
