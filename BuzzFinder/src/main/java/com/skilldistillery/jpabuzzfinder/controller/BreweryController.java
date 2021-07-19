@@ -20,10 +20,6 @@ public class BreweryController {
 	BreweryDAO breweryDAO;
 	
 
-	@RequestMapping(path = { "/", "home.do" })
-	public String index() {
-		return "home";
-	}
 //	getBreweryByName.do shows one brewery
 //	getBreweryByLocation.do shows list of breweries
 	
