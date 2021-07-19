@@ -32,7 +32,7 @@ public class AccountInfoController {
 	//Update Mappings
 	
 	//Go to update page and send the current account info to the form
-	@RequestMapping(path={"updatePage.do"})
+	@RequestMapping(path={"updateAccountPage.do"})
 	public String toUpdatePage(int accountId, Model model) {
 		model.addAttribute("accountId", accountId);
 		model.addAttribute("accountInfo", dao.findById(accountId));
@@ -42,7 +42,7 @@ public class AccountInfoController {
 	}
 	
 	//Send new info to the database and return to profile
-	@RequestMapping(path={"sendUpdate.do"})
+	@RequestMapping(path={"sendAccountUpdate.do"})
 		public String updateAccount(int accountId, AccountInfo updateAccount, Model model) {
 
 			model.addAttribute("account", dao.update(accountId, updateAccount)); 
@@ -51,16 +51,25 @@ public class AccountInfoController {
 	
 	//Delete Mappings
 	
-	@RequestMapping(path={"sendDelete.do"})
+	@RequestMapping(path={"deleteAccountPage.do"})
+	public String toDeletePage(int accountId, Model model) {
+		model.addAttribute("accountId", accountId);
+		model.addAttribute("accountInfo", dao.findById(accountId));
+		model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
+		
+		return "delete";
+	}
+	
+	@RequestMapping(path={"sendAccountDelete.do"})
 	public String deleteAccount(int accountId, AccountInfo deleteAccount, Model model) {
 		dao.destroy(accountId);
 		//model.addAttribute("account",dao.findById(accountId) ); //Debug
-		return "account";
+		return "home";
 	}
 	
 	//Create Mappings
-	@RequestMapping(path={"sendCreate.do"})
-	public String createAccount(String firstName, String lastName, Model model) {
+	@RequestMapping(path={"sendAccountCreate.do"})
+	public String createAccount(String firstName, String lastName, String street, String city, String state, String zipcode, String username, String password, Model model) {
 		
 		AccountInfo newAccount = new AccountInfo(firstName, lastName);
 		AccountInfo dbAddedAccount = dao.create(newAccount);
