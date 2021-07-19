@@ -19,9 +19,9 @@ public interface ReviewDAO {
 	
 	boolean deleteBrewComment(BreweryReview brewRev);
 	
-	BeerReview findBeerId(int beerId);
+	List<BeerReview> findByBeerId(int beerId);
 	
-	BeerReview findByBeer(Beer beer);
+	List<BeerReview> findByBeer(Beer beer);
 	
 	String addBeerComment(String string);
 	

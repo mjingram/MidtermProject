@@ -20,47 +20,31 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@PersistenceContext
 	private EntityManager em;
-	
 
 	@Override
 	public List<BreweryReview> findByBreweryId(BreweryReview brewRev, int breweryId) {
-		
-		List<BreweryReview> brews = null;
-		
-		BreweryReview b = em.find(BreweryReview.class, breweryId);
-		 
-		String jpql = "SELECT br FROM brewery_review br JOIN brewery ON  br.brewery_id = brewery.id WHERE br.brewery_id = ?";
-		
-		brews = em.createQuery(jpql, BreweryReview.class)
-				.setParameter("brewery", b)
-				.getResultList();
-		
-		return brews;
-		}
-	
-//		List<BreweryReview> listById = em.createQuery(jpql, BreweryReview.class).getResultList();
-//		
-//		while (breweryId > 0) {
-//		if(b != null) {
-//			
-//			brews = b.getBrewRev();
-//			
-//		}
-//		 brews.size();
-//		 em.close();
+
+		List<BreweryReview> breweries = null;
+
+		String jpql = "SELECT br FROM brewery_review br JOIN brewery ON br.brewery_id = brewery.id WHERE br.brewery_id = :brewery";
+
+		breweries = em.createQuery(jpql, BreweryReview.class).setParameter("brewery", breweryId).getResultList();
+
+		return breweries;
+
+	}
 
 	@Override
 	public List<BreweryReview> findByBrewery(Brewery brewery) {
-		
-		
-		
-		String jpql = "SELECT br FROM brewery_review br JOIN brewery ON br.brewery_id = brewery.id WHERE brewery.name =  ?";
-		
-		List<BreweryReview> listByName = em.createQuery(jpql, BreweryReview.class).getResultList();
-		
-		return listByName;
-		
-		
+
+		List<BreweryReview> brews = null;
+
+		String jpql = "SELECT br FROM brewery_review br JOIN brewery ON br.brewery_id = brewery.id WHERE brewery.name = :brewery";
+
+		brews = em.createQuery(jpql, BreweryReview.class).setParameter("brewery", brewery).getResultList();
+
+		return brews;
+
 	}
 
 	@Override
@@ -90,15 +74,31 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public BeerReview findBeerId(int beerId) {
+	public List<BeerReview> findByBeerId(int beerId) {
 
-		return em.find(BeerReview.class, beerId);
+		List<BeerReview> beers = null;
+
+		String jpql = "SELECT br FROM beer_review br JOIN beer ON br.beer_id = beer.id WHERE br.beer_id = :beer";
+
+		beers = em.createQuery(jpql, BeerReview.class)
+				.setParameter("beer", beerId)
+				.getResultList();
+
+		return beers;
 	}
 
 	@Override
-	public BeerReview findByBeer(Beer beer) {
+	public List<BeerReview> findByBeer(Beer beer) {
 
-		return em.find(BeerReview.class, beer);
+		List<BeerReview> beers = null;
+
+		String jpql = "SELECT br FROM beer_review br JOIN beer ON br.beer_id = beer.id WHERE beer.name = :beer";
+
+		beers = em.createQuery(jpql, BeerReview.class)
+				.setParameter("beer", beer)
+				.getResultList();
+
+		return beers;
 	}
 
 	@Override
