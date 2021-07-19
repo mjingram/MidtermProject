@@ -52,7 +52,9 @@ public class AccountInfoDAOImpl implements AccountInfoDAO{
 	
 	@Override
 	public AccountInfo create(AccountInfo info) {
-	
+		info.setUser(em.find(User.class, info.getUser().getId()));
+//		em.persist(info.getAddress());
+//		em.persist(info.getUser());
 		System.out.println("Info before persist:  " + info);
 		em.persist(info);
 		System.out.println("Info after persit: " + info);

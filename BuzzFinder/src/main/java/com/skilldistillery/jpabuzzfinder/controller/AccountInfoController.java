@@ -1,5 +1,7 @@
 package com.skilldistillery.jpabuzzfinder.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -7,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabuzzfinder.data.AccountInfoDAO;
 import com.skilldistillery.jpabuzzfinder.data.AddressDAO;
+import com.skilldistillery.jpabuzzfinder.data.UserDAO;
 import com.skilldistillery.jpabuzzfinder.entities.AccountInfo;
+import com.skilldistillery.jpabuzzfinder.entities.Address;
+import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Controller
 public class AccountInfoController {
@@ -17,15 +22,18 @@ public class AccountInfoController {
 	
 	@Autowired
 	private AddressDAO addrDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 
 	
 	//Search Mappings
 	
 	@RequestMapping(path={"sendAccountId.do"})
-	public String getAccountId(int accountId, Model model) {
+	public String getAccountId(int id, Model model, HttpSession session) {
 			
-	model.addAttribute("accountInfo", accountDAO.findById(accountId)); 
-	model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
+	session.setAttribute("accountInfo", accountDAO.findById(id)); 
+	session.setAttribute("addressInfo", addrDAO.findAddressById(id));
 	return "profile";
 	}
 		
@@ -33,49 +41,56 @@ public class AccountInfoController {
 	
 	//Go to update page and send the current account info to the form
 	@RequestMapping(path={"updateAccountPage.do"})
-	public String toUpdatePage(int accountId, Model model) {
-		model.addAttribute("accountId", accountId);
-		model.addAttribute("accountInfo", accountDAO.findById(accountId));
-		model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
+	public String toUpdatePage(int id, Model model) {
+		model.addAttribute("accountId", id);
+		model.addAttribute("accountInfo", accountDAO.findById(id));
+		model.addAttribute("addressInfo", addrDAO.findAddressById(id));
 		
-		return "update";
+		return "updateAccount";
 	}
 	
 	//Send new info to the database and return to profile
 	@RequestMapping(path={"sendAccountUpdate.do"})
-		public String updateAccount(int accountId, AccountInfo updateAccount, Model model) {
+		public String updateAccount(int id, AccountInfo updateAccount, Model model) {
 
-			model.addAttribute("account", accountDAO.update(accountId, updateAccount)); 
+			model.addAttribute("account", accountDAO.update(id, updateAccount)); 
 			return "profile";
 		}
 	
 	//Delete Mappings
 	
 	@RequestMapping(path={"deleteAccountPage.do"})
-	public String toDeletePage(int accountId, Model model) {
-		model.addAttribute("accountId", accountId);
-		model.addAttribute("accountInfo", accountDAO.findById(accountId));
-		model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
+	public String toDeletePage(int id, Model model) {
+		model.addAttribute("accountId", id);
+		model.addAttribute("accountInfo", accountDAO.findById(id));
+		model.addAttribute("addressInfo", addrDAO.findAddressById(id));
 		
-		return "delete";
+		return "deleteAccount";
 	}
 	
 	@RequestMapping(path={"sendAccountDelete.do"})
-	public String deleteAccount(int accountId, AccountInfo deleteAccount, Model model) {
-		accountDAO.destroy(accountId);
+	public String deleteAccount(int id, AccountInfo deleteAccount, Model model) {
+		accountDAO.destroy(id);
 		//model.addAttribute("account",dao.findById(accountId) ); //Debug
 		return "home";
 	}
 	
 	//Create Mappings
 	@RequestMapping(path={"sendAccountCreate.do"})
-	public String createAccount(String firstName, String lastName, String street, String city, String state, String zipcode, String username, String password, Model model) {
+	public String createAccount(String firstName, String lastName, String street, String city, String state, String zipcode, Model model, HttpSession session) {
 		
 		AccountInfo newAccount = new AccountInfo(firstName, lastName);
+		Address newAddress = new Address(city, state, zipcode, street);
+	
+		newAccount.setAddress(newAddress);
+		User newUser = (User)session.getAttribute("user");
+	
+		newAccount.setUser(newUser);
 		AccountInfo dbAddedAccount = accountDAO.create(newAccount);
 		System.out.println(dbAddedAccount);
-		//model.addAttribute("account", dao.findById(currentPage)); //Debug
-		return "account";
+		session.setAttribute("accountInfo", dbAddedAccount); 
+		session.setAttribute("addressInfo", dbAddedAccount.getAddress());
+		return "profile";
 	}
 	
 	// Login mappings
@@ -85,7 +100,10 @@ public class AccountInfoController {
 		return "login";
 	}
 	
-	
+	@RequestMapping(path={"signup.do"})
+	public String signup() {
+		return "signup";
+	}
 	
 	
 }
