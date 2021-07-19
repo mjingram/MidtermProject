@@ -13,7 +13,7 @@ import com.skilldistillery.jpabuzzfinder.entities.AccountInfo;
 public class AccountInfoController {
 	
 	@Autowired
-	private AccountInfoDAO dao;
+	private AccountInfoDAO accountDAO;
 	
 	@Autowired
 	private AddressDAO addrDAO;
@@ -24,7 +24,7 @@ public class AccountInfoController {
 	@RequestMapping(path={"sendAccountId.do"})
 	public String getAccountId(int accountId, Model model) {
 			
-	model.addAttribute("accountInfo", dao.findById(accountId)); 
+	model.addAttribute("accountInfo", accountDAO.findById(accountId)); 
 	model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
 	return "profile";
 	}
@@ -35,7 +35,7 @@ public class AccountInfoController {
 	@RequestMapping(path={"updateAccountPage.do"})
 	public String toUpdatePage(int accountId, Model model) {
 		model.addAttribute("accountId", accountId);
-		model.addAttribute("accountInfo", dao.findById(accountId));
+		model.addAttribute("accountInfo", accountDAO.findById(accountId));
 		model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
 		
 		return "update";
@@ -45,7 +45,7 @@ public class AccountInfoController {
 	@RequestMapping(path={"sendAccountUpdate.do"})
 		public String updateAccount(int accountId, AccountInfo updateAccount, Model model) {
 
-			model.addAttribute("account", dao.update(accountId, updateAccount)); 
+			model.addAttribute("account", accountDAO.update(accountId, updateAccount)); 
 			return "profile";
 		}
 	
@@ -54,7 +54,7 @@ public class AccountInfoController {
 	@RequestMapping(path={"deleteAccountPage.do"})
 	public String toDeletePage(int accountId, Model model) {
 		model.addAttribute("accountId", accountId);
-		model.addAttribute("accountInfo", dao.findById(accountId));
+		model.addAttribute("accountInfo", accountDAO.findById(accountId));
 		model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
 		
 		return "delete";
@@ -62,7 +62,7 @@ public class AccountInfoController {
 	
 	@RequestMapping(path={"sendAccountDelete.do"})
 	public String deleteAccount(int accountId, AccountInfo deleteAccount, Model model) {
-		dao.destroy(accountId);
+		accountDAO.destroy(accountId);
 		//model.addAttribute("account",dao.findById(accountId) ); //Debug
 		return "home";
 	}
@@ -72,7 +72,7 @@ public class AccountInfoController {
 	public String createAccount(String firstName, String lastName, String street, String city, String state, String zipcode, String username, String password, Model model) {
 		
 		AccountInfo newAccount = new AccountInfo(firstName, lastName);
-		AccountInfo dbAddedAccount = dao.create(newAccount);
+		AccountInfo dbAddedAccount = accountDAO.create(newAccount);
 		System.out.println(dbAddedAccount);
 		//model.addAttribute("account", dao.findById(currentPage)); //Debug
 		return "account";
