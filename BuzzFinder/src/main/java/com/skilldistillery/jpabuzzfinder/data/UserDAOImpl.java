@@ -77,13 +77,16 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	
-	public boolean destroyById(int id) {
+	public boolean destroyByUsername(String username, String password) {
 		EntityManager em = emf.createEntityManager();
-		User removedUser = em.find(User.class, id);
+		
+		User removedUser = em.find(User.class, username);
 		
 		em.getTransaction().begin();
-		
+		if(em.find(User.class, username).getPassword().equals(password) 
+				&& em.find(User.class, username).getUsername().equals(username)) {
 		em.remove(removedUser);
+		}
 		boolean success = !em.contains(removedUser);
 		
 		em.getTransaction().commit();
@@ -93,15 +96,16 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	
-	@Override
-	public User findById(int uid) {
-		User user = em.find(User.class, uid);
-		return user;
-	}
+//	@Override
+//	public User findById(int uid) {
+//		User user = em.find(User.class, uid);
+//		return user;
+//	}
 	
-	public User findByUsername(String username, String password) {
+	public User login(String username, String password) {
 		User user = null;
-		if(em.find(User.class, username).getPassword().equals(password)) {
+		if(em.find(User.class, username).getPassword().equals(password) 
+				&& em.find(User.class, username).getUsername().equals(username)) {
 			user = em.find(User.class, username);	
 		}
 		

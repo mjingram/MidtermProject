@@ -35,6 +35,7 @@ public class BeerReview {
 	
 	public BeerReview() {}
 	
+	
 	public int getId() {
 		return id;
 	}

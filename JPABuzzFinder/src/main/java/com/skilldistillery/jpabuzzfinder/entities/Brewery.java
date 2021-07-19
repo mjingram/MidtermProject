@@ -14,7 +14,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="brewery")
+//@Table(name="brewery")
 public class Brewery {
 	
 	@Id
@@ -36,13 +36,16 @@ public class Brewery {
 	@Column(name="logo_image_url")
 	private String logo;
 	
-	@Column(name = "brewery_review")
+	@OneToMany(mappedBy="brewery")
 	private List<BreweryReview> brewRev;
 	
-	@ManyToOne
-	@JoinColumn(name="user_id")
-	private User user;
+	
 
+	public Brewery() {
+		super();
+	}
+
+	
 	public int getId() {
 		return id;
 	}

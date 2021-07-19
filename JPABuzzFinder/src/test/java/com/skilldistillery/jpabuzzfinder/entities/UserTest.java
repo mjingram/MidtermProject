@@ -71,6 +71,20 @@ class UserTest {
 		assertEquals(1, user.getFavoriteBreweries().size());
 	}
 	
+	@Test
+	@DisplayName("testing user to beer review mapping")
+	void test4() {
+		assertNotNull(user);
+		assertEquals(1, user.getBeerReviews().size());
+	}
+	
+	@Test
+	@DisplayName("testing user to brewery review mapping")
+	void test5() {
+		assertNotNull(user);
+		assertEquals(1, user.getBreweryReviews().size());
+	}
+	
 	
 
 }

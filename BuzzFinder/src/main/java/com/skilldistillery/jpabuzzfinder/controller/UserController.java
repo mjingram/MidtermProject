@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabuzzfinder.data.UserDAO;
+import com.skilldistillery.jpabuzzfinder.entities.Beer;
 import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Controller
@@ -16,7 +17,22 @@ public class UserController {
 	
 	@RequestMapping("getUserProfile.do")
 	public String getUserProfile(User user, Model model) {
-		model.addAttribute("user", userDao.findByUsername(user.getUsername(), user.getPassword()));
+		model.addAttribute("user", userDao.login(user.getUsername(), user.getPassword()));
+		
+		return "profile";
+	}
+	
+	@RequestMapping("createUserProfile.do")
+	public String createUserProfile(User user, Model model) {
+		model.addAttribute("user", userDao.create(user));
+		
+		return "profile";
+	}
+	
+	@RequestMapping("AddFavoriteBeer.do")
+	public String addFavoriteBeer(Beer beer, User user, Model model) {
+		model.addAttribute("user", userDao.create(user));
+		
 		return "profile";
 	}
 
