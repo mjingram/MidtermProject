@@ -12,7 +12,7 @@
 <button type="submit">Search</button>
 </form><form action="login.do"> <!--Login Page  -->
 <button type="submit">Login</button>
-</form>
+</form><br>
 
 <h1>Fill out this form for valuable feedback, our brewers appreciate hearing from you!</h1>
 

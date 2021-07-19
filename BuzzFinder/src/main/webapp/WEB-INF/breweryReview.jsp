@@ -12,7 +12,7 @@
 <button type="submit">Search</button>
 </form><form action="login.do"> <!--Login Page  -->
 <button type="submit">Login</button>
-</form>
+</form><br>
 
 <form action="createBreweryReview.do">
 		<label for="name">Brewery Name: </label><input type="text" name="name" value="" id="name"><br>
@@ -41,7 +41,7 @@
 			<input type="radio" id = "again" name="again" value="no"> No
 			
 			
-					<input type="radio" value="Add to Favorites" />
+					<input type="submit" value="Add to Favorites" />
 					<input type="submit" value="Confirm and Review" />
 			
 </form>
