@@ -9,15 +9,21 @@
 </head>
 <body>
 	<!-- TODO: Show Account Info -->
-
+	${accountInfo.firstName}<br>
+	${accountInfo.lastName}<br>
+	${addressInfo.street}<br>
+	${addressInfo.city}<br>
+	${addressInfo.state}<br>
+	${addressInfo.zipcode}<br>
+	
 	<!-- Update/Delete Account Buttons -->
-	<form action="deleteAccount.do" method="GET">
-		<input type="hidden" name="id" value="${Account.id }" /> <input
+	<form action="deleteAccountPage.do" method="GET">
+		<input type="hidden" name="id" value="${accountInfo.accountId }" /> <input
 			type="submit" value="Delete Account" />
 	</form>
 
-	<form action="updateAccount.do" method="GET">
-		<input type="hidden" name="id" value="${Account.id }" /> <input
+	<form action="updateAccountPage.do" method="GET">
+		<input type="hidden" name="id" value="${accountInfo.accountId }" /> <input
 			type="submit" value="Update Account" />
 	</form>
 	<!-- Show Favorite Beers/Breweries -->
@@ -25,14 +31,14 @@
 	
 	</c:forEach>
 	<!-- Add a Beer Review -->
-	<form action="addBeerRev.do" method="GET">
-		<input type="hidden" name="id" value="${Account.id }" /> <input
+<%-- 	<form action="createBeerReview.do" method="GET">
+		<input type="hidden" name="id" value="${ }" /> <input
 			type="submit" value="Add Beer Review" />
 	</form>
 	<!-- Add a Brewery Review -->
-	<form action="addBrewRev.do" method="GET">
-		<input type="hidden" name="id" value="${Account.id }" /> <input
+	<form action="createBreweryReview.do" method="GET">
+		<input type="hidden" name="id" value="${account.id }" /> <input
 			type="submit" value="Add Brewery Review" />
-	</form>
+	</form> --%>
 </body>
 </html>
