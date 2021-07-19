@@ -13,33 +13,35 @@ public interface UserDAO {
 	
 	public User createUser(User user);
 	
-	public User updateUsernameAndPassword(String password, User user);
+	public User findById(int userId);
 	
-	public boolean deleteUser(User user);
+	public User updateUsernameAndPassword(String password, int userId);
+	
+	public boolean deleteUser(int userId);
 	
 	public User login(String username, String password);
 	
-	public Beer addFavBeer(User user, Beer beer);
+	public Beer addFavBeer(int user, Beer beer);
 	
-	public Brewery addFavBrewery(User user, Brewery brewery);
+	public Brewery addFavBrewery(int userId, Brewery brewery);
 	
-	public BreweryReview addBreweryReview(User user, BreweryReview breweryReview);
+	public BreweryReview addBreweryReview(int userId, BreweryReview breweryReview);
 	
-	public BeerReview addBeerReview(User user, BeerReview beerReview);
+	public BeerReview addBeerReview(int userId, BeerReview beerReview);
 	
-	public User updateFavBeerStyle(BeerStyle bs, User user);
+	public User updateFavBeerStyle(int userId, BeerStyle bs);
 	
-	public boolean removeFavBeer(User user, Beer beer);
+	public boolean removeFavBeer(int userId, Beer beer);
 	
-	public boolean removeFavBrewery(User user, Brewery brewery);
+	public boolean removeFavBrewery(int userId, Brewery brewery);
 	
-	public boolean removeBeerReview(User user, BeerReview beerReview);
+	public boolean removeBeerReview(int userId, BeerReview beerReview);
 	
-	public boolean removeBreweryReview(User user, BreweryReview breweryReview);
+	public boolean removeBreweryReview(int userId, BreweryReview breweryReview);
 	
-	public List<BeerReview> updateBeerReview(BeerReview beerReview, User user); 
+	public List<BeerReview> updateBeerReviews(int userId, BeerReview beerReview); 
 	
-	public List<BreweryReview> updateBreweryReview(BreweryReview breweryReview, User user);
+	public List<BreweryReview> updateBreweryReviews(int userId, BreweryReview breweryReview);
 	
 }
 

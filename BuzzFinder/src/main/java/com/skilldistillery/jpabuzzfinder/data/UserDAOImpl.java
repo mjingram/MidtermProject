@@ -40,17 +40,21 @@ public class UserDAOImpl implements UserDAO{
 
 	}
 	
+	public User findById(int id) {
+		User user = em.find(User.class, id);
+		return user;
+	}
 	
-	public User updateUsernameAndPassword(String password, User user) {
+	public User updateUsernameAndPassword(String password, int userId) {
 		EntityManager em = emf.createEntityManager();
-		User updated = em.find(User.class, user);
+		User updated = em.find(User.class, userId);
 		System.out.println("Before update: "+ updated);
 		
 		em.getTransaction().begin();
-		if(user.getPassword().equals(password)) {
+		if(updated.getPassword().equals(password)) {
 			
-			updated.setUsername(user.getUsername());
-			updated.setPassword(user.getPassword());
+			updated.setUsername(updated.getUsername());
+			updated.setPassword(updated.getPassword());
 		}
 		
 		em.flush();
@@ -64,10 +68,10 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	
-	public boolean deleteUser(User user) {
+	public boolean deleteUser(int userId) {
 		EntityManager em = emf.createEntityManager();
 		
-		User removedUser = em.find(User.class, user);
+		User removedUser = em.find(User.class, userId);
 		
 		em.getTransaction().begin();
 		
@@ -94,45 +98,46 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	
-	public Beer addFavBeer(User user, Beer beer) {
+	public Beer addFavBeer(int userId, Beer beer) {
 		EntityManager em = emf.createEntityManager();
-		
-		Beer newBeer = em.find(Beer.class, beer);
+		User user = em.find(User.class, userId);
 		
 		em.getTransaction().begin();
-		user.addFavBeer(newBeer);
+		user.addFavBeer(beer);
 		
 		em.flush();
 		em.getTransaction().commit();
 		
 		em.close();
 		
-		return newBeer;
+		return beer;
 		
 	}
 	
 	
-	public Brewery addFavBrewery(User user, Brewery brewery) {
+	public Brewery addFavBrewery(int userId, Brewery brewery) {
 		EntityManager em = emf.createEntityManager();
 
-		Brewery newFavBrewery = em.find(Brewery.class, brewery);
+		User user = em.find(User.class, userId);
 		
 		em.getTransaction().begin();
-		user.addFavBrewery(newFavBrewery);
+		user.addFavBrewery(brewery);
 
 		em.flush();
 		em.getTransaction().commit();
 		em.close();
 
-		return newFavBrewery;
+		return brewery;
 		
 	}
 	
 	
-		public BreweryReview addBreweryReview(User user, BreweryReview breweryReview) {
+		public BreweryReview addBreweryReview(int userId, BreweryReview breweryReview) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			em.getTransaction().begin();
+			
 			user.addBreweryReview(breweryReview);
 			
 			em.flush();
@@ -144,13 +149,15 @@ public class UserDAOImpl implements UserDAO{
 	}
 		
 		
-		public BeerReview addBeerReview(User user, BeerReview beerReview) {
+		public BeerReview addBeerReview(int userId, BeerReview beerReview) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			em.getTransaction().begin();
-			user.addBeerReview(beerReview);
 			
+			user.addBeerReview(beerReview);
 			em.flush();
+			
 			em.getTransaction().commit();
 			em.close();
 			
@@ -158,10 +165,10 @@ public class UserDAOImpl implements UserDAO{
 			
 		}
 		
-		public User updateFavBeerStyle(BeerStyle bs, User user) {
+		public User updateFavBeerStyle(int userId, BeerStyle bs) {
 			EntityManager em = emf.createEntityManager();
 			
-			User updated = em.find(User.class, user);
+			User updated = em.find(User.class, userId);
 			
 			em.getTransaction().begin();
 				
@@ -177,10 +184,12 @@ public class UserDAOImpl implements UserDAO{
 			
 		}
 		
-		public boolean removeFavBeer(User user, Beer beer) {
+		public boolean removeFavBeer(int userId, Beer beer) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			em.getTransaction().begin();
+			
 			user.removeBeerFromFavs(beer);
 			boolean success = !em.contains(user.getFavoriteBeers().contains(beer));
 			
@@ -191,10 +200,12 @@ public class UserDAOImpl implements UserDAO{
 			
 		}
 		
-		public boolean removeFavBrewery(User user, Brewery brewery) {
+		public boolean removeFavBrewery(int userId, Brewery brewery) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			em.getTransaction().begin();
+			
 			user.removeBreweryFromFavs(brewery);
 			boolean success = !em.contains(user.getFavoriteBreweries().contains(brewery));
 			
@@ -205,10 +216,12 @@ public class UserDAOImpl implements UserDAO{
 			
 		}
 		
-		public boolean removeBeerReview(User user, BeerReview beerReview) {
+		public boolean removeBeerReview(int userId, BeerReview beerReview) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			em.getTransaction().begin();
+			
 			user.removeBeerReview(beerReview);
 			boolean success = !em.contains(user.getBeerReviews().contains(beerReview));
 			
@@ -220,10 +233,12 @@ public class UserDAOImpl implements UserDAO{
 		}
 		
 		
-		public boolean removeBreweryReview(User user, BreweryReview breweryReview) {
+		public boolean removeBreweryReview(int userId, BreweryReview breweryReview) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			em.getTransaction().begin();
+			
 			user.removeBreweryReview(breweryReview);
 			boolean success = !em.contains(user.getBreweryReviews().contains(breweryReview));
 			
@@ -234,9 +249,10 @@ public class UserDAOImpl implements UserDAO{
 			
 		}
 		
-		public List<BeerReview> updateBeerReview(BeerReview beerReview, User user) {
+		public List<BeerReview> updateBeerReviews(int userId, BeerReview beerReview) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			List<BeerReview> reviews = user.getBeerReviews();
 			em.getTransaction().begin();
 			
@@ -252,9 +268,10 @@ public class UserDAOImpl implements UserDAO{
 			
 		}
 		
-		public List<BreweryReview> updateBreweryReview(BreweryReview breweryReview, User user) {
+		public List<BreweryReview> updateBreweryReviews(int userId, BreweryReview breweryReview) {
 			EntityManager em = emf.createEntityManager();
 			
+			User user = em.find(User.class, userId);
 			List<BreweryReview> reviews = user.getBreweryReviews();
 			em.getTransaction().begin();
 			

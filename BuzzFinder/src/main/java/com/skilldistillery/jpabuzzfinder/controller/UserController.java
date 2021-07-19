@@ -36,54 +36,54 @@ public class UserController {
 	
 	
 	@RequestMapping("updateUserProfile.do")
-	public String updateUserProfile(User user, String password, Model model) {
+	public String updateUserProfile(int userId, String password, Model model) {
 		
-		model.addAttribute("user", userDao.updateUsernameAndPassword(password, user));
+		model.addAttribute("user", userDao.updateUsernameAndPassword(password, userId));
 		
 		return "profile";
 	}
 	
 	
 	@RequestMapping("deleteUserProfile.do")
-	public String deleteUserProfile(User user, Model model) {
+	public String deleteUserProfile(int userId, Model model) {
 		
-		model.addAttribute("user", userDao.deleteUser(user));
+		model.addAttribute("user", userDao.deleteUser(userId));
 		
 		return "profile";
 	}
 	
 	
 	@RequestMapping("addFavoriteBeer.do")
-	public String addFavoriteBeer(Beer beer, User user, Model model) {
+	public String addFavoriteBeer(Beer beer, int userId, Model model) {
 		
-		model.addAttribute("beer", userDao.addFavBeer(user, beer));
+		model.addAttribute("beer", userDao.addFavBeer(userId, beer));
 		
 		return "profile";
 	}
 	
 	
 	@RequestMapping("addFavoriteBrewery.do")
-	public String addFavoriteBrewery(Brewery brewery, User user, Model model) {
+	public String addFavoriteBrewery(Brewery brewery, int userId, Model model) {
 		
-		model.addAttribute("beer", userDao.addFavBrewery(user, brewery));
+		model.addAttribute("beer", userDao.addFavBrewery(userId, brewery));
 		
 		return "profile";
 	}
 
 	
 	@RequestMapping("removeFavoriteBeer.do")
-	public String removeFavoriteBeer(Beer beer, User user, Model model) {
+	public String removeFavoriteBeer(Beer beer, int userId, Model model) {
 		
-		model.addAttribute("beer", userDao.removeFavBeer(user, beer));
+		model.addAttribute("beer", userDao.removeFavBeer(userId, beer));
 		
 		return "profile";
 	}
 	
 	
 	@RequestMapping("removeFavoriteBrewery.do")
-	public String removeFavoriteBrewery(Brewery brewery, User user, Model model) {
+	public String removeFavoriteBrewery(Brewery brewery, int userId, Model model) {
 		
-		model.addAttribute("beer", userDao.removeFavBrewery(user, brewery));
+		model.addAttribute("beer", userDao.removeFavBrewery(userId, brewery));
 		
 		return "profile";
 	}
