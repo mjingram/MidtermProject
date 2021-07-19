@@ -35,35 +35,37 @@ public class UserDAOImpl implements UserDAO{
 
 	}
 	
-	public User updateById(int id, User user) {
-		EntityManager em = emf.createEntityManager();
-		User updated = em.find(User.class, id);
-		System.out.println("Before update: "+ updated);
-		
-		em.getTransaction().begin();
-		
-		updated.setUsername(user.getUsername());
-		updated.setPassword(user.getPassword());
-		
-		em.flush();
-		em.getTransaction().commit();
-		
-		System.out.println("After update: "+ updated);
-		em.close();
-		
-		return updated;
-		
-	}
+//	public User updateById(int id, User user) {
+//		EntityManager em = emf.createEntityManager();
+//		User updated = em.find(User.class, id);
+//		System.out.println("Before update: "+ updated);
+//		
+//		em.getTransaction().begin();
+//		
+//		updated.setUsername(user.getUsername());
+//		updated.setPassword(user.getPassword());
+//		
+//		em.flush();
+//		em.getTransaction().commit();
+//		
+//		System.out.println("After update: "+ updated);
+//		em.close();
+//		
+//		return updated;
+//		
+//	}
 	
-	public User updateByUsername(String username, User user) {
+	public User updateUsernameAndPassword(String password, User user) {
 		EntityManager em = emf.createEntityManager();
-		User updated = em.find(User.class, username);
+		User updated = em.find(User.class, user);
 		System.out.println("Before update: "+ updated);
 		
 		em.getTransaction().begin();
-		
-		updated.setUsername(user.getUsername());
-		updated.setPassword(user.getPassword());
+		if(user.getPassword().equals(password)) {
+			
+			updated.setUsername(user.getUsername());
+			updated.setPassword(user.getPassword());
+		}
 		
 		em.flush();
 		em.getTransaction().commit();
@@ -92,13 +94,17 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	@Override
-	public User findById(int id) {
-		User user = em.find(User.class, id);
+	public User findById(int uid) {
+		User user = em.find(User.class, uid);
 		return user;
 	}
 	
-	public User findByUsername(String username) {
-		User user = em.find(User.class, username);
+	public User findByUsername(String username, String password) {
+		User user = null;
+		if(em.find(User.class, username).getPassword().equals(password)) {
+			user = em.find(User.class, username);	
+		}
+		
 		return user;
 	}
 }

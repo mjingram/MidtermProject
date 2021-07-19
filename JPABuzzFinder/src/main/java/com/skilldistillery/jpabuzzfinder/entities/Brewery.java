@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -34,6 +35,13 @@ public class Brewery {
 	
 	@Column(name="logo_image_url")
 	private String logo;
+	
+	@Column(name = "brewery_review")
+	private List<BreweryReview> brewRev;
+	
+	@ManyToOne
+	@JoinColumn(name="user_id")
+	private User user;
 
 	public int getId() {
 		return id;
@@ -82,6 +90,14 @@ public class Brewery {
 
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+
+	public List<BreweryReview> getBrewRev() {
+		return brewRev;
+	}
+
+	public void setBrewRev(List<BreweryReview> brewRev) {
+		this.brewRev = brewRev;
 	}
 
 	@Override
