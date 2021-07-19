@@ -8,8 +8,8 @@
 </head>
 <body>
 <form action="getUserProfile.do">
-<input type="text" name="user">
-<input type="text" name="pass">
+<input type="text" name="username">
+<input type="text" name="password">
 
 <input type="submit">
 </form>
