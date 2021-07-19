@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabuzzfinder.data.AccountInfoDAO;
+import com.skilldistillery.jpabuzzfinder.data.AddressDAO;
 import com.skilldistillery.jpabuzzfinder.entities.AccountInfo;
 
 @Controller
@@ -14,28 +15,38 @@ public class AccountInfoController {
 	@Autowired
 	private AccountInfoDAO dao;
 	
-	@RequestMapping(path={"/", "home.do"})
-	public String home(Model model, int id) {
-		model.addAttribute("accountInfo", dao.findById(id)); //Debug
-		return "home";
-	}
+	@Autowired
+	private AddressDAO addrDAO;
+
 	
 	//Search Mappings
 	
-		@RequestMapping(path={"sendAccountId.do"})
-		public String getAccountId(int accountId, Model model) {
+	@RequestMapping(path={"sendAccountId.do"})
+	public String getAccountId(int accountId, Model model) {
 			
-			model.addAttribute("accountInfo", dao.findById(accountId)); //Debug
-			return "account";
-		}
+	model.addAttribute("accountInfo", dao.findById(accountId)); 
+	model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
+	return "profile";
+	}
 		
 	//Update Mappings
+	
+	//Go to update page and send the current account info to the form
+	@RequestMapping(path={"updatePage.do"})
+	public String toUpdatePage(int accountId, Model model) {
+		model.addAttribute("accountId", accountId);
+		model.addAttribute("accountInfo", dao.findById(accountId));
+		model.addAttribute("addressInfo", addrDAO.findAddressById(accountId));
 		
+		return "update";
+	}
+	
+	//Send new info to the database and return to profile
 	@RequestMapping(path={"sendUpdate.do"})
 		public String updateAccount(int accountId, AccountInfo updateAccount, Model model) {
 
-			model.addAttribute("account", dao.update(accountId, updateAccount)); //Debug
-			return "account";
+			model.addAttribute("account", dao.update(accountId, updateAccount)); 
+			return "profile";
 		}
 	
 	//Delete Mappings
@@ -57,5 +68,15 @@ public class AccountInfoController {
 		//model.addAttribute("account", dao.findById(currentPage)); //Debug
 		return "account";
 	}
+	
+	// Login mappings
+	
+	@RequestMapping(path={"login.do"})
+	public String login() {
+		return "login";
+	}
+	
+	
+	
 	
 }

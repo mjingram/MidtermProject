@@ -4,14 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>One Brewery for me</title>
+<title>Login</title>
 </head>
 <body>
-<ul>
-<li>${brewery.name }</li>
-<li>${brewery.style }</li>
-<%-- <li>${brewery.brewery }</li> --%>
-<!-- Menu of Beers -->
-</ul>
+<form action="getUserProfile.do">
+<input type="text" name="user">
+<input type="text" name="pass">
+
+<input type="submit">
+</form>
 </body>
 </html>
