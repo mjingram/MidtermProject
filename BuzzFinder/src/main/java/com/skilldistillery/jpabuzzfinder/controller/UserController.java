@@ -24,14 +24,14 @@ public class UserController {
 	
 	@RequestMapping("createUserProfile.do")
 	public String createUserProfile(User user, Model model) {
-		model.addAttribute("user", userDao.create(user));
+		model.addAttribute("user", userDao.createUser(user));
 		
 		return "profile";
 	}
 	
 	@RequestMapping("AddFavoriteBeer.do")
 	public String addFavoriteBeer(Beer beer, User user, Model model) {
-		model.addAttribute("user", userDao.create(user));
+		model.addAttribute("beer", userDao.addFavBeer(user, beer));
 		
 		return "profile";
 	}
