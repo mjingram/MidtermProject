@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabuzzfinder.data;
 
+import com.skilldistillery.jpabuzzfinder.entities.Beer;
 import com.skilldistillery.jpabuzzfinder.entities.User;
 
 public interface UserDAO {
@@ -10,6 +11,7 @@ public interface UserDAO {
 	public boolean destroyByUsername(String username, String password);
 //	public User findById(int id);
 	public User login(String username, String password);
+	public Beer addFavBeer(User user, Beer beer); 
 	
 }
 

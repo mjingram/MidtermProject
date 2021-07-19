@@ -15,7 +15,7 @@ public class HomeController {
 	
 	@RequestMapping(path= {"/","home.do"})
 	public String home(Model model) {
-		model.addAttribute("DEBUG", userDao.login("username", "password"));
+
 		return "home";
 	}
 	

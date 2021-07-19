@@ -34,11 +34,16 @@ public class AccountInfo {
 	
 	public AccountInfo() {}
 
-	
+	public AccountInfo(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 	
 	public Address getAddress() {
 		return address;
 	}
+	
+	
 
 	public void setAddress(Address address) {
 		this.address = address;
