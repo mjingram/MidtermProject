@@ -36,6 +36,14 @@ public class BreweryReview {
 	public BreweryReview () {}
 	
 	
+	public BreweryReview(LocalDate reviewDate, String comment, Brewery brewery) {
+		super();
+		this.reviewDate = reviewDate;
+		this.comment = comment;
+		this.brewery = brewery;
+	}
+
+
 	public int getId() {
 		return id;
 	}

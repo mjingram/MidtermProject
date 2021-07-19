@@ -18,8 +18,8 @@ public class BreweryDAOImpl implements BreweryDAO {
 
 ///////////// Find Brewery By Id ////////////////	
 	@Override
-	public Brewery findBreweryById() {
-		return em.find(Brewery.class, 1);
+	public Brewery findBreweryById(int id) {
+		return em.find(Brewery.class, id);
 	}
 ///////////// Create Brewery  //////////////////
 	@Override

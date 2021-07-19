@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabuzzfinder.data.BeerDAO;
+import com.skilldistillery.jpabuzzfinder.entities.Beer;
 
 @Controller
 public class BeerController {
@@ -13,12 +14,16 @@ public class BeerController {
 	@Autowired
 	private BeerDAO beerDao;
 	
-	@RequestMapping(path={"/", "home.do"})
-	public String home(Model model) {
-		model.addAttribute("DEBUG", beerDao.findBeerById(1));
-		return "home";
+	
+	@RequestMapping(path ="displayBeer.do")
+	public String showBeer() {
+		return "beerResults";
 	}
 	
-	
+	@RequestMapping(path = "rateBeer.do")
+	public String rateBeer(Model model, int beerId) {
+model.addAttribute("review", beerDao.findBeerById(beerId));
+	return "profile";
+}
 
 }

@@ -9,7 +9,7 @@ import com.skilldistillery.jpabuzzfinder.entities.BreweryReview;
 
 public interface ReviewDAO {
 	
-	List<BreweryReview> findByBreweryId(BreweryReview brewRev, int breweryId);
+	List<BreweryReview> findByBreweryId( int breweryId);
 	
 	List<BreweryReview> findByBrewery(Brewery brewery);
 	
@@ -17,16 +17,16 @@ public interface ReviewDAO {
 	
 	BreweryReview editBrewComment(BreweryReview brewRev, int id);
 	
-	boolean deleteBrewComment(BreweryReview brewRev);
+	boolean deleteBrewComment(int reviewId);
 	
 	List<BeerReview> findByBeerId(int beerId);
 	
 	List<BeerReview> findByBeer(Beer beer);
 	
-	String addBeerComment(String string);
+	BeerReview addBeerComment(BeerReview beerRev);
 	
 	BeerReview editBeerComment(BeerReview beRev, int id);
 	
-	boolean deleteBeerComment(BeerReview beRev);
+	boolean deleteBeerComment(int beerId);
 
 }

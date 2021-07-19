@@ -22,7 +22,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	private EntityManager em;
 
 	@Override
-	public List<BreweryReview> findByBreweryId(BreweryReview brewRev, int breweryId) {
+	public List<BreweryReview> findByBreweryId(int breweryId) {
 
 		List<BreweryReview> breweries = null;
 
@@ -63,8 +63,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public boolean deleteBrewComment(BreweryReview brewRev) {
-		BreweryReview deleteRev = em.find(BreweryReview.class, brewRev);
+	public boolean deleteBrewComment(int reviewId) {
+		BreweryReview deleteRev = em.find(BreweryReview.class, reviewId);
 
 		em.remove(deleteRev);
 
@@ -102,7 +102,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public String addBeerComment(String beerRev) {
+	public BeerReview addBeerComment(BeerReview beerRev) {
 		em.persist(beerRev);
 		return beerRev;
 	}
@@ -117,8 +117,8 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public boolean deleteBeerComment(BeerReview beRev) {
-		BeerReview deleteRev = em.find(BeerReview.class, beRev);
+	public boolean deleteBeerComment(int beerId) {
+		BeerReview deleteRev = em.find(BeerReview.class, beerId);
 
 		em.remove(deleteRev);
 

@@ -36,6 +36,14 @@ public class BeerReview {
 	public BeerReview() {}
 	
 	
+	public BeerReview(LocalDate reviewDate, String comment, Beer beer) {
+		super();
+		this.reviewDate = reviewDate;
+		this.comment = comment;
+		this.beer = beer;
+	}
+
+
 	public int getId() {
 		return id;
 	}
