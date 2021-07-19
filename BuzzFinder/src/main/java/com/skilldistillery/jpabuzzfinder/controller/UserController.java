@@ -16,8 +16,8 @@ public class UserController {
 	private UserDAO userDao;
 	
 	@RequestMapping("getUserProfile.do")
-	public String getUserProfile(User user, Model model) {
-		model.addAttribute("user", userDao.login(user.getUsername(), user.getPassword()));
+	public String getUserProfile(String username, String password, Model model) {
+		model.addAttribute("user", userDao.login(username, password));
 		
 		return "profile";
 	}
@@ -25,6 +25,22 @@ public class UserController {
 	@RequestMapping("createUserProfile.do")
 	public String createUserProfile(User user, Model model) {
 		model.addAttribute("user", userDao.createUser(user));
+		
+		return "profile";
+	}
+	
+	@RequestMapping("updateUserProfile.do")
+	public String updateUserProfile(User user, Model model) {
+		
+		model.addAttribute("user", userDao.deleteUser(user));
+		
+		return "profile";
+	}
+	
+	@RequestMapping("deleteUserProfile.do")
+	public String deleteUserProfile(User user, Model model) {
+		
+		model.addAttribute("user", userDao.deleteUser(user));
 		
 		return "profile";
 	}

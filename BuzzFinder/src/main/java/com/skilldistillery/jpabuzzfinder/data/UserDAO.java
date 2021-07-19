@@ -15,7 +15,7 @@ public interface UserDAO {
 	
 	public User updateUsernameAndPassword(String password, User user);
 	
-	public boolean deleteByUsername(String username, String password);
+	public boolean deleteUser(User user);
 	
 	public User login(String username, String password);
 	
