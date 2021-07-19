@@ -9,6 +9,11 @@
 <body>
 
 <p><a href="home.do">Home</a></p>
+<form action="search.do"> <!--Login Page  -->
+<button type="submit">Search</button>
+</form><form action="login.do"> <!--Login Page  -->
+<button type="submit">Login</button>
+</form>
 
 	<h1>Your Results are listed below.</h1>
 		<h2>Click on a brewery name to view more information, and what to drink there!</h2>
@@ -17,7 +22,7 @@
 		<c:when test="${true }">
 			<table>
 				<thead><th><strong>Located at:</strong></th><th><strong>Name:</strong></th></thead>
-				<c:forEach items="${brewery }" var="brewery">
+				<c:forEach items="${brewery.id}" var="brewery">
 					<tr>
 					<td>${brewery.location}</td>
 					<td><a href="SearchByBreweryName.do?id=${brewery.name}"></a></td>
