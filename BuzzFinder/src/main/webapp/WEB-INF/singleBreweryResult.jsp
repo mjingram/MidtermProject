@@ -10,8 +10,6 @@
 <ul>
 <li>${brewery.name }</li>
 <li>${brewery.style }</li>
-<%-- <li>${brewery.brewery }</li> --%>
-<!-- Menu of Beers -->
 </ul>
 </body>
 </html>
