@@ -8,6 +8,11 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.jpabuzzfinder.entities.Beer;
+import com.skilldistillery.jpabuzzfinder.entities.BeerReview;
+import com.skilldistillery.jpabuzzfinder.entities.BeerStyle;
+import com.skilldistillery.jpabuzzfinder.entities.Brewery;
+import com.skilldistillery.jpabuzzfinder.entities.BreweryReview;
 import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Service
@@ -23,9 +28,7 @@ public class UserDAOImpl implements UserDAO{
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 
-		System.out.println("Before persit: " + user);
 		em.persist(user);
-		System.out.println("After persit: " + user);
 
 		em.flush();
 		em.getTransaction().commit();
@@ -35,25 +38,6 @@ public class UserDAOImpl implements UserDAO{
 
 	}
 	
-//	public User updateById(int id, User user) {
-//		EntityManager em = emf.createEntityManager();
-//		User updated = em.find(User.class, id);
-//		System.out.println("Before update: "+ updated);
-//		
-//		em.getTransaction().begin();
-//		
-//		updated.setUsername(user.getUsername());
-//		updated.setPassword(user.getPassword());
-//		
-//		em.flush();
-//		em.getTransaction().commit();
-//		
-//		System.out.println("After update: "+ updated);
-//		em.close();
-//		
-//		return updated;
-//		
-//	}
 	
 	public User updateUsernameAndPassword(String password, User user) {
 		EntityManager em = emf.createEntityManager();
@@ -77,6 +61,7 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	
+	
 	public boolean destroyByUsername(String username, String password) {
 		EntityManager em = emf.createEntityManager();
 		
@@ -96,11 +81,6 @@ public class UserDAOImpl implements UserDAO{
 		
 	}
 	
-//	@Override
-//	public User findById(int uid) {
-//		User user = em.find(User.class, uid);
-//		return user;
-//	}
 	
 	public User login(String username, String password) {
 		User user = null;
@@ -110,5 +90,90 @@ public class UserDAOImpl implements UserDAO{
 		}
 		
 		return user;
+		
 	}
+	
+	
+	public Beer addFavBeer(User user, Beer beer) {
+		EntityManager em = emf.createEntityManager();
+		
+		Beer newBeer = em.find(Beer.class, beer);
+		
+		em.getTransaction().begin();
+		user.addFavBeer(newBeer);
+		
+		em.flush();
+		em.getTransaction().commit();
+		
+		em.close();
+		
+		return newBeer;
+		
+	}
+	
+	
+	public Brewery addFavBrewery(User user, Brewery brewery) {
+		EntityManager em = emf.createEntityManager();
+
+		Brewery newFavBrewery = em.find(Brewery.class, brewery);
+		
+		em.getTransaction().begin();
+		user.addFavBrewery(newFavBrewery);
+
+		em.flush();
+		em.getTransaction().commit();
+		em.close();
+
+		return newFavBrewery;
+		
+	}
+	
+	
+		public BreweryReview addBreweryReview(User user, BreweryReview breweryReview) {
+			EntityManager em = emf.createEntityManager();
+			
+			em.getTransaction().begin();
+			user.addBreweryReview(breweryReview);
+			
+			em.flush();
+			em.getTransaction().commit();
+			em.close();
+			
+			return breweryReview;
+
+	}
+		
+		
+		public BeerReview addBeerReview(User user, BeerReview beerReview) {
+			EntityManager em = emf.createEntityManager();
+			
+			em.getTransaction().begin();
+			user.addBeerReview(beerReview);
+			
+			em.flush();
+			em.getTransaction().commit();
+			em.close();
+			
+			return beerReview;
+			
+		}
+		
+		public User updateFavBeerStyle(BeerStyle bs, User user) {
+			EntityManager em = emf.createEntityManager();
+			
+			User updated = em.find(User.class, user);
+			
+			em.getTransaction().begin();
+				
+			updated.setFavoriteStyle(bs);
+			
+			
+			em.flush();
+			em.getTransaction().commit();
+			
+			em.close();
+			
+			return updated;
+			
+		}
 }

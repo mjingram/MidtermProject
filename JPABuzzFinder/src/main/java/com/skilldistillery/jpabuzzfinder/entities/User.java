@@ -1,6 +1,5 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
-
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -12,77 +11,67 @@ import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
-
 @Entity
 public class User {
 //////////////////////// Fields //////////////////////////////
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String username;
-	
+
 	private String password;
-	
+
 	private int enabled;
-	
+
 	private String role;
-	
+
 	@OneToOne
-    @JoinTable(name="favorite_style", joinColumns = @JoinColumn(name="user_id"),
-	inverseJoinColumns = @JoinColumn(name="beer_style_id"))
+	@JoinTable(name = "favorite_style", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "beer_style_id"))
 	private BeerStyle favoriteStyle;
-	
+
 	@OneToMany
-	@JoinTable(name="favorite_beer", joinColumns = @JoinColumn(name="user_id"),
-			inverseJoinColumns = @JoinColumn(name="beer_id"))
-	private List<Beer> favoriteBeers;
-	
+	@JoinTable(name = "favorite_beer", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "beer_id"))
+	private List<Beer> favBeers;
+
 	@OneToMany
-	@JoinTable(name="favorite_brewery", joinColumns = @JoinColumn(name="user_id"),
-			inverseJoinColumns = @JoinColumn(name="brewery_id"))
-	private List<Brewery> favoriteBreweries;
-	
-	@OneToMany(mappedBy="user")
+	@JoinTable(name = "favorite_brewery", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "brewery_id"))
+	private List<Brewery> favBreweries;
+
+	@OneToMany(mappedBy = "user")
 	private List<BeerReview> beerReviews;
-	
-	@OneToMany(mappedBy="user")
+
+	@OneToMany(mappedBy = "user")
 	private List<BreweryReview> breweryReviews;
 
 /////////////////////// Methods /////////////////////////////
-	
-	public User() {}
 
-	
+	public User() {
+	}
+
 	public BeerStyle getFavoriteStyle() {
 		return favoriteStyle;
 	}
-
 
 	public void setFavoriteStyle(BeerStyle favoriteStyle) {
 		this.favoriteStyle = favoriteStyle;
 	}
 
-
 	public List<Beer> getFavoriteBeers() {
-		return favoriteBeers;
+		return favBeers;
 	}
-
 
 	public void setFavoriteBeers(List<Beer> favoriteBeers) {
-		this.favoriteBeers = favoriteBeers;
+		this.favBeers = favoriteBeers;
 	}
-
 
 	public List<Brewery> getFavoriteBreweries() {
-		return favoriteBreweries;
+		return favBreweries;
 	}
-
 
 	public void setFavoriteBreweries(List<Brewery> favoriteBreweries) {
-		this.favoriteBreweries = favoriteBreweries;
+		this.favBreweries = favoriteBreweries;
 	}
-
 
 	public int getId() {
 		return id;
@@ -123,27 +112,22 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
 
 	public List<BeerReview> getBeerReviews() {
 		return beerReviews;
 	}
 
-
 	public void setBeerReviews(List<BeerReview> beerReviews) {
 		this.beerReviews = beerReviews;
 	}
-
 
 	public List<BreweryReview> getBreweryReviews() {
 		return breweryReviews;
 	}
 
-
 	public void setBreweryReviews(List<BreweryReview> breweryReviews) {
 		this.breweryReviews = breweryReviews;
 	}
-
 
 	@Override
 	public String toString() {
@@ -194,5 +178,80 @@ public class User {
 		return true;
 	}
 
+	public void addFavBeer(Beer beer) {
+
+		if (!favBeers.contains(beer)) {
+			favBeers.add(beer);
+
+			if (favBeers.contains(beer)) {
+				favBeers.remove(beer);
+			}
+			favBeers.add(beer);
+			;
+		}
+	}
+	
+	public void removeBeerFromFavs(Beer beer) {
+		if (favBeers != null) {
+			favBeers.remove(beer);
+		}
+	}
+	
+	public void addFavBrewery(Brewery brewery) {
+		
+		if (!favBreweries.contains(brewery)) {
+			favBreweries.add(brewery);
+			
+			if (favBreweries.contains(brewery)) {
+				favBreweries.remove(brewery);
+			}
+			favBreweries.add(brewery);
+			;
+		}
+	}
+	
+	public void removeBreweryFromFavs(Brewery brewery) {
+		if (favBreweries != null) {
+			favBreweries.remove(brewery);
+		}
+	}
+	
+	public void addBreweryReview(BreweryReview breweryReview) {
+		
+		if (!breweryReviews.contains(breweryReview)) {
+			breweryReviews.add(breweryReview);
+			
+			if (breweryReviews.contains(breweryReview)) {
+				breweryReviews.remove(breweryReview);
+			}
+			breweryReviews.add(breweryReview);
+			;
+		}
+	}
+	
+	public void removeBreweryReview(BreweryReview breweryReview) {
+		if (breweryReviews != null) {
+			breweryReviews.remove(breweryReview);
+		}
+	}
+	
+	public void addBeerReview(BeerReview beerReview) {
+		
+		if (!beerReviews.contains(beerReview)) {
+			beerReviews.add(beerReview);
+			
+			if (beerReviews.contains(beerReview)) {
+				beerReviews.remove(beerReview);
+			}
+			beerReviews.add(beerReview);
+			;
+		}
+	}
+	
+	public void removeBeerReview(BeerReview beerReview) {
+		if (beerReviews != null) {
+			beerReviews.remove(beerReview);
+		}
+	}
 
 }
