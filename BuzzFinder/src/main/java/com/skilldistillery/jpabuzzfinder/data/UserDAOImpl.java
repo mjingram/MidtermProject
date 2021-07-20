@@ -206,22 +206,22 @@ public class UserDAOImpl implements UserDAO{
 			return success;
 			
 		}
-		
-		public boolean removeFavBrewery(int userId, Brewery brewery) {
-			EntityManager em = emf.createEntityManager();
-			
-			User user = em.find(User.class, userId);
-			em.getTransaction().begin();
-			
-			user.removeBreweryFromFavs(brewery);
-			boolean success = !em.contains(user.getFavoriteBreweries().contains(brewery));
-			
-			em.getTransaction().commit();
-			em.close();
-			
-			return success;
-			
-		}
+//		@Override
+//		public boolean removeFavBrewery(int id) {
+//			EntityManager em = emf.createEntityManager();
+//			
+//			User user = em.find(User.class, id);
+//			em.getTransaction().begin();
+//			
+//			user.removeBreweryFromFavs(id);
+//			boolean success = !em.contains(user.getFavoriteBreweries().contains(brewery));
+//			
+//			em.getTransaction().commit();
+//			em.close();
+//			
+//			return success;
+//			
+//		}
 		
 		public boolean removeBeerReview(int userId, BeerReview beerReview) {
 			EntityManager em = emf.createEntityManager();

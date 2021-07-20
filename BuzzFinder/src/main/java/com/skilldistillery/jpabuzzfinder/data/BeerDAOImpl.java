@@ -119,5 +119,13 @@ public class BeerDAOImpl implements BeerDAO {
 		return faveBeers;
 
 	}
+	
+//////// Remove beer from Favorite List //////
+	@Override
+	public List<Beer> removeFavoriteBeer(int id){
+		Beer beer = em.find(Beer.class, id);
+		faveBeers.remove(beer);
+		return faveBeers;
+	}
 
 }

@@ -33,7 +33,7 @@ public interface UserDAO {
 	
 	public boolean removeFavBeer(int userId, Beer beer);
 	
-	public boolean removeFavBrewery(int userId, Brewery brewery);
+//	public boolean removeFavBrewery(int id);
 	
 	public boolean removeBeerReview(int userId, BeerReview beerReview);
 	
