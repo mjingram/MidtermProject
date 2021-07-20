@@ -88,9 +88,15 @@ public class UserDAOImpl implements UserDAO{
 	
 	public User login(String username, String password) {
 		User user = null;
-		if(em.find(User.class, username).getPassword().equals(password) 
-				&& em.find(User.class, username).getUsername().equals(username)) {
-			user = em.find(User.class, username);	
+		String jpql = "SELECT u FROM User u WHERE u.username = :name AND u.password = :password";
+		
+		List<User> users = em.createQuery(jpql, User.class).
+		setParameter("name", username).
+		setParameter("password", password).
+		getResultList();
+		
+		if(users.size() == 1) {
+			user = users.get(0);
 		}
 		
 		return user;

@@ -8,6 +8,7 @@
 <title>Profile Page</title>
 </head>
 <body>
+<h1>Account Information:</h1>
 	<!-- TODO: Show Account Info -->
 	${accountInfo.firstName}<br>
 	${accountInfo.lastName}<br>
@@ -26,6 +27,14 @@
 		<input type="hidden" name="id" value="${accountInfo.id }" /> <input
 			type="submit" value="Update Account" />
 	</form>
+	
+	<form action="home.do">
+	<input type="submit" name ="home" value="Home"/></form>
+	
+	<form action="search.do"> <!--Login Page  -->
+<button type="submit">Search</button>
+</form>
+	
 	<!-- Show Favorite Beers/Breweries -->
 	<%-- <c:forEach var="" items="">
 	

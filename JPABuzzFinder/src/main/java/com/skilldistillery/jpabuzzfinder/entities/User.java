@@ -43,6 +43,9 @@ public class User {
 
 	@OneToMany(mappedBy = "user")
 	private List<BreweryReview> breweryReviews;
+	
+	@OneToOne(mappedBy = "user")
+	private AccountInfo accountInfo;
 
 /////////////////////// Methods /////////////////////////////
 
@@ -127,6 +130,30 @@ public class User {
 
 	public void setBreweryReviews(List<BreweryReview> breweryReviews) {
 		this.breweryReviews = breweryReviews;
+	}
+
+	public List<Beer> getFavBeers() {
+		return favBeers;
+	}
+
+	public void setFavBeers(List<Beer> favBeers) {
+		this.favBeers = favBeers;
+	}
+
+	public List<Brewery> getFavBreweries() {
+		return favBreweries;
+	}
+
+	public void setFavBreweries(List<Brewery> favBreweries) {
+		this.favBreweries = favBreweries;
+	}
+
+	public AccountInfo getAccountInfo() {
+		return accountInfo;
+	}
+
+	public void setAccountInfo(AccountInfo accountInfo) {
+		this.accountInfo = accountInfo;
 	}
 
 	@Override

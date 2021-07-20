@@ -9,7 +9,7 @@
 <body>
 
 	<form action="getBreweryByName.do" method="GET">
-		Enter Brewery Name Here: <input type="text" name="id" size="4" /> <input
+		Enter Brewery Name Here: <input type="text" name="id" size="25" /> <input
 			type="submit" value="Get Brewery" />
 	</form>
 	<br>
