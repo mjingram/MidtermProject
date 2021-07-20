@@ -99,8 +99,8 @@
 <form action="createBeerReview.do">
 		<label for="name">Beer Name: </label><input type="text" name="name" value="" id="name"><br>
 		<label for="taste">Taste: </label><input type="text" name="taste" value="" id="taste"><br>
-<label for="feel">Body: </label>
-			<select id="feel" name="feel">
+<label for="body">Body: </label>
+			<select id="body" name="body">
     			<option value="light">Light</option>
     			<option value="sweet">Sweet</option>
     			<option value="thin">Thin</option>

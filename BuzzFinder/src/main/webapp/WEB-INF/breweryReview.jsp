@@ -96,7 +96,7 @@
 <form action="createBreweryReview.do">
 		<label for="name">Brewery Name: </label><input type="text" name="name" value="" id="name"><br>
 <label for="favorite">Favorite Beer Here: </label>
-			<select id="feel" name="feel">
+			<select id="favorite" name="favorite">
     			<option value="light">Light Lager</option>
     			<option value="sweet">Sweet Cider</option>
     			<option value="thin">Thin Kolsch</option>
@@ -118,9 +118,21 @@
 		<label for="again">Would you visit again? </label><br>
 		<input type="radio" id = "again" name="again" value="yes"> Yes
 			<input type="radio" id = "again" name="again" value="no"> No
+
+<label for="feature">Favorite Feature: </label>
+			<select id="feature" name="feature">
+    			<option value="space">Super Spacious</option>
+    			<option value="modern">Fresh and New</option>
+    			<option value="clean">Squeaky Clean</option>
+    			<option value="outdoor">It's Like We Are Camping</option>
+    			<option value="view">I can see downtown from here!</option>
+    			<option value="dogs">My dog was right there with me</option>
+    			<option value="staff">Friendly Staff</option>
+    			<option value="location">It is close to my house</option>
+    			<option value="beer">The beer is just good!</option>
+    		</select><br>
 			
 			
-					<input type="submit" value="Add to Favorites" />
 					<input type="submit" value="Confirm and Review" />
 			
 </form>

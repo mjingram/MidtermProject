@@ -89,7 +89,8 @@
 <div class="fizz f48"></div>
 
 
-<p><a href="home.do">Home</a></p>
+<form action="home.do">
+<button type = "submit">Home</button></form>
 <form action="search.do"> <!--Search Page  -->
 <button type="submit">Search</button>
 </form><form action="login.do"> <!--Login Page  -->

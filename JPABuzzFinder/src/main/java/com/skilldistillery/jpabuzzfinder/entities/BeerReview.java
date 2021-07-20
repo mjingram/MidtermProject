@@ -32,6 +32,13 @@ public class BeerReview {
 	@JoinColumn(name="beer_id")
 	private Beer beer;
 	
+	private String taste;
+	
+	private String body;
+	
+	private int rating;
+	
+	private String again;
 	
 
 	

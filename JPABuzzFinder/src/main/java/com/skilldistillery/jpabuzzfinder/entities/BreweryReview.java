@@ -31,6 +31,15 @@ public class BreweryReview {
 	@ManyToOne
 	@JoinColumn(name="brewery_id")
 	private Brewery brewery;
+	
+	@Column(name = "favorite_beer")
+	private String favoriteBeer;
+	
+	private int rating;
+	
+	private String again;
+	
+	private String feature;
 
 	
 	public BreweryReview () {}
