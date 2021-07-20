@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabuzzfinder.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,7 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabuzzfinder.entities.Beer;
-import com.skilldistillery.jpabuzzfinder.entities.BeerStyle;
+import com.skilldistillery.jpabuzzfinder.entities.Brewery;
 
 
 @Service
@@ -19,6 +20,8 @@ public class BeerDAOImpl implements BeerDAO {
 	@PersistenceContext
 	private EntityManager em;
 	private Beer beer;
+	
+	private List<Beer> faveBeers = new ArrayList<>();
 
 	
 	@Override
@@ -100,6 +103,20 @@ public class BeerDAOImpl implements BeerDAO {
 		boolean deleteDone = !em.contains(deleteBeer);
 		
 		return deleteDone;
+	}
+///////// Add Beer to Favorite List //////////
+	@Override
+	public List<Beer> faveBeerList(int id) {
+		Beer beer = em.find(Beer.class, id);
+		System.out.println("Found Beer: " + beer);
+		faveBeers.add(beer);
+		for (Beer b : faveBeers) {
+			System.out.println("List Item: " + b);
+		} 
+		faveBeers.size();
+		
+		return faveBeers;
+
 	}
 
 }
