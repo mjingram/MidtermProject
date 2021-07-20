@@ -49,11 +49,12 @@ public class BeerDAOImpl implements BeerDAO {
 	
 	@Override
 	public List<Beer> findBeerByStyle(String beerStyle) {
-		String jpql = "SELECT s FROM Beer_style s WHERE s.name = :name";
+		String jpql = "SELECT b FROM Beer b JOIN BeerStyle s ON s.id = b.beerStyle WHERE s.name = :name";
 		List<Beer> beers = em.createQuery(jpql, Beer.class)
 				.setParameter("name", beerStyle)
 				.getResultList();
-		
+		System.out.println(beers);
+		System.out.println(beers.get(0));
 			if(beers.size() > 0) {
 				return beers;
 			}
