@@ -23,8 +23,6 @@ public class BreweryController {
 
 
 
-///////// Methods below for Admin Use only //////////////
-	
 	@RequestMapping(path="createBrewery.do", method = RequestMethod.POST)
 	public String createBrew(Brewery brewery, Model model) {
 		model.addAttribute("Brewery", breweryDAO.createBrewery(brewery));
@@ -60,6 +58,22 @@ public class BreweryController {
 		
 	}
 	
+	@RequestMapping(path={"breweryDetails.do"})
+	public String getBreweryDetails(HttpSession session, Integer id) {
+		System.out.println("Id: " + id);
+		session.setAttribute("brewery" , breweryDAO.findBreweryById(id));
+		
+		return "singleBreweryResult";
+		
+	}
+	
+	@RequestMapping(path={"breweryFavorite.do"})
+	public String postBreweryFavorited(HttpSession session, Integer id) {
+		System.out.println("Id: " + id);
+		session.setAttribute("breweryFavorite" , breweryDAO.findBreweryById(id));
+		return "profile";
+		
+	}
 	
 	
 /////////// Brewery Can Not Be Edited by Users, Method below is just in case /////////

@@ -38,9 +38,13 @@ public class BreweryDAOImpl implements BreweryDAO {
 
 	@Override
 	public List<Brewery> findBreweryByName(String name) {
+//		String jpql = "SELECT b FROM Brewery b WHERE b.name = :name";
+//		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).setParameter("name", name).getResultList();
+		
+		String jpql = "SELECT b FROM Brewery b WHERE b.name LIKE :name";
+		List<Brewery> breweries = em.createQuery(jpql, Brewery.class)
+				.setParameter("name", "%" + name + "%").getResultList();
 
-		String jpql = "SELECT b FROM Brewery b WHERE b.name = :name";
-		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).setParameter("name", name).getResultList();
 
 		if (breweries.size() > 0) {
 			return breweries;
@@ -54,9 +58,14 @@ public class BreweryDAOImpl implements BreweryDAO {
 	public List<Brewery> findBreweryByLocation(String city, String state) {
 
 		String jpql = "SELECT b FROM Brewery b JOIN Address a "
-				+ "ON b.address.id = a.id WHERE a.city = :city AND a.state = :state";
-		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).setParameter("city", city)
-				.setParameter("state", state).getResultList();
+//				+ "ON b.address.id = a.id WHERE a.city = :city AND a.state = :state";
+//		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).setParameter("city", city)
+//				.setParameter("state", state).getResultList();
+
+				+ "ON b.address.id = a.id WHERE a.city LIKE :city AND a.state LIKE :state";
+		List<Brewery> breweries = em.createQuery(jpql, Brewery.class)
+				.setParameter("city", "%" + city + "%").setParameter("state", "%" + state + "%")
+				.getResultList();
 
 		return breweries;
 	}

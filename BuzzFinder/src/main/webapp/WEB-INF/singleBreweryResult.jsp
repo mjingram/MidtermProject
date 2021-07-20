@@ -5,12 +5,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>One Brewery for me</title>
+<title>Brewery Details</title>
 </head>
 <body>
 <ul>
+<%-- <li>${brewery.id }</li> --%>
+
 <li>${brewery.name }</li>
-<li>${brewery.style }</li>
+<li>${brewery.address }</li>
+<form action="breweryFavorites.do">
+<input type="hidden" name="id" value="${brewery.id }">
+<input type="submit" value="Favorite">
+</form>
 </ul>
 
 

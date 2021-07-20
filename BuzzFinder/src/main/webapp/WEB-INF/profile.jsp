@@ -40,6 +40,11 @@
 	 <p>
 	 ${breweries.name}
 	 </p>
+	 
+	<%-- <c:forEach var="" items="">
+	
+	</c:forEach> --%>
+	
 	<!-- Add a Beer Review -->
 <%-- 	<form action="createBeerReview.do" method="GET">
 		<input type="hidden" name="id" value="${ }" /> <input

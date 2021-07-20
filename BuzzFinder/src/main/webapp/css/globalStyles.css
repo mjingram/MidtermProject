@@ -1,0 +1,214 @@
+@charset "UTF-8";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #925208;
+  color: #fff;
+}
+
+/* Header Section */
+.headerSection{
+  background: #000;
+  overflow: hidden;
+  width: 100%;
+  border: 0;
+  position: relative;
+  top:0;
+  height: 100px;
+  z-index: 0;
+  margin-bottom: 50px;
+}
+.fas{
+  text-align: left;
+  font-size: 48px;
+  z-index: 1;
+  margin-left: 1%;
+  margin-right: 20px;
+}
+.title{
+  margin-top: 10px;
+  text-align: center;
+}
+
+.sign-up-button{
+ float: right;
+ margin-right: 20px;
+ margin-top: 20px;
+}
+
+.login-button{
+ float: right;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+.search-button{
+  float: right;
+   margin-right: 20px;
+   margin-top: 20px;
+}
+
+/* Beer Fizz */
+
+.fizz{
+  height: 50px;
+  width: 80px;
+  border-radius: 200px/100px;
+  background-color: white;
+  z-index: 2;
+  position: absolute;
+  top:80px;
+
+
+}
+
+.f1{
+  left: -10px;
+}
+.f2{
+  left: 60px;
+}
+.f3{
+  left: 120px;
+}
+.f4{
+  left: 180px;
+}
+.f5{
+  left: 240px;
+}
+
+.f6{
+left: 300px;
+}
+.f7{
+left: 360px;
+}
+
+.f8{
+left: 420px;
+}
+.f9{
+left: 480px;
+}
+.f10{
+left: 540px;
+}
+.f11{
+left: 600px;
+}
+.f12{
+left: 660px;
+}
+.f13{
+left: 720px;
+}
+.f14{
+left: 780px;
+}
+.f15{
+left: 840px;
+}
+.f16{
+left: 900px;
+}
+.f17{
+left: 960px;
+}
+.f18{
+left: 1020px;
+}
+.f19{
+left: 1080px;
+}
+.f20{
+left: 1140px;
+}
+.f21{
+left: 1200px;
+}
+.f22{
+left: 1260px;
+}
+.f23{
+left: 1320px;
+}
+.f24{
+left: 1380px;
+}
+.f25{
+left: 1440px;
+}
+.f26{
+left: 1500px;
+}
+.f27{
+left: 1560px;
+}
+.f28{
+left: 1620px;
+}
+.f29{
+left: 1680px;
+}
+.f30{
+left: 1740px;
+}
+.f31{
+left: 1800px;
+}
+.f32{
+left: 1860px;
+}
+.f33{
+left: 1920px;
+}
+.f34{
+left: 1980px;
+}
+.f35{
+left: 2020px;
+}
+.f36{
+left: 2080px;
+}
+.f37{
+left: 2140px;
+}
+.f38{
+left: 2200px;
+}
+.f39{
+left: 2260px;
+}
+.f40{
+left: 2320px;
+}
+.f41{
+left: 2380px;
+}
+.f42{
+left: 2400px;
+}
+.f43{
+left: 2460px;
+}
+.f44{
+left: 2520px;
+}
+.f45{
+left: 2580px;
+}
+.f46{
+left: 2640px;
+}
+.f47{
+left: 2700px;
+}
+.f48{
+left: 2760px;
+}
+/* Main Content */
