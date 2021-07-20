@@ -25,6 +25,13 @@ public class BeerController {
 		return "beerResults";
 	}
 	
+	@RequestMapping(path ="getBeerByStyle.do")
+	public String showBeerByStyle(HttpSession session, String name) {
+		session.setAttribute("beers", beerDao.findBeerByName(name));
+		
+		return "beerResults";
+	}
+	
 	@RequestMapping(path = "rateBeer.do")
 	public String rateBeer(Model model, int beerId) {
 		

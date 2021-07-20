@@ -45,12 +45,14 @@ public class BeerDAOImpl implements BeerDAO {
 
 	
 	@Override
-	public List<Beer> findBeerByStyle(BeerStyle beerStyle) {
-		List<Beer> beers = findAllBeers();
-		for(Beer beer: beers) {
-			if(beer.getBeerStyle().equals(beerStyle)) {
-				beers.add(beer);
-			}
+	public List<Beer> findBeerByStyle(String beerStyle) {
+		String jpql = "SELECT s FROM Beer_style s WHERE s.name = :name";
+		List<Beer> beers = em.createQuery(jpql, Beer.class)
+				.setParameter("name", beerStyle)
+				.getResultList();
+		
+			if(beers.size() > 0) {
+				return beers;
 			}
 			return beers;
 	}

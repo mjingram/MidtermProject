@@ -14,7 +14,6 @@
 	</form>
 	<br>
 	<form action="displayBeer.do" method="GET">
-	<form action="getBeerByName.do" method="GET">
 		Enter Beer Name Here: <input type="text" name="name" size="25" /> <input
 			type="submit" value="Get Beer" />
 	</form>
