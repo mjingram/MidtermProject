@@ -25,6 +25,17 @@ public class BreweryDAOImpl implements BreweryDAO {
 	public Brewery findBreweryById(int id) {
 		return em.find(Brewery.class, id);
 	}
+	
+	@Override
+	public Brewery findBreweryByName(String name) {
+//		Brewery brewery = 
+		return em.find(Brewery.class, name);
+	}
+	
+	@Override
+	public Brewery findBreweryByLocation(String city) {
+		return em.find(Brewery.class, city);
+	}
 ///////////// Create Brewery  //////////////////
 	@Override
 	public Brewery createBrewery(Brewery brewery) {

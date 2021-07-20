@@ -18,24 +18,35 @@ public class BeerDAOImpl implements BeerDAO {
 	
 	@PersistenceContext
 	private EntityManager em;
+	private Beer beer;
 
+	
 	@Override
 	public Beer findBeerById(int id) {
 		
 		return em.find(Beer.class, id);
 	}
 
+	
 	@Override
 	public Beer findBeerByName(String name) {
-		
-		return em.find(Beer.class, name);
+		List<Beer> beers = findAllBeers();
+		for(Beer beer: beers) {
+			if(beer.getName().equals(name)) {
+				return beer;
+			}
+		}
+		return beer;
+	
 	}
 
+	
 	@Override
 	public BeerStyle findBeerByStyle(BeerStyle beerStyle) {
 		return em.find(BeerStyle.class, beerStyle);
 	}
 
+	
 	@Override
 	public List<Beer> findAllBeers() {
 		String jpql = "SELECT b FROM Beer b";
@@ -43,12 +54,14 @@ public class BeerDAOImpl implements BeerDAO {
 		return listAll;
 	}
 
+	
 	@Override
 	public Beer addBeerToProfile(Beer beer) {
 		em.persist(beer);
 		return beer;
 	}
 
+	
 	@Override
 	public Beer updateBeerProfile(Beer beer) {
 		Beer beerdb = em.find(Beer.class, beer.getId());
@@ -65,6 +78,7 @@ public class BeerDAOImpl implements BeerDAO {
 		return beerdb;
 	}
 
+	
 	@Override
 	public boolean deleteBeerFromProfile(int id) {
 		

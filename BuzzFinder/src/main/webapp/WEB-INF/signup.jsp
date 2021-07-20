@@ -32,7 +32,6 @@
 		<p><input type="submit" value = "Create Now!"/></p>
 	</form> 
 	
-	<a href="home">Go Home</a><br/>
 
 </body>
 </html>
