@@ -42,18 +42,21 @@ public class AccountInfoController {
 	//Go to update page and send the current account info to the form
 	@RequestMapping(path={"updateAccountPage.do"})
 	public String toUpdatePage(int id, Model model) {
-		model.addAttribute("accountId", id);
-		model.addAttribute("accountInfo", accountDAO.findById(id));
-		model.addAttribute("addressInfo", addrDAO.findAddressById(id));
+//		model.addAttribute("accountId", id);
+		
+//		model.addAttribute("accountInfo", accountDAO.findById(id));
+//		model.addAttribute("addressInfo", addrDAO.findAddressById(id));
 		
 		return "updateAccount";
 	}
 	
 	//Send new info to the database and return to profile
-	@RequestMapping(path={"sendAccountUpdate.do"})
+	@RequestMapping(path={"sendUpdateAccount.do"})
 		public String updateAccount(int id, AccountInfo updateAccount, Model model, HttpSession session) {
-
-			session.setAttribute("account", accountDAO.update(id, updateAccount)); 
+			AccountInfo info = accountDAO.update(id, updateAccount);
+			
+			session.setAttribute("accountInfo", info); 
+			session.setAttribute("addressInfo", info.getAddress()); 
 			return "profile";
 		}
 	

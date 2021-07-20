@@ -31,6 +31,7 @@ public class AccountInfoDAOImpl implements AccountInfoDAO{
 	
 		dbInfo.setFirstName(info.getFirstName());
 		dbInfo.setLastName(info.getLastName());
+		dbInfo.setAddress(info.getAddress());
 		
 		em.flush();
 		System.out.println("After update: " + dbInfo);

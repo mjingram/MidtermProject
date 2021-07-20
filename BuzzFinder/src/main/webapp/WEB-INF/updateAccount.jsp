@@ -18,7 +18,7 @@
 <input type="text" name="zipcode" value="${addressInfo.city }">
 <input type="submit" value="Send">
 
-<button type="submit">Submit</button>
+
 </form>
 
 <form action="profile.do">
