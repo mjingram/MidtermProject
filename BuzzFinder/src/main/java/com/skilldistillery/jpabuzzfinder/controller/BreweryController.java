@@ -23,8 +23,6 @@ public class BreweryController {
 
 
 
-///////// Methods below for Admin Use only //////////////
-	
 	@RequestMapping(path="createBrewery.do", method = RequestMethod.POST)
 	public String createBrew(Brewery brewery, Model model) {
 		model.addAttribute("Brewery", breweryDAO.createBrewery(brewery));
