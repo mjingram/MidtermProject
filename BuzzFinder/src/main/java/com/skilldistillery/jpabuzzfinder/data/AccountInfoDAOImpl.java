@@ -7,6 +7,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabuzzfinder.entities.AccountInfo;
+import com.skilldistillery.jpabuzzfinder.entities.Address;
 import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Service
@@ -31,8 +32,13 @@ public class AccountInfoDAOImpl implements AccountInfoDAO{
 	
 		dbInfo.setFirstName(info.getFirstName());
 		dbInfo.setLastName(info.getLastName());
-		dbInfo.setAddress(info.getAddress());
-		
+		Address managed = em.find(Address.class, info.getAddress().getId());
+		managed.setCity(info.getAddress().getCity());
+		managed.setState(info.getAddress().getState());
+		managed.setStreet(info.getAddress().getStreet());
+		managed.setZipcode(info.getAddress().getZipcode());
+		dbInfo.setAddress(managed);
+		System.out.println(info.getAddress());
 		em.flush();
 		System.out.println("After update: " + dbInfo);
 		return dbInfo;

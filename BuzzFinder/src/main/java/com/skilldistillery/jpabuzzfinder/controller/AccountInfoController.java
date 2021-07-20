@@ -57,6 +57,7 @@ public class AccountInfoController {
 			
 			session.setAttribute("accountInfo", info); 
 			session.setAttribute("addressInfo", info.getAddress()); 
+			System.out.println("****" + info.getAddress());
 			return "profile";
 		}
 	

@@ -12,10 +12,11 @@
 <input type="hidden" name="id" value="${accountInfo.id }" />
 <input type="text" name="firstName" value="${accountInfo.firstName }">
 <input type="text" name="lastName" value="${accountInfo.lastName }">
-<input type="text" name="street" value="${addressInfo.street }">
-<input type="text" name="city" value="${addressInfo.city }">
-<input type="text" name="state" value="${addressInfo.state }">
-<input type="text" name="zipcode" value="${addressInfo.city }">
+<input type="text" name="address.street" value="${addressInfo.street }">
+<input type="text" name="address.city" value="${addressInfo.city }">
+<input type="text" name="address.state" value="${addressInfo.state }">
+<input type="text" name="address.zipcode" value="${addressInfo.zipcode }">
+<input type="hidden" name="address.id" value="${addressInfo.id }">
 <input type="submit" value="Send">
 
 
