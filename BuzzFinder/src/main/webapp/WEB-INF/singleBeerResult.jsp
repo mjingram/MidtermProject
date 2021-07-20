@@ -9,12 +9,12 @@
 </head>
 <body>
 <ul>
-<li>${beer.name }</li>
-<li>${beer.beerStyle }</li>
-<li>${beer.brewery }</li>
-<li>${beer.abv }</li>
-<li>${beer.ibu }</li>
-<li>${beer.ounces }</li>
+<li><b>Beer Name:</b> ${beer.name }</li>
+<li><b>Beer Style:</b> ${beer.beerStyle }</li>
+<li><b>Brewery:</b> ${beer.brewery }</li>
+<li><b>Beer Abv:</b> ${beer.abv }</li>
+<li><b>Beer IBU:</b> ${beer.ibu }</li>
+<li><b>Beer Ounces:</b> ${beer.ounces }</li> 
 </ul>
 
 <form action="home.do">

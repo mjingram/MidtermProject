@@ -8,8 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.skilldistillery.jpabuzzfinder.data.BeerDAO;
-import com.skilldistillery.jpabuzzfinder.entities.Beer;
-import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Controller
 public class BeerController {
@@ -38,6 +36,15 @@ public class BeerController {
 model.addAttribute("review", beerDao.findBeerById(beerId));
 	return "profile";
 }
+	
+	@RequestMapping(path={"beerDetails.do"})
+	public String getBeerDetails(HttpSession session, int id) {
+		System.out.println("Id: " + id);
+		session.setAttribute("beer" , beerDao.findBeerById(id));
+		
+		return "singleBeerResult";
+		
+	}
 	
 //	@RequestMapping(path = "getBeerByName")
 //	public String getBeerByName(String name, HttpSession session) {
