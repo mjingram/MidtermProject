@@ -34,9 +34,9 @@ public class BeerDAOImpl implements BeerDAO {
 	@Override
 	public List<Beer> findBeerByName(String name) {
 		
-		String jpql = "SELECT b FROM Beer b WHERE b.name = :name";
+		String jpql = "SELECT b FROM Beer b WHERE b.name LIKE :name";
 		List<Beer> beers = em.createQuery(jpql, Beer.class)
-				.setParameter("name", name).getResultList();
+				.setParameter("name", "%" + name + "%").getResultList();
 		
 		
 			if(beers.size() > 0) {
@@ -49,9 +49,9 @@ public class BeerDAOImpl implements BeerDAO {
 	
 	@Override
 	public List<Beer> findBeerByStyle(String beerStyle) {
-		String jpql = "SELECT b FROM Beer b JOIN BeerStyle s ON s.id = b.beerStyle WHERE s.name = :name";
+		String jpql = "SELECT b FROM Beer b JOIN BeerStyle s ON s.id = b.beerStyle WHERE s.name LIKE :name";
 		List<Beer> beers = em.createQuery(jpql, Beer.class)
-				.setParameter("name", beerStyle)
+				.setParameter("name", "%" + beerStyle + "%")
 				.getResultList();
 		System.out.println(beers);
 		System.out.println(beers.get(0));
