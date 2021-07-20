@@ -27,11 +27,13 @@
 		<c:when test="${!empty breweries}">
 			<c:forEach var="brewery" items="${breweries}">
 				<ul>
-				<form action="breweryFavorites.do">
+				<form action="breweryDetails.do">
 					<li><b></b> ${brewery.logo}
 					<li><b>Brewery Name:</b> ${brewery.name}
 					<li><b>Address:</b> ${brewery.address}</li>
-					<input type="submit">
+					<li><b>Id:</b> ${brewery.id}</li>
+					<input type=hidden name="id" value="${brewery.id}"> 
+					<input type="submit" value="Details">
 				</form>
 				</ul>
 			</c:forEach>
