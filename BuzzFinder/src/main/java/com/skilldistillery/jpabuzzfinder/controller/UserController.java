@@ -95,4 +95,10 @@ public class UserController {
 		
 		return "profile";
 	}
+	@RequestMapping("breweryFavorites.do")
+	public String favoriteBreweries() {
+		
+		return "profile";
+	}
+	
 }
