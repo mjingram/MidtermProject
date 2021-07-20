@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -19,16 +20,16 @@
 		you can find it, and drink it!</h2>
 		
 		<c:choose>
-		<c:when test="${true }">
-			<table>
-				<thead><th><strong>Brewed at:</strong></th><th><strong>Name:</strong></th><th><strong>Style:</strong></th></thead>
-				<c:forEach items="${beer }" var="beer">
-					<tr>
-					<td>${beer.brewery}</td>
-					<td><a href="SearchByBeerName.do?id=${beer.name}">${beer.style}</a></td>
-					</tr>
-				</c:forEach>
-			</table>
+		<c:when test="${not empty beers }">
+		<c:forEach var = "name" items = "${beers }">
+			<ul>
+<li>${beer.name }</li>
+<li>${beer.beerStyle }</li>
+<li>${beer.abv }</li>
+<li>${beer.ibu }</li>
+<li>${beer.ounces }</li>
+</ul>
+</c:forEach>
 		</c:when>
 
 		 <c:otherwise>

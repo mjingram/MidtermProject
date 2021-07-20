@@ -1,5 +1,6 @@
 package com.skilldistillery.jpabuzzfinder.entities;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -39,10 +40,26 @@ public class Beer {
 	joinColumns = @JoinColumn(name = "beer_id"), 
 	inverseJoinColumns = @JoinColumn(name = "user_id"))
 	private User user;
+	
 
 	public Beer() {
 		super();
 	}
+	
+
+	public Beer(double abv, double ibu, String name, double ounces, BeerStyle beerStyle, Brewery brewery,
+			String imageUrl, User user) {
+		super();
+		this.abv = abv;
+		this.ibu = ibu;
+		this.name = name;
+		this.ounces = ounces;
+		this.beerStyle = beerStyle;
+		this.brewery = brewery;
+		this.imageUrl = imageUrl;
+		this.user = user;
+	}
+
 
 	public int getId() {
 		return id;
@@ -116,6 +133,7 @@ public class Beer {
 	public void setUser(User user) {
 		this.user = user;
 	}
+
 
 	@Override
 	public String toString() {

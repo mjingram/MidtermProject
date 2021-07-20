@@ -10,8 +10,21 @@
 <body>
 <ul>
 <li>${beer.name }</li>
-<li>${beer.style }</li>
+<li>${beer.beerStyle }</li>
 <li>${beer.brewery }</li>
+<li>${beer.abv }</li>
+<li>${beer.ibu }</li>
+<li>${beer.ounces }</li>
 </ul>
+
+<form action="home.do">
+	<input type="submit" name ="home" value="Home"/></form>
+	
+	<form action="search.do"> <!--Login Page  -->
+<button type="submit">Search Beers and Breweries</button>
+</form>
+
+
+ <!-- Add this to my favorites -->
 </body>
 </html>

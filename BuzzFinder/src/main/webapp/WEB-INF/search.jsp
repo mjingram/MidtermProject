@@ -13,8 +13,8 @@
 			type="submit" value="Get Brewery" />
 	</form>
 	<br>
-	<form action="getBeerByName.do" method="GET">
-		Enter Beer Name Here: <input type="text" name="search" size="25" /> <input
+	<form action="displayBeer.do" method="GET">
+		Enter Beer Name Here: <input type="text" name="name" size="25" /> <input
 			type="submit" value="Get Beer" />
 	</form>
 	<br>
