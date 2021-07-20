@@ -17,17 +17,18 @@
 
 	<h1>Your Results are listed below.</h1>
 		<h2>Click on a beer to view where
-		you can find it, and drink it!</h2>
+		you can find it, and drink it!</h2> <br>
+			<h4>${beers.size()} Beers Found</h4>
 		
 		<c:choose>
 		<c:when test="${not empty beers }">
-		<c:forEach var = "name" items = "${beers }">
+		<c:forEach var = "beer" items = "${beers }">
 			<ul>
-<li>${beer.name }</li>
-<li>${beer.beerStyle }</li>
-<li>${beer.abv }</li>
-<li>${beer.ibu }</li>
-<li>${beer.ounces }</li>
+<li><b>Beer Name:</b> ${beer.name }</li>
+<li><b>Beer Style:</b> ${beer.beerStyle }</li>
+<li><b>Beer Abv:</b> ${beer.abv }</li>
+<li><b>Beer IBU:</b> ${beer.ibu }</li>
+<li><b>Beer Ounces:</b> ${beer.ounces }</li>
 </ul>
 </c:forEach>
 		</c:when>
@@ -36,10 +37,6 @@
 			<p>No beers in database.</p>
 		</c:otherwise>
 	</c:choose>
-		
-		
-
-
 
 </body>
 </html>
