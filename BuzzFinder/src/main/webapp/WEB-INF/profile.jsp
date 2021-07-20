@@ -43,7 +43,7 @@
 		 <li>${brew.address.city}</li>
 		 <li>${brew.address.state}</li>
 	 </ul>
-	 <form action="removeFaveBrewery.do" method="GET">
+	 <form action="removeFavoriteBrewery.do" method="GET">
 		<input type="hidden" name="id" value="${brew.id }" /> <input
 			type="submit" value="Remove Brewery"/>
 	</form>
@@ -53,6 +53,10 @@
 	 <ul>
 		 <li>${b.name}</li>
 	 </ul>
+	 <form action="removeFavoriteBeer.do" method="GET">
+		<input type="hidden" name="id" value="${b.id }" /> <input
+			type="submit" value="Remove Beer"/>
+	</form>
 	</c:forEach> 
 	<!-- Add a Beer Review -->
 <%-- 	<form action="createBeerReview.do" method="GET">

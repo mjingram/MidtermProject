@@ -23,5 +23,7 @@ public interface BeerDAO {
 	
 	List<Beer> faveBeerList(int id);
 	
+	List<Beer> removeFavoriteBeer(int id);
+	
 
 }

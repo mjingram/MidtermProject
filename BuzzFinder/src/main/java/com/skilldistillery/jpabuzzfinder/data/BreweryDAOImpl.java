@@ -116,5 +116,11 @@ public class BreweryDAOImpl implements BreweryDAO {
 		return faveBreweries;
 
 	}
+	@Override
+	public List<Brewery> removeFavoriteBrewery(int id){
+		Brewery brewery = em.find(Brewery.class, id);
+		faveBreweries.remove(brewery);
+		return faveBreweries;
+	}
 
 }
