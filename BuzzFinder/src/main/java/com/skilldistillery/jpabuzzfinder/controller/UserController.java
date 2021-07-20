@@ -102,7 +102,7 @@ public class UserController {
 	}
 	@RequestMapping("breweryFavorites.do")
 	public String favoriteBreweries(int id, HttpSession session) {
-		session.setAttribute("breweries", breweryDAO.favoriteList(id));
+		session.setAttribute("faveBreweries", breweryDAO.favoriteList(id));
 		return "profile";
 	}
 //	@RequestMapping("beerFavorites.do")

@@ -37,14 +37,19 @@
 	
 	<!-- Show Favorite Beers/Breweries -->
 	<h3>Favorite Breweries</h3>
-	 <p>
-	 ${breweries.name}
-	 </p>
-	 
-	<%-- <c:forEach var="" items="">
-	
+	<c:forEach var="b" items="${faveBreweries}">
+	 <ul>
+		 <li>${b.name}</li>
+		 <li>${b.address.city}</li>
+		 <li>${b.address.state}</li>
+	 </ul>
+	</c:forEach>
+	<h3>Favorite Beers</h3>
+<%-- 	<c:forEach var="b" items="${faveBeers}">
+	 <ul>
+		 <li>${b.name}</li>
+	 </ul>
 	</c:forEach> --%>
-	
 	<!-- Add a Beer Review -->
 <%-- 	<form action="createBeerReview.do" method="GET">
 		<input type="hidden" name="id" value="${ }" /> <input
