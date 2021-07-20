@@ -31,6 +31,8 @@ public class BeerReview {
 	@ManyToOne
 	@JoinColumn(name="beer_id")
 	private Beer beer;
+	
+	
 
 	
 	public BeerReview() {}

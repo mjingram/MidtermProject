@@ -109,5 +109,16 @@
 <input type="hidden" name="id" value="${beer.id }">
 <input type="submit" value="Favorite">
 </form>
+
+
+<ul>
+<li> <b>Beer Name:</b>${rating.name }</li>
+<li> <b>Taste:</b>${rating.taste }</li>
+<li> <b>Body:</b>${rating.feel }</li>
+<li> <b>Overall Rating:</b>${rating.rating }</li>
+<li> <b>Would you drink again:</b>${rating.drink}</li>
+</ul>
+
+
 </body>
 </html>

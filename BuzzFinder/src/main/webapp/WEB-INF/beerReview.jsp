@@ -124,7 +124,6 @@
 			<input type="radio" id = "again" name="again" value="no"> 1/10 Heck No techno
 			
 			
-					<input type="radio" value="Add to Favorites" />
 					<input type="submit" value="Confirm and Review" />
 			
 </form>
