@@ -98,6 +98,7 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	
+	
 	public Beer addFavBeer(int userId, Beer beer) {
 		EntityManager em = emf.createEntityManager();
 		User user = em.find(User.class, userId);

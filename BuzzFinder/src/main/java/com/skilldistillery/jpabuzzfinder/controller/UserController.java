@@ -1,5 +1,7 @@
 package com.skilldistillery.jpabuzzfinder.controller;
 
+
+import javax.persistence.EntityManager;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +21,15 @@ public class UserController {
 	private UserDAO userDao;
 	
 	
+	
 	@RequestMapping("getUserProfile.do")
-	public String getUserProfile(String username, String password, Model model) {
+	public String getUserProfile(String username, String password, HttpSession session) {
 		
-		model.addAttribute("user", userDao.login(username, password));
+		User newUser = userDao.login(username, password);
 		
-		return "account";
+		session.setAttribute("user", newUser.getId());
+		
+		return "profile";
 	}
 	
 	
