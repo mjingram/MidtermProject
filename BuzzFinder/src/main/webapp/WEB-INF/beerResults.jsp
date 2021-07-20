@@ -23,7 +23,7 @@
 		<c:choose>
 		<c:when test="${not empty beers }">
 		<c:forEach var = "beer" items = "${beers }">
-			<form action = "beerDetails.do">
+			
 			<ul>
 <li><b>Beer Name:</b> ${beer.name }</li>
 <li><b>Beer Style:</b> ${beer.beerStyle }</li>
@@ -32,7 +32,8 @@
 <li><b>Beer IBU:</b> ${beer.ibu }</li>
 <li><b>Beer Ounces:</b> ${beer.ounces }</li> 
 </ul>
-<input type=hidden name="id" value="${brewery.id}"> 
+<form action = "beerDetails.do">
+<input type=hidden name="id" value="${beer.id}"> 
 					<input type="submit" value="Details">
 </form>
 
