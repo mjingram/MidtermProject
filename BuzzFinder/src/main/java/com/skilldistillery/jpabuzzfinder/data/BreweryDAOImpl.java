@@ -1,11 +1,14 @@
 package com.skilldistillery.jpabuzzfinder.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.jpabuzzfinder.entities.Beer;
 import com.skilldistillery.jpabuzzfinder.entities.Brewery;
 
 @Service
@@ -14,27 +17,47 @@ public class BreweryDAOImpl implements BreweryDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+	private Brewery brewery;
 
 
 ///////////// Find Brewery By Id ////////////////
 	
-//	findBreweryByName
-//	findBreweryByLocation
+
+	@Override
+	public List<Brewery> findAllBreweries() {
+		String jpql = "SELECT b FROM Brewery b";
+		List<Brewery> listAll = em.createQuery(jpql,Brewery.class).getResultList();
+		return listAll;
+	}
+	
 	
 	@Override
 	public Brewery findBreweryById(int id) {
 		return em.find(Brewery.class, id);
 	}
 	
+	
 	@Override
 	public Brewery findBreweryByName(String name) {
-//		Brewery brewery = 
-		return em.find(Brewery.class, name);
+		List<Brewery> allBreweries = findAllBreweries();
+		for(Brewery brewery: allBreweries) {
+			if(brewery.getName().equals(name)) {
+				return brewery;
+			}
+		}
+		return brewery;
 	}
 	
 	@Override
-	public Brewery findBreweryByLocation(String city) {
-		return em.find(Brewery.class, city);
+	public List<Brewery> findBreweryByLocation(String city, String state) {
+		List<Brewery> breweries = findAllBreweries();
+		for(Brewery brewery: breweries) {
+			if(brewery.getAddress().getState().equals(state)
+					&& brewery.getAddress().getCity().equals(city)) {
+				breweries.add(brewery);
+			}
+		}
+		return breweries;
 	}
 ///////////// Create Brewery  //////////////////
 	@Override

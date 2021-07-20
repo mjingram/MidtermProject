@@ -42,8 +42,14 @@ public class BeerDAOImpl implements BeerDAO {
 
 	
 	@Override
-	public BeerStyle findBeerByStyle(BeerStyle beerStyle) {
-		return em.find(BeerStyle.class, beerStyle);
+	public List<Beer> findBeerByStyle(BeerStyle beerStyle) {
+		List<Beer> beers = findAllBeers();
+		for(Beer beer: beers) {
+			if(beer.getBeerStyle().equals(beerStyle)) {
+				beers.add(beer);
+			}
+			}
+			return beers;
 	}
 
 	

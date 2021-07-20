@@ -11,7 +11,7 @@ public interface BeerDAO {
 	
 	Beer findBeerByName(String name);
 	
-	BeerStyle findBeerByStyle(BeerStyle beerStyle);
+	List<Beer> findBeerByStyle(BeerStyle beerStyle);
 	
 	List<Beer> findAllBeers();
 	
