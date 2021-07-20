@@ -20,6 +20,8 @@ public class BreweryDAOImpl implements BreweryDAO {
 	private EntityManager em;
 	private Brewery brewery;
 
+	private List<Brewery> faveBreweries;
+
 ///////////// Find Brewery By Id ////////////////
 
 	@Override
@@ -29,19 +31,16 @@ public class BreweryDAOImpl implements BreweryDAO {
 		return listAll;
 	}
 
-	
 	@Override
 	public Brewery findBreweryById(int id) {
 		return em.find(Brewery.class, id);
 	}
 
-	
 	@Override
 	public List<Brewery> findBreweryByName(String name) {
-		
+
 		String jpql = "SELECT b FROM Brewery b WHERE b.name = :name";
-		List<Brewery> breweries = em.createQuery(jpql, Brewery.class)
-				.setParameter("name", name).getResultList();
+		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).setParameter("name", name).getResultList();
 
 		if (breweries.size() > 0) {
 			return breweries;
@@ -56,10 +55,8 @@ public class BreweryDAOImpl implements BreweryDAO {
 
 		String jpql = "SELECT b FROM Brewery b JOIN Address a "
 				+ "ON b.address.id = a.id WHERE a.city = :city AND a.state = :state";
-		List<Brewery> breweries = em.createQuery(jpql, Brewery.class)
-				.setParameter("city", city).setParameter("state", state)
-				.getResultList();
-
+		List<Brewery> breweries = em.createQuery(jpql, Brewery.class).setParameter("city", city)
+				.setParameter("state", state).getResultList();
 
 		return breweries;
 	}
@@ -95,6 +92,15 @@ public class BreweryDAOImpl implements BreweryDAO {
 		mBrewery.setBeer(brewery.getBeer());
 		System.out.println(mBrewery);
 		return mBrewery;
+	}
+
+///////// Add Brewery to Favorites List //////
+	@Override
+	public List<Brewery> favoriteList(int id) {
+		Brewery brewery = em.find(Brewery.class, id);
+		faveBreweries.add(brewery);
+		return faveBreweries;
+
 	}
 
 }

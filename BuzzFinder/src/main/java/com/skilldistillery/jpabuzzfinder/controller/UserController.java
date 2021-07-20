@@ -1,8 +1,6 @@
 package com.skilldistillery.jpabuzzfinder.controller;
 
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.skilldistillery.jpabuzzfinder.data.BeerDAO;
 import com.skilldistillery.jpabuzzfinder.data.BreweryDAO;
 import com.skilldistillery.jpabuzzfinder.data.UserDAO;
 import com.skilldistillery.jpabuzzfinder.entities.Beer;
@@ -24,6 +23,9 @@ public class UserController {
 	
 	@Autowired
 	private BreweryDAO breweryDAO;
+	
+//	@Autowired
+//	private BeerDAO beerDAO;
 	
 	@RequestMapping("getUserProfile.do")
 	public String getUserProfile(String username, String password, HttpSession session) {
@@ -100,9 +102,13 @@ public class UserController {
 	}
 	@RequestMapping("breweryFavorites.do")
 	public String favoriteBreweries(int id, HttpSession session) {
-		List<Brewery> breweries = null;
-		
+		session.setAttribute("breweries", breweryDAO.favoriteList(id));
 		return "profile";
 	}
+//	@RequestMapping("beerFavorites.do")
+//	public String favoriteBeers(int id, HttpSession session) {
+//		session.setAttribute("beers", beers);
+//		return "profile";
+//	}
 	
 }

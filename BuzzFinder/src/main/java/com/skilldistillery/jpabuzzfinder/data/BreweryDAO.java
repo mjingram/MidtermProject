@@ -19,4 +19,6 @@ public interface BreweryDAO {
     Brewery updateBrewery(Integer id, Brewery brewery);
     
     boolean removeBrewery(int id);
+    
+    List<Brewery> favoriteList(int id);
 }
