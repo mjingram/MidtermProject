@@ -10,7 +10,7 @@ public interface BreweryDAO {
 	
 	Brewery findBreweryById(int id);
 	
-	public Brewery findBreweryByName(String name);
+	public List<Brewery> findBreweryByName(String name);
 	
 	public List<Brewery> findBreweryByLocation(String city, String state);
 	

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabuzzfinder.entities.Beer;
 import com.skilldistillery.jpabuzzfinder.entities.Brewery;
+import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Service
 @Transactional
@@ -19,46 +20,50 @@ public class BreweryDAOImpl implements BreweryDAO {
 	private EntityManager em;
 	private Brewery brewery;
 
-
 ///////////// Find Brewery By Id ////////////////
-	
 
 	@Override
 	public List<Brewery> findAllBreweries() {
 		String jpql = "SELECT b FROM Brewery b";
-		List<Brewery> listAll = em.createQuery(jpql,Brewery.class).getResultList();
+		List<Brewery> listAll = em.createQuery(jpql, Brewery.class).getResultList();
 		return listAll;
 	}
-	
+
 	
 	@Override
 	public Brewery findBreweryById(int id) {
 		return em.find(Brewery.class, id);
 	}
-	
+
 	
 	@Override
-	public Brewery findBreweryByName(String name) {
-		List<Brewery> allBreweries = findAllBreweries();
-		for(Brewery brewery: allBreweries) {
-			if(brewery.getName().equals(name)) {
-				return brewery;
-			}
+	public List<Brewery> findBreweryByName(String name) {
+		
+		String jpql = "SELECT b FROM Brewery b WHERE b.name = :name";
+		List<Brewery> breweries = em.createQuery(jpql, Brewery.class)
+				.setParameter("name", name).getResultList();
+
+		if (breweries.size() > 0) {
+			return breweries;
 		}
-		return brewery;
+
+		return breweries;
+
 	}
-	
+
 	@Override
 	public List<Brewery> findBreweryByLocation(String city, String state) {
-		List<Brewery> breweries = findAllBreweries();
-		for(Brewery brewery: breweries) {
-			if(brewery.getAddress().getState().equals(state)
-					&& brewery.getAddress().getCity().equals(city)) {
-				breweries.add(brewery);
-			}
-		}
+
+		String jpql = "SELECT b FROM Brewery b JOIN Address a "
+				+ "ON b.address.id = a.id WHERE a.city = :city AND a.state = :state";
+		List<Brewery> breweries = em.createQuery(jpql, Brewery.class)
+				.setParameter("city", city).setParameter("state", state)
+				.getResultList();
+
+
 		return breweries;
 	}
+
 ///////////// Create Brewery  //////////////////
 	@Override
 	public Brewery createBrewery(Brewery brewery) {

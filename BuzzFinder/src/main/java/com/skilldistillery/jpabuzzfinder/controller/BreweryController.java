@@ -2,6 +2,8 @@ package com.skilldistillery.jpabuzzfinder.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,21 +20,8 @@ public class BreweryController {
 
 	@Autowired
 	BreweryDAO breweryDAO;
-	
 
-//	@RequestMapping(path = { "/", "home.do" })
-//	public String index() {
-//		return "home";
-//	}
 
-//	getBreweryByName.do shows one brewery
-//	getBreweryByLocation.do shows list of breweries
-	
-
-//	@RequestMapping(path = { "/", "home.do" })
-//	public String index() {
-//		return "home";
-//	}
 
 ///////// Methods below for Admin Use only //////////////
 	
@@ -41,12 +30,34 @@ public class BreweryController {
 		model.addAttribute("Brewery", breweryDAO.createBrewery(brewery));
 		return "home";
 	}
+	
+	
 	@RequestMapping(path="deleteBrewery.do", method = RequestMethod.GET)
 	public String deleteBrewery(int id) {
 		if(breweryDAO.removeBrewery(id)) {
 			return "delete";
 		}
 		return "home";
+	}
+	
+	
+	@RequestMapping(path={"getBreweryByName.do"})
+	public String getBreweryByName(HttpSession session, String name) {
+		
+		session.setAttribute("breweries" , breweryDAO.findBreweryByName(name));
+		
+		return "breweryResults";
+		
+	}
+	
+	
+	@RequestMapping(path={"getBreweryByLocation.do"})
+	public String getBreweryByLocation(HttpSession session, String city, String state) {
+		
+		session.setAttribute("breweries" , breweryDAO.findBreweryByLocation(city, state));
+		
+		return "breweryResults";
+		
 	}
 	
 	

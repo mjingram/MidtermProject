@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,32 +10,35 @@
 <body>
 
 <p><a href="home.do">Home</a></p>
-<form action="search.do"> <!--Login Page  -->
+<form action="search.do"> <!--Search Page  -->
 <button type="submit">Search</button>
 </form><form action="login.do"> <!--Login Page  -->
 <button type="submit">Login</button>
 </form><br>
 
-	<h1>Your Results are listed below.</h1>
-		<h2>Click on a brewery name to view more information, and what to drink there!</h2>
+	<h1>Brewery Search Complete!</h1>
+	<br/>
+		<h3>Click on a brewery name to view more information, and what to drink there!</h3>
 		
-		<c:choose>
-		<c:when test="${true }">
-			<table>
-				<thead><th><strong>Located at:</strong></th><th><strong>Name:</strong></th></thead>
-				<c:forEach items="${brewery.id}" var="brewery">
-					<tr>
-					<td>${brewery.location}</td>
-					<td><a href="SearchByBreweryName.do?id=${brewery.name}"></a></td>
-					</tr>
-				</c:forEach>
-			</table>
-		</c:when>
+		<h2>Brewery Finder Results: </h2>
+	<h4>${breweries.size()} Breweries Found</h4>
 
-		 <c:otherwise>
-			<p>No breweries in database.</p>
+	<c:choose>
+		<c:when test="${!empty breweries}">
+			<c:forEach var="brewery" items="${breweries}">
+				<ul>
+					<li><b></b> ${brewery.logo}
+					<li><b>Brewery Name:</b> ${brewery.name}
+					<li><b>Address:</b> ${brewery.address}</li>
+				</ul>
+			</c:forEach>
+		</c:when>
+		<c:otherwise>
+		<p>Sorry!</p>
+		<p>No breweries found</p>
 		</c:otherwise>
 	</c:choose>
+	<br>
 
 </body>
 </html>
