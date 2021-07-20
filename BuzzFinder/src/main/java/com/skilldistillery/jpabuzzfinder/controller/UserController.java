@@ -24,8 +24,8 @@ public class UserController {
 	@Autowired
 	private BreweryDAO breweryDAO;
 	
-//	@Autowired
-//	private BeerDAO beerDAO;
+	@Autowired
+	private BeerDAO beerDAO;
 	
 	@RequestMapping("getUserProfile.do")
 	public String getUserProfile(String username, String password, HttpSession session) {
@@ -105,10 +105,15 @@ public class UserController {
 		session.setAttribute("faveBreweries", breweryDAO.favoriteList(id));
 		return "profile";
 	}
-//	@RequestMapping("beerFavorites.do")
-//	public String favoriteBeers(int id, HttpSession session) {
-//		session.setAttribute("beers", beers);
-//		return "profile";
-//	}
+	@RequestMapping("beerFavorites.do")
+	public String favoriteBeers(int id, HttpSession session) {
+		session.setAttribute("beers", beerDAO.faveBeerList(id));
+		return "profile";
+	}
+	@RequestMapping("removeFaveBrewery.do")
+	public String removeFaveBrewery(int id, HttpSession session) {
+		
+		return "profile";
+	}
 	
 }

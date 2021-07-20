@@ -26,5 +26,9 @@
 
 
  <!-- Add this to my favorites -->
+ 	<form action="beerFavorites.do">
+<input type="hidden" name="id" value="${beer.id }">
+<input type="submit" value="Favorite">
+</form>
 </body>
 </html>
