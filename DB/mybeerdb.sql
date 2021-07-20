@@ -219,6 +219,9 @@ CREATE TABLE IF NOT EXISTS `brewery_review` (
   `comment` TEXT NULL,
   `user_id` INT NOT NULL,
   `brewery_id` INT NOT NULL,
+  `favorite_beer` VARCHAR(500) NULL,
+  `rating` INT NULL,
+  `again` VARCHAR(500) NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_brewery_review_user1_idx` (`user_id` ASC),
   INDEX `fk_brewery_review_brewery1_idx` (`brewery_id` ASC),
@@ -3993,7 +3996,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `mybeerdb`;
-INSERT INTO `brewery_review` (`id`, `review_date`, `comment`, `user_id`, `brewery_id`) VALUES (1, '2021-07-12', 'This is the bestest brewery eva!', 1, 1);
+INSERT INTO `brewery_review` (`id`, `review_date`, `comment`, `user_id`, `brewery_id`, `favorite_beer`, `rating`, `again`) VALUES (1, '2021-07-12', 'This is the bestest brewery eva!', 1, 1, NULL, NULL, NULL);
 
 COMMIT;
 
