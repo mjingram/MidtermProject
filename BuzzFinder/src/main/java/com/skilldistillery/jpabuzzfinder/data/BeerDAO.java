@@ -9,7 +9,7 @@ public interface BeerDAO {
 	
 	Beer findBeerById(int id);
 	
-	Beer findBeerByName(String name);
+	List<Beer> findBeerByName(String name);
 	
 	List<Beer> findBeerByStyle(BeerStyle beerStyle);
 	

@@ -32,7 +32,7 @@
 	<input type="submit" name ="home" value="Home"/></form>
 	
 	<form action="search.do"> <!--Login Page  -->
-<button type="submit">Search</button>
+<button type="submit">Search Beers and Breweries</button>
 </form>
 	
 	<!-- Show Favorite Beers/Breweries -->
