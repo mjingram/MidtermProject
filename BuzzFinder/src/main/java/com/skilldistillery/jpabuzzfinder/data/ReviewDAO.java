@@ -28,6 +28,8 @@ public interface ReviewDAO {
 	BeerReview editBeerReview(BeerReview beRev, int id);
 	
 	boolean deleteBeerReview(int beerId);
+	
+	public List<BeerReview> findReviewByBeer(Beer beer);
 
 	
 	
