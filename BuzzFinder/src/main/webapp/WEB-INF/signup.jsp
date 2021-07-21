@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,29 +14,30 @@
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
 <body>
-<!-- Splash Page  -->
-<div class="splashPage"></div>
 <!-- Header -->
 <div class="headerSection">
-<div class="row ">
-  <div class="col col-lg-4">
+<div class="row headerRow">
+  <div class="col col-lg-4 leftDiv">
+
     <h1 class="title"><i class="fas fa-beer"></i>Buzz Finder</h1>
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 middleDiv">
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 rightDiv">
     <form action="signup.do">
     <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
     </form>
     <form action="login.do" >
     <button type="submit" class="btn btn-light login-button" >Login</button>
     </form>
+
     <form action="search.do">
     <button type="submit" class="btn btn-light search-button">Search</button>
     </form>
   </div>
 </div>
 </div>
+
 <!-- Beer Fizz -->
 <div class="fizz f1"></div>
 <div class="fizz f2"></div>
@@ -85,8 +87,10 @@
 <div class="fizz f46"></div>
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
-
-
+<!-- Content -->
+<div class="mainContent">
+	<div class="innerContent">
+	
 <h2><b>Endless Beer and Brewery Knowledge is just Moments Away!</b></h2>
 
 <h3>Enter your Info Here:</h3>
@@ -111,6 +115,12 @@
 		<p><input type="submit" value = "Create Now!"/></p>
 	</form> 
 	
+
+	</div>
+</div>
+
+
+
 
 </body>
 </html>

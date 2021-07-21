@@ -6,7 +6,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Brewery Results</title>
-
 <!-- BootStrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <!-- Font Awesome Icons -->
@@ -15,17 +14,15 @@
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
 <body>
-<!-- Splash Page  -->
-<div class="splashPage"></div>
 <!-- Header -->
 <div class="headerSection">
-<div class="row ">
-  <div class="col col-lg-4">
+<div class="row headerRow">
+  <div class="col col-lg-4 leftDiv">
     <h1 class="title"><i class="fas fa-beer"></i>Buzz Finder</h1>
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 middleDiv">
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 rightDiv">
     <form action="signup.do">
     <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
     </form>
@@ -87,16 +84,10 @@
 <div class="fizz f46"></div>
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
-
-
-<form action="home.do">
-<button type = "submit">Home</button></form>
-<form action="search.do"> <!--Search Page  -->
-<button type="submit">Search</button>
-</form><form action="login.do"> <!--Login Page  -->
-<button type="submit">Login</button>
-</form><br>
-
+<!-- Content -->
+<div class="mainContent">
+	<div class="innerContent">
+	
 	<h1>Brewery Search Complete!</h1>
 	<br/>
 		<h3>Click on a brewery name to view more information, and what to drink there!</h3>
@@ -125,6 +116,10 @@
 		</c:otherwise>
 	</c:choose>
 	<br>
+	</div>
+</div>
+
+	
 
 </body>
 </html>

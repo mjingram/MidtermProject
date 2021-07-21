@@ -14,17 +14,15 @@
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
 <body>
-<!-- Splash Page  -->
-<div class="splashPage"></div>
 <!-- Header -->
 <div class="headerSection">
-<div class="row ">
-  <div class="col col-lg-4">
+<div class="row headerRow">
+  <div class="col col-lg-4 leftDiv">
     <h1 class="title"><i class="fas fa-beer"></i>Buzz Finder</h1>
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 middleDiv">
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 rightDiv">
     <form action="signup.do">
     <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
     </form>
@@ -86,13 +84,9 @@
 <div class="fizz f46"></div>
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
-
-<p><a href="home.do">Home</a></p>
-<form action="search.do"> <!--Login Page  -->
-<button type="submit">Search</button>
-</form><form action="login.do"> <!--Login Page  -->
-<button type="submit">Login</button>
-</form><br>
+<!-- Content -->
+<div class="mainContent">
+	<div class="innerContent">
 
 	<h1>Your Results are listed below.</h1>
 		<h2>Click on a beer to view where
@@ -123,6 +117,9 @@
 			<p>No beers in database.</p>
 		</c:otherwise>
 	</c:choose>
+	</div>
+</div>
+
 
 </body>
 </html>

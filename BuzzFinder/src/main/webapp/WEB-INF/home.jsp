@@ -10,6 +10,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Chart.JS  -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js" integrity="sha512-0x7/VCkKLLt4wnkFqI8Cgv6no+AaS1TDgmHLOoU3hy/WVtYta2J6gnOIHhYYDJlDxPqEqAYLPS4gzVex4mGJLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
@@ -17,18 +20,18 @@
 <!-- Splash Page  -->
  <div class="splash">
     <h1 class="fade-in splashHead">Welcome to Buzz Finder</h1>
-    <iframe src="https://giphy.com/embed/ju0nZjYgnDgPRrwhrg"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+  <!--   <iframe src="https://giphy.com/embed/ju0nZjYgnDgPRrwhrg"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
  </div>
 <!-- Header -->
 <div class="headerSection">
-<div class="row ">
-  <div class="col col-lg-4">
+<div class="row headerRow">
+  <div class="col col-lg-4 leftDiv">
 
     <h1 class="title"><i class="fas fa-beer"></i>Buzz Finder</h1>
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 middleDiv">
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 rightDiv">
     <form action="signup.do">
     <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
     </form>
@@ -94,7 +97,11 @@
 <div class="fizz f48"></div>
 <!-- Content -->
 <div class="mainContent">
-
+	<div class="innerContent">
+	<div id="wrapper">
+    <canvas id="beerByStateChart"></canvas>
+    </div>
+	</div>
 </div>
 
 
@@ -103,6 +110,7 @@
 
 
  <script src="<c:url value="/js/home.js"/>"></script>
+  <script src="<c:url value="/js/beerByState.js"/>"></script>
 </body>
 </html>
     
