@@ -126,6 +126,62 @@ public class BreweryReview {
 		return true;
 	}
 
+	public String getFavoriteBeer() {
+		return favoriteBeer;
+	}
+
+
+
+
+	public void setFavoriteBeer(String favoriteBeer) {
+		this.favoriteBeer = favoriteBeer;
+	}
+
+
+
+
+	public int getRating() {
+		return rating;
+	}
+
+
+
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+
+
+
+	public String getAgain() {
+		return again;
+	}
+
+
+
+
+	public void setAgain(String again) {
+		this.again = again;
+	}
+
+
+
+
+	public String getFeature() {
+		return feature;
+	}
+
+
+
+
+	public void setFeature(String feature) {
+		this.feature = feature;
+	}
+
+
+
+
 	@Override
 	public String toString() {
 		return "BreweryReview [id=" + id + ", reviewDate=" + reviewDate + ", comment=" + comment + ", user=" + user

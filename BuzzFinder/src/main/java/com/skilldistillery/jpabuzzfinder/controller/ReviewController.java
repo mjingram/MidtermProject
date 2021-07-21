@@ -34,6 +34,7 @@ public class ReviewController {
 	public String reviewBrewery(Model model, int breweryId, String name) {
 
 		model.addAttribute("name", breweryDao.findBreweryByName(name));
+		model.addAttribute("breweryId", breweryId);
 
 		return "breweryReview";
 	}
@@ -46,29 +47,27 @@ public class ReviewController {
 	}
 
 	@RequestMapping(path = "createBreweryReview.do")
-	public String createBrewReview(Model model, LocalDate reviewDate, String comment, Brewery brewery, int rating,
-			String again, String feature, String favoriteBeer) {
-		BreweryReview newReview = new BreweryReview(brewery.getId(), reviewDate, comment, brewery, favoriteBeer, rating,
+	public String createBrewReview(HttpSession session, LocalDate reviewDate, String comment, Brewery brewery, int rating,
+			String again, String feature, String favorite, Integer breweryId) {
+		System.out.println("*_*_*_*_*_*_*_*_*_*__*_*_*_*_*_*_*");
+		System.out.println(breweryId);
+		brewery = breweryDao.findBreweryById(breweryId);
+		BreweryReview newReview = new BreweryReview(0, reviewDate, comment, brewery, favorite, rating,
 				again, feature);
+		
+		newReview.setUser((User)session.getAttribute("user"));
+
 		BreweryReview dbAddedReview = reviewDao.addBreweryReview(newReview);
 
-		model.addAttribute("newBreweryReview", dbAddedReview);
-		model.addAttribute("breweryId", breweryDao.findBreweryById(brewery.getId()));
-		return "singleBreweryResult";
-	}
-
-	@RequestMapping(path = "deleteBreweryReview.do")
-	public String deleteBreweryReview(Model model, int reviewId, int breweryId) {
-		reviewDao.deleteBreweryReview(reviewId);
-		model.addAttribute("breweryId", breweryDao.findBreweryById(breweryId));
-
+		session.setAttribute("newBreweryReview", dbAddedReview);
+		session.setAttribute("brewery", brewery);
+		session.setAttribute("breweryReviews", reviewDao.findReviewByBreweryId(brewery.getId()));
 		return "singleBreweryResult";
 	}
 
 	@RequestMapping(path = "createBeerReview.do")
 	public String createBeerReview(HttpSession session, LocalDate reviewDate, String comment, Beer beer, String taste,
 			String body, int rating, String again, Integer beerId) {
-		System.out.println(beer);
 		beer = beerDao.findBeerById(beerId);
 		BeerReview newReview = new BeerReview(0, reviewDate, comment, beer, taste, body, rating, again);
 		newReview.setUser((User)session.getAttribute("user"));
@@ -80,11 +79,22 @@ public class ReviewController {
 		return "singleBeerResult";
 
 	}
+	@RequestMapping(path = "deleteBreweryReview.do")
+	public String removeBreweryReview(HttpSession session, int reviewId, int breweryId) {
+		
+		session.setAttribute("removeReview", reviewDao.deleteBreweryReview(reviewId));
+//		session.setAttribute("breweryId", breweryDao.findBreweryById(breweryId));
+		
+		return "singleBreweryResult";
+	}
 
 	@RequestMapping(path = "deleteBeerReview.do")
-	public String deleteBeerReview(Model model, int reviewId, int beerId) {
-		reviewDao.deleteBeerReview(beerId);
-		model.addAttribute("beerId", beerDao.findBeerById(beerId));
+	public String deleteBeerReview(HttpSession session, int reviewId, int beerId) {
+		
+		
+		
+		session.setAttribute("removeReview", reviewDao.deleteBeerReview(beerId));
+
 
 		return "singleBeerResult";
 

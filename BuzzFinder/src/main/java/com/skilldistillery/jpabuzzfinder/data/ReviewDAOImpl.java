@@ -21,8 +21,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 	@PersistenceContext
 	private EntityManager em;
 	
-	private List<BeerReview> beerReviews = new ArrayList<>();
-
 	
 	@Override
 	public List<BreweryReview> findReviewByBreweryId(int breweryId) {

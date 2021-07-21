@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +13,7 @@
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
+<link rel="stylesheet" href='<c:url value="css/globalStyles.css" />'>
 </head>
 <body>
 <!-- Splash Page  -->
@@ -94,6 +96,7 @@
 </form><br>
 
 <form action="createBreweryReview.do">
+<input type = "hidden" name = "breweryId" value = "${breweryId }">
 		<label for="name">Brewery Name: </label><input type="text" name="name" value="${brewery.name}" id="name" readonly><br>
 <label for="favorite">Favorite Beer Here: </label>
 			<select id="favorite" name="favorite">
