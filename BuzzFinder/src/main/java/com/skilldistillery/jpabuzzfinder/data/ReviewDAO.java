@@ -29,4 +29,7 @@ public interface ReviewDAO {
 	
 	boolean deleteBeerReview(int beerId);
 
+	
+	
+
 }

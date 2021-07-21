@@ -20,7 +20,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	private List<BeerReview> beerReviews = new ArrayList<>();
 
+	@Override
+	public List<BeerReview> findByBeer(Beer beer) {
+		
+		
+		return beerReviews;
+	}
+	
 	@Override
 	public List<BreweryReview> findByBreweryId(int breweryId) {
 
@@ -87,19 +96,6 @@ public class ReviewDAOImpl implements ReviewDAO {
 		return beers;
 	}
 
-	@Override
-	public List<BeerReview> findByBeer(Beer beer) {
-
-		List<BeerReview> beers = null;
-
-		String jpql = "SELECT br FROM beer_review br JOIN beer ON br.beer_id = beer.id WHERE beer.name = :beer";
-
-		beers = em.createQuery(jpql, BeerReview.class)
-				.setParameter("beer", beer)
-				.getResultList();
-
-		return beers;
-	}
 
 	@Override
 	public BeerReview addBeerReview(BeerReview beerRev) {

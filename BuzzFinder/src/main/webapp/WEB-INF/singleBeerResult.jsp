@@ -109,16 +109,21 @@
 <input type="hidden" name="id" value="${beer.id }">
 <input type="submit" value="Favorite">
 </form>
+ 	<form action="beerReview.do">
+<input type="hidden" name="beerId" value="${beer.id }">
+<input type="submit" value="Review">
+</form>
 
 
+<:c foreach var="beerReview" items = "beers" >
 <ul>
-<li> <b>Beer Name:</b>${rating.name }</li>
-<li> <b>Taste:</b>${rating.taste }</li>
-<li> <b>Body:</b>${rating.feel }</li>
-<li> <b>Overall Rating:</b>${rating.rating }</li>
-<li> <b>Would you drink again:</b>${rating.drink}</li>
+<li> <b>Beer Name:</b>${beer.name }</li>
+<li> <b>Taste:</b>${beerRev.taste }</li>
+<li> <b>Body:</b>${beerRev.body }</li>
+<li> <b>Overall Rating:</b>${beerRev.rating }</li>
+<li> <b>Would you drink again:</b>${beerRev.again}</li>
 </ul>
-
+</:c>
 
 </body>
 </html>
