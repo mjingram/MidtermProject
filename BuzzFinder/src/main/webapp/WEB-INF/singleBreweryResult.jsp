@@ -12,6 +12,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
+         <link href ="css/singleResult.css" type ="text/css" rel ="stylesheet"></link>
+
 </head>
 <body>
 <!-- Splash Page  -->
@@ -87,11 +89,14 @@
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
 
-<ul>
-<%-- <li>${brewery.id }</li> --%>
+<form action="home.do">
+		<input type="submit" name="home" value="Home" />
+	</form>
 
-<li>${brewery.name }</li>
-<li>${brewery.address }</li>
+	<form action="search.do">
+		<!--Login Page  -->
+		<button type="submit">Search Beers and Breweries</button>
+	</form>
 <form action="breweryFavorites.do">
 <input type="hidden" name="id" value="${brewery.id }">
 <input type="submit" value="Favorite">
@@ -100,12 +105,15 @@
 <input type="hidden" name="breweryId" value="${brewery.id }">
 <input type="submit" value="Review">
 </form>
+<h3>Details:</h3>
+<ul>
+<li>${brewery.name }</li>
+<li>${brewery.address }</li>
+ <!--  Menu items-->
 </ul>
-
-
-
  <!-- Add this to my favorites -->
  
+<h3>Reviews:</h3>
  
  <c:choose>
 <c:when test = "${not empty breweryReviews}">

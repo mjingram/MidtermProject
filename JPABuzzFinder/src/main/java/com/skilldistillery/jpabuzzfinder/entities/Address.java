@@ -70,10 +70,10 @@ public class Address {
 		this.street = street;
 	}
 
+	
 	@Override
 	public String toString() {
-		return "Address [id=" + id + ", city=" + city + ", state=" + state + ", zipcode=" + zipcode + ", street="
-				+ street + "]";
+		return "Address- City:" + city + ", State:" + state + ", Zipcode:" + zipcode + ", Street=" + street;
 	}
 
 	@Override

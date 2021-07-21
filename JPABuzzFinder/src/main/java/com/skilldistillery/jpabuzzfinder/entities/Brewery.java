@@ -105,8 +105,7 @@ public class Brewery {
 
 	@Override
 	public String toString() {
-		return "Brewery [id=" + id + ", name=" + name + ", address=" + address + ", imageUrl=" + imageUrl + ", logo="
-				+ logo + "]";
+		return name + " " + "Location: " + address ;
 	}
 
 	@Override
