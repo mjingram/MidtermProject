@@ -91,6 +91,9 @@
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
 
+<div class="mainContent">
+
+	<div class="innerContent">
 
 <div class = "navigation">
 <form action="home.do"> <!--Login Page  -->
@@ -134,6 +137,7 @@
 <br>
 <label for="feature">Favorite Feature: </label>
 			<select id="feature" name="feature">
+    			<option value="beer">The beer is just good!</option>
     			<option value="space">Super Spacious</option>
     			<option value="modern">Fresh and New</option>
     			<option value="clean">Squeaky Clean</option>
@@ -142,13 +146,14 @@
     			<option value="dogs">My dog was right there with me</option>
     			<option value="staff">Friendly Staff</option>
     			<option value="location">It is close to my house</option>
-    			<option value="beer">The beer is just good!</option>
+    			<option value="location">Didn't like a dang thing</option>
     		</select><br>
 			
 			
 					<input type="submit" value="Add Review" />
 			
 </form>
-
+</div>
+</div>
 </body>
 </html>

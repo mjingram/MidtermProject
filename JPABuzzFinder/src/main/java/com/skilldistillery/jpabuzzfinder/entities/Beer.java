@@ -137,8 +137,7 @@ public class Beer {
 
 	@Override
 	public String toString() {
-		return "Beer [id=" + id + ", abv=" + abv + ", ibu=" + ibu + ", name=" + name + ", ounces=" + ounces
-				 + ", imageUrl=" + imageUrl + "]";
+		return "Beer name: " + name + ", abv:" + abv + ", ibu:" + ibu +  ", ounces:" + ounces ;
 	}
 
 	@Override

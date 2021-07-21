@@ -89,6 +89,9 @@
 <div class="fizz f46"></div>
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
+<div class="mainContent">
+
+	<div class="innerContent">
 
 <div class = "navigation">
 <form action="home.do"> <!--Login Page  -->
@@ -142,6 +145,7 @@
 					<input type="submit" value="Add Review" />
 			
 </form>
-
+</div>
+</div>
 </body>
 </html>

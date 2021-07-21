@@ -97,6 +97,11 @@
 	<div class="fizz f46"></div>
 	<div class="fizz f47"></div>
 	<div class="fizz f48"></div>
+	
+	<div class="mainContent">
+	
+	<div class="innerContent">
+<div class = "navigation">
 
 	<form action="home.do">
 		<input type="submit" name="home" value="Home" />
@@ -115,6 +120,7 @@
 		<input type="hidden" name="beerId" value="${beer.id }"> <input
 			type="submit" value="Review">
 	</form>
+	</div>
 <h3>Details:</h3>
 	<ul>
 		<li><b>Beer Name:</b> ${beer.name }</li>
@@ -138,11 +144,13 @@
 				</ul>
 			</c:forEach>
 		</c:when>
+		
 		<c:otherwise>
 			<p>No Reviews</p>
 		</c:otherwise>
 	</c:choose>
 
-
+</div>
+</div>
 </body>
 </html>
