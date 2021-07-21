@@ -111,7 +111,7 @@
 <c:when test = "${not empty breweryReviews}">
 <c:forEach var="breweryReview" items = "${breweryReviews}" >
 <ul>
-<li> <b>Favorite Beer:</b>${breweryReview.favorite }</li>
+<li> <b>Favorite Beer:</b>${breweryReview.favoriteBeer }</li>
 <li> <b>Overall Rating:</b>${breweryReview.rating }</li>
 <li> <b>Would you visit again:</b>${breweryReview.again}</li>
 <li> <b>Favorite Feature:</b>${breweryReview.feature }</li>
