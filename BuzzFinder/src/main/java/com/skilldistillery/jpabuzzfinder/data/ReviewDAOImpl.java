@@ -23,19 +23,13 @@ public class ReviewDAOImpl implements ReviewDAO {
 	
 	private List<BeerReview> beerReviews = new ArrayList<>();
 
-	@Override
-	public List<BeerReview> findByBeer(Beer beer) {
-		
-		
-		return beerReviews;
-	}
 	
 	@Override
-	public List<BreweryReview> findByBreweryId(int breweryId) {
+	public List<BreweryReview> findReviewByBreweryId(int breweryId) {
 
 		List<BreweryReview> breweries = null;
 
-		String jpql = "SELECT br FROM brewery_review br JOIN brewery ON br.brewery_id = brewery.id WHERE br.brewery_id = :brewery";
+		String jpql = "SELECT br FROM BreweryReview br WHERE br.brewery.id = :brewery";
 
 		breweries = em.createQuery(jpql, BreweryReview.class).setParameter("brewery", breweryId).getResultList();
 
@@ -44,11 +38,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<BreweryReview> findByBrewery(Brewery brewery) {
+	public List<BreweryReview> findReviewByBrewery(Brewery brewery) {
 
 		List<BreweryReview> brews = null;
 
-		String jpql = "SELECT br FROM brewery_review br JOIN brewery ON br.brewery_id = brewery.id WHERE brewery.name = :brewery";
+		String jpql = "SELECT br FROM BreweryReview br WHERE br.brewery = :brewery";
 
 		brews = em.createQuery(jpql, BreweryReview.class).setParameter("brewery", brewery).getResultList();
 
@@ -83,11 +77,11 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<BeerReview> findByBeerId(int beerId) {
+	public List<BeerReview> findReviewByBeerId(int beerId) {
 
 		List<BeerReview> beers = null;
 
-		String jpql = "SELECT br FROM beer_review br JOIN beer ON br.beer_id = beer.id WHERE br.beer_id = :beer";
+		String jpql = "SELECT br FROM BeerReview br WHERE br.beer.id = :beer";
 
 		beers = em.createQuery(jpql, BeerReview.class)
 				.setParameter("beer", beerId)
@@ -101,7 +95,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 		List<BeerReview> beers = null;
 
-		String jpql = "SELECT br FROM beer_review br JOIN beer ON br.beer_id = beer.id WHERE beer.name = :beer";
+		String jpql = "SELECT br FROM BeerReview br WHERE br.beer = :beer";
 
 		beers = em.createQuery(jpql, BeerReview.class)
 				.setParameter("beer", beer)
