@@ -15,6 +15,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js" integrity="sha512-0x7/VCkKLLt4wnkFqI8Cgv6no+AaS1TDgmHLOoU3hy/WVtYta2J6gnOIHhYYDJlDxPqEqAYLPS4gzVex4mGJLw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
+<link rel="stylesheet" href="<c:url value="/css/home.css" />">
 </head>
 <body>
 <!-- Splash Page  -->
@@ -100,9 +101,12 @@
 <!-- Content -->
 <div class="mainContent">
 	<div class="innerContent">
-	<div id="wrapper">
+	<h1>Buzz Finder Contains Data on 558 Breweries and 2,410 Beers!</h1>
+	<h3>Search the database for information on your favorite brews and brewerys. Add your favorites to your profile so you won't forget. See the charts below for more information on the beers in our database.</h3>
+   	<h5>Breweries by State</h5>
     <canvas id="beerByStateChart"></canvas>
-    </div>
+    <h5>Beers by Style</h5>
+    <canvas id="beerByStyles"></canvas>
 	</div>
 </div>
 
@@ -113,6 +117,7 @@
 
  <script src="<c:url value="/js/home.js"/>"></script>
   <script src="<c:url value="/js/beerByState.js"/>"></script>
+   <script src="<c:url value="/js/beerByStyle.js"/>"></script>
 </body>
 </html>
     
