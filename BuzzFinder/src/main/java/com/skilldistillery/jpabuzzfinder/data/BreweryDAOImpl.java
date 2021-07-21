@@ -106,13 +106,7 @@ public class BreweryDAOImpl implements BreweryDAO {
 	@Override
 	public List<Brewery> favoriteList(int id) {
 		Brewery brewery = em.find(Brewery.class, id);
-		System.out.println("Found Brewery: " + brewery);
 		faveBreweries.add(brewery);
-		for (Brewery b : faveBreweries) {
-			System.out.println("List Item: " + b);
-		} 
-		faveBreweries.size();
-		
 		return faveBreweries;
 
 	}
