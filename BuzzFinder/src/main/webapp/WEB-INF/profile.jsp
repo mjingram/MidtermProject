@@ -14,17 +14,15 @@
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
 <body>
-<!-- Splash Page  -->
-<div class="splashPage"></div>
 <!-- Header -->
 <div class="headerSection">
-<div class="row ">
-  <div class="col col-lg-4">
+<div class="row headerRow">
+  <div class="col col-lg-4 leftDiv">
     <h1 class="title"><i class="fas fa-beer"></i>Buzz Finder</h1>
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 middleDiv">
   </div>
-  <div class="col col-lg-4">
+  <div class="col col-lg-4 rightDiv">
     <form action="signup.do">
     <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
     </form>
@@ -86,6 +84,9 @@
 <div class="fizz f46"></div>
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
+<!-- Content -->
+<div class="mainContent">
+	<div class="innerContent">
 
 <h1>Account Information:</h1>
 	<!-- TODO: Show Account Info -->
@@ -151,5 +152,8 @@
 		<input type="hidden" name="id" value="${account.id }" /> <input
 			type="submit" value="Add Brewery Review" />
 	</form> --%>
+	</div>
+</div>
+
 </body>
 </html>
