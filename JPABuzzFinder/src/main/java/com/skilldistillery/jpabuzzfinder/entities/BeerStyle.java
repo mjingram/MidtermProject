@@ -53,7 +53,7 @@ public class BeerStyle {
 
 	@Override
 	public String toString() {
-		return "BeerStyle [id=" + id + ", name=" + name + "]";
+		return name;
 	}
 
 	@Override
