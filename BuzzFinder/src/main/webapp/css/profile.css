@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.innerContent {
+	text-align: center;
+}
+
+#accountInfoDisplay {
+	display: inline;
+	position: absolute;
+	
+}
+
+#accountButtons {
+	display: inline;
+	position: absolute;
+	top: 250px;
+	right: 200px;
+}
