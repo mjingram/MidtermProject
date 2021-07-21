@@ -13,20 +13,20 @@ public interface ReviewDAO {
 	
 	List<BreweryReview> findByBrewery(Brewery brewery);
 	
-	BreweryReview addBrewComment(BreweryReview brewRev);
+	BreweryReview addBreweryReview(BreweryReview brewRev);
 	
-	BreweryReview editBrewComment(BreweryReview brewRev, int id);
+	BreweryReview editBreweryReview(BreweryReview brewRev, int id);
 	
-	boolean deleteBrewComment(int reviewId);
+	boolean deleteBreweryReview(int reviewId);
 	
 	List<BeerReview> findByBeerId(int beerId);
 	
 	List<BeerReview> findByBeer(Beer beer);
 	
-	BeerReview addBeerComment(BeerReview beerRev);
+	BeerReview addBeerReview(BeerReview beerRev);
 	
-	BeerReview editBeerComment(BeerReview beRev, int id);
+	BeerReview editBeerReview(BeerReview beRev, int id);
 	
-	boolean deleteBeerComment(int beerId);
+	boolean deleteBeerReview(int beerId);
 
 }
