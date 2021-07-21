@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS -->
 <link rel="stylesheet" href='<c:url value="css/globalStyles.css" />'>
+         <link href ="css/review.css" type ="text/css" rel ="stylesheet"></link>
+
 </head>
 <body>
 <!-- Splash Page  -->
@@ -88,17 +90,25 @@
 <div class="fizz f46"></div>
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
-<p><a href="home.do">Home</a></p>
+
+
+<div class = "navigation">
+<form action="home.do"> <!--Login Page  -->
+<button type="submit">Home</button>
+</form> <br>
 <form action="search.do"> <!--Login Page  -->
 <button type="submit">Search</button>
-</form><form action="login.do"> <!--Login Page  -->
-<button type="submit">Login</button>
-</form><br>
+</form> <br>
+
+</div>
+
+<center><h2>Submit this form to post a review, our brewers appreciate hearing from you!</h2></center>
+
 
 <form action="createBreweryReview.do">
 <input type = "hidden" name = "breweryId" value = "${breweryId }">
-		<label for="name">Brewery Name: </label><input type="text" name="name" value="${brewery.name}" id="name" readonly><br>
-<label for="favorite">Favorite Beer Here: </label>
+		<label for="name">Brewery Name: </label><input type="text" name="name" size = "30" value="${brewery.name}" id="name" readonly><br>
+<label for="favorite">Favorite Beer I had: </label>
 			<select id="favorite" name="favorite">
     			<option value="light">Light Lager</option>
     			<option value="sweet">Sweet Cider</option>
@@ -110,18 +120,18 @@
     			<option value="rich">Rich Porter</option>
     			<option value="thick">Thick IPA</option>
     		</select><br>
-		<label for="rating">Overall Rating: (5 is the highest)</label><br>
+		<label for="rating">Overall Rating: (5 is the highest)</label>
 			<input type="radio" id = "rating" name="rating" value="0"> 0
 			<input type="radio" id = "rating" name="rating" value="1"> 1
 			<input type="radio" id = "rating" name="rating" value="2"> 2
 			<input type="radio" id = "rating" name="rating" value="3"> 3
 			<input type="radio" id = "rating" name="rating" value="4"> 4
 			<input type="radio" id = "rating" name="rating" value="5"> 5
-			
-		<label for="again">Would you visit again? </label><br>
+			<br>
+		<label for="again">Would you visit again? </label>
 		<input type="radio" id = "again" name="again" value="yes"> Yes
 			<input type="radio" id = "again" name="again" value="no"> No
-
+<br>
 <label for="feature">Favorite Feature: </label>
 			<select id="feature" name="feature">
     			<option value="space">Super Spacious</option>
@@ -136,7 +146,7 @@
     		</select><br>
 			
 			
-					<input type="submit" value="Confirm and Review" />
+					<input type="submit" value="Add Review" />
 			
 </form>
 

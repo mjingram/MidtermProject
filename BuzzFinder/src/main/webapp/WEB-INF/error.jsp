@@ -1,20 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-            <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>A Beer for your thoughts?</title>
+<title>Error Page</title>
+
 <!-- BootStrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS -->
-<link rel="stylesheet" href='<c:url value="/css/globalStyles.css" />'>
-         <link href ="css/review.css" type ="text/css" rel ="stylesheet"></link>
-
+<link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
 <body>
 <!-- Splash Page  -->
@@ -90,58 +88,10 @@
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
 
-<div class = "navigation">
-<form action="home.do"> <!--Login Page  -->
-<button type="submit">Home</button>
-</form> <br>
-<form action="search.do"> <!--Login Page  -->
-<button type="submit">Search</button>
-</form> <br>
+</head>
+<body>
 
-</div>
-
-<center><h2>Submit this form to post a review, our brewers appreciate hearing from you!</h2></center>
-
-
-<form action="createBeerReview.do">
-<input type = "hidden" name = "beerId" value="${beerId }">
-		<label for="name">Beer Name: </label><input type="text" name="name" size = "30" value="${beer.name }" id="name" readonly><br>
-		<label for="taste">Taste: </label>
-		<select id="taste" name="taste">
-		<option value="fruity" >Fruity</option>
-		<option value="bitter" >Bitter</option>
-		<option value="malty" >Malty</option>
-		<option value="dark" >Dark</option>
-		<option value="hoppy" >Hoppy</option>
-		<option value="crisp" >Crisp</option></select><br>
-<label for="body">Body: </label>
-			<select id="body" name="body">
-    			<option value="light">Light</option>
-    			<option value="sweet">Sweet</option>
-    			<option value="thin">Thin</option>
-    			<option value="dry">Dry</option>
-    			<option value="full">Full</option>
-    			<option value="creamy">Creamy</option>
-    			<option value="heavy">Heavy</option>
-    			<option value="rich">Rich</option>
-    			<option value="thick">Thick</option>
-    		</select><br>
-		<label for="rating">Overall Rating: (5 is the highest)</label>
-			<input type="radio" id = "rating" name="rating" value="0"> 0
-			<input type="radio" id = "rating" name="rating" value="1"> 1
-			<input type="radio" id = "rating" name="rating" value="2"> 2
-			<input type="radio" id = "rating" name="rating" value="3"> 3
-			<input type="radio" id = "rating" name="rating" value="4"> 4
-			<input type="radio" id = "rating" name="rating" value="5"> 5
-			<br>
-		<label for="again">Would you drink it again? </label>
-		<input type="radio" id = "again" name="again" value="yes"> 10/10 Yes times two
-			<input type="radio" id = "again" name="again" value="no"> 1/10 Heck No techno
-			<br>
-			
-					<input type="submit" value="Add Review" />
-			
-</form>
+<h3>Whoops! Something went wrong, please return home and try again.</h3>
 
 </body>
 </html>
