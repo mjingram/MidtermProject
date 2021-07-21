@@ -20,7 +20,16 @@ public class ReviewDAOImpl implements ReviewDAO {
 
 	@PersistenceContext
 	private EntityManager em;
+	
+	private List<BeerReview> beerReviews = new ArrayList<>();
 
+	@Override
+	public List<BeerReview> findByBeer(Beer beer) {
+		
+		
+		return beerReviews;
+	}
+	
 	@Override
 	public List<BreweryReview> findByBreweryId(int breweryId) {
 
@@ -48,13 +57,13 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public BreweryReview addBrewComment(BreweryReview brewRev) {
+	public BreweryReview addBreweryReview(BreweryReview brewRev) {
 		em.persist(brewRev);
 		return brewRev;
 	}
 
 	@Override
-	public BreweryReview editBrewComment(BreweryReview brewRev, int id) {
+	public BreweryReview editBreweryReview(BreweryReview brewRev, int id) {
 		BreweryReview editCom = em.find(BreweryReview.class, id);
 
 		editCom.setComment(brewRev.getComment());
@@ -63,7 +72,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public boolean deleteBrewComment(int reviewId) {
+	public boolean deleteBreweryReview(int reviewId) {
 		BreweryReview deleteRev = em.find(BreweryReview.class, reviewId);
 
 		em.remove(deleteRev);
@@ -88,7 +97,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public List<BeerReview> findByBeer(Beer beer) {
+	public List<BeerReview> findReviewByBeer(Beer beer) {
 
 		List<BeerReview> beers = null;
 
@@ -102,13 +111,13 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public BeerReview addBeerComment(BeerReview beerRev) {
+	public BeerReview addBeerReview(BeerReview beerRev) {
 		em.persist(beerRev);
 		return beerRev;
 	}
 
 	@Override
-	public BeerReview editBeerComment(BeerReview beRev, int id) {
+	public BeerReview editBeerReview(BeerReview beRev, int id) {
 		BeerReview editCom = em.find(BeerReview.class, id);
 
 		editCom.setComment(beRev.getComment());
@@ -117,7 +126,7 @@ public class ReviewDAOImpl implements ReviewDAO {
 	}
 
 	@Override
-	public boolean deleteBeerComment(int beerId) {
+	public boolean deleteBeerReview(int beerId) {
 		BeerReview deleteRev = em.find(BeerReview.class, beerId);
 
 		em.remove(deleteRev);

@@ -94,7 +94,7 @@
 </form><br>
 
 <form action="createBreweryReview.do">
-		<label for="name">Brewery Name: </label><input type="text" name="name" value="" id="name"><br>
+		<label for="name">Brewery Name: </label><input type="text" name="name" value="${brewery.name}" id="name" readonly><br>
 <label for="favorite">Favorite Beer Here: </label>
 			<select id="favorite" name="favorite">
     			<option value="light">Light Lager</option>

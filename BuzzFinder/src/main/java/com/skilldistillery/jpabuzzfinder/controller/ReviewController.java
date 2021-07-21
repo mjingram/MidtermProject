@@ -15,6 +15,7 @@ import com.skilldistillery.jpabuzzfinder.entities.Beer;
 import com.skilldistillery.jpabuzzfinder.entities.BeerReview;
 import com.skilldistillery.jpabuzzfinder.entities.Brewery;
 import com.skilldistillery.jpabuzzfinder.entities.BreweryReview;
+import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Controller
 public class ReviewController {
@@ -27,14 +28,32 @@ public class ReviewController {
 	
 	@Autowired
 	private BeerDAO beerDao;
+	
+	@RequestMapping(path = "breweryReview.do")
+	public String reviewBrewery(Model model, int breweryId, String name) {
+		
+		model.addAttribute("name", breweryDao.findBreweryByName(name));
+		
+	return "breweryReview";
+	}
+	
+	
+	
+	
+	@RequestMapping(path = "beerReview.do")
+	public String reviewBeer(Model model, int beerId, String name) {
+		model.addAttribute("name", beerDao.findBeerByName(name));
+		return "beerReview";
+	}
 
 	@RequestMapping(path = "createBreweryReview.do")
-	public String createBrewReview(Model model, LocalDate reviewDate,String comment, Brewery brewery, int breweryId  ) {
-		BreweryReview newReview = new BreweryReview(reviewDate, comment, brewery );
-		BreweryReview dbAddedReview = reviewDao.addBrewComment(newReview);
+	public String createBrewReview(Model model, LocalDate reviewDate,String comment, Brewery brewery, int rating, String again, String feature, String favoriteBeer  ) {
+		BreweryReview newReview = new BreweryReview( brewery.getId(), reviewDate,  comment,  brewery,  favoriteBeer,
+				 rating,  again,  feature);
+		BreweryReview dbAddedReview = reviewDao.addBreweryReview(newReview);
 		
-		model.addAttribute("new Brewery Review", dbAddedReview);
-		model.addAttribute("brewery Id", breweryDao.findBreweryById(breweryId));
+		model.addAttribute("newBreweryReview", dbAddedReview);
+		model.addAttribute("breweryId", breweryDao.findBreweryById(brewery.getId()));
 return "singleBreweryResult";
 	}
 	
@@ -42,26 +61,27 @@ return "singleBreweryResult";
 	
 	@RequestMapping(path = "deleteBreweryReview.do")
 	public String deleteBreweryReview(Model model, int reviewId, int breweryId) {
-		reviewDao.deleteBrewComment(reviewId);
-		model.addAttribute("brewery Id", breweryDao.findBreweryById(breweryId));
+		reviewDao.deleteBreweryReview(reviewId);
+		model.addAttribute("breweryId", breweryDao.findBreweryById(breweryId));
 		
 		return "singleBreweryResult";
 	}
 	
 	
 	@RequestMapping (path = "createBeerReview.do")
-	public String createBeerReview(Model model, LocalDate reviewDate,String comment, Beer beer, int beerId ) {
-		BeerReview newReview = new BeerReview(reviewDate, comment, beer );
-		BeerReview dbAddedReview = reviewDao.addBeerComment(newReview);
+	public String createBeerReview(Model model, LocalDate reviewDate, String comment, Beer beer, String taste, String body, int rating, String again) {
+		BeerReview newReview = new BeerReview( beer.getId(),  reviewDate,  comment,  beer,  taste,  body,  rating,
+				 again );
+		BeerReview dbAddedReview = reviewDao.addBeerReview(newReview);
 		
-		model.addAttribute("new Beer Review", dbAddedReview);
-		model.addAttribute("Beer Id", beerDao.findBeerById(beerId));
+		model.addAttribute("newBeerReview", dbAddedReview);
+		model.addAttribute("beer", beerDao.findBeerById(beer.getId()));
 return "singleBeerResult";	}
 	
 	@RequestMapping(path = "deleteBeerReview.do")
 	public String deleteBeerReview(Model model, int reviewId, int beerId) {
-		reviewDao.deleteBeerComment(beerId);
-		model.addAttribute("beer Id", beerDao.findBeerById(beerId));
+		reviewDao.deleteBeerReview(beerId);
+		model.addAttribute("beerId", beerDao.findBeerById(beerId));
 		
 		return "singleBeerResult";
 

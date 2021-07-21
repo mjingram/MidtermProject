@@ -45,12 +45,21 @@ public class BeerReview {
 	public BeerReview() {}
 	
 	
-	public BeerReview(LocalDate reviewDate, String comment, Beer beer) {
+	public BeerReview(int id, LocalDate reviewDate, String comment, Beer beer, String taste, String body, int rating,
+			String again) {
 		super();
+		this.id = id;
 		this.reviewDate = reviewDate;
 		this.comment = comment;
 		this.beer = beer;
+		this.taste = taste;
+		this.body = body;
+		this.rating = rating;
+		this.again = again;
 	}
+
+
+
 
 
 	public int getId() {

@@ -97,8 +97,15 @@
 
 
 <form action="createBeerReview.do">
-		<label for="name">Beer Name: </label><input type="text" name="name" value="" id="name"><br>
-		<label for="taste">Taste: </label><input type="text" name="taste" value="" id="taste"><br>
+		<label for="name">Beer Name: </label><input type="text" name="name" value="${beer.name }" id="name" readonly><br>
+		<label for="taste">Taste: </label>
+		<select id="taste" name="taste">
+		<option value="fruity" >Fruity</option>
+		<option value="bitter" >Bitter</option>
+		<option value="malty" >Malty</option>
+		<option value="dark" >Dark</option>
+		<option value="hoppy" >Hoppy</option>
+		<option value="crisp" >Crisp</option></select><br>
 <label for="body">Body: </label>
 			<select id="body" name="body">
     			<option value="light">Light</option>
