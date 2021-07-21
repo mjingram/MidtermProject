@@ -96,6 +96,10 @@
 <input type="hidden" name="id" value="${brewery.id }">
 <input type="submit" value="Favorite">
 </form>
+<form action="breweryReview.do">
+<input type="hidden" name="breweryId" value="${brewery.id }">
+<input type="submit" value="Review">
+</form>
 </ul>
 
 

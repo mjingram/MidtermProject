@@ -28,5 +28,7 @@ public interface ReviewDAO {
 	BeerReview editBeerComment(BeerReview beRev, int id);
 	
 	boolean deleteBeerComment(int beerId);
+	
+	
 
 }
