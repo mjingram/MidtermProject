@@ -111,8 +111,12 @@
 	<input type="submit" name ="home" value="Home"/></form>
 	
 	<form action="search.do"> <!--Login Page  -->
-<button type="submit">Search Beers and Breweries</button>
-</form>
+<button type="submit">Search Beers and Breweries</button></form>
+
+	<form action="logout.do">
+	<input type="hidden" name="user" value="${user}" /> <input
+			type="submit" value="Logout" />
+	</form>
 	
 	<!-- Show Favorite Beers/Breweries -->
 	<h3>Favorite Breweries</h3>
