@@ -15,7 +15,10 @@
 </head>
 <body>
 <!-- Splash Page  -->
-<div class="splashPage"></div>
+ <div class="splash">
+    <h1 class="fade-in splashHead">Welcome to Buzz Finder</h1>
+    <iframe src="https://giphy.com/embed/ju0nZjYgnDgPRrwhrg"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+ </div>
 <!-- Header -->
 <div class="headerSection">
 <div class="row ">
@@ -99,7 +102,7 @@
 
 
 
-<script src="home.js"></script>
+ <script src="<c:url value="/js/home.js"/>"></script>
 </body>
 </html>
     
