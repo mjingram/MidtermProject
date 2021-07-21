@@ -45,12 +45,21 @@ public class BeerReview {
 	public BeerReview() {}
 	
 	
-	public BeerReview(LocalDate reviewDate, String comment, Beer beer) {
+	public BeerReview(int id, LocalDate reviewDate, String comment, Beer beer, String taste, String body, int rating,
+			String again) {
 		super();
+		this.id = id;
 		this.reviewDate = reviewDate;
 		this.comment = comment;
 		this.beer = beer;
+		this.taste = taste;
+		this.body = body;
+		this.rating = rating;
+		this.again = again;
 	}
+
+
+
 
 
 	public int getId() {
@@ -93,6 +102,46 @@ public class BeerReview {
 	public void setBeer(Beer beer) {
 		this.beer = beer;
 	}
+
+	public String getTaste() {
+		return taste;
+	}
+
+
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
+
+
+	public String getBody() {
+		return body;
+	}
+
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+
+	public int getRating() {
+		return rating;
+	}
+
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+
+	public String getAgain() {
+		return again;
+	}
+
+
+	public void setAgain(String again) {
+		this.again = again;
+	}
+
 
 	@Override
 	public String toString() {

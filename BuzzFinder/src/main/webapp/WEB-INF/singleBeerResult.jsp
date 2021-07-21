@@ -109,15 +109,27 @@
 <input type="hidden" name="id" value="${beer.id }">
 <input type="submit" value="Favorite">
 </form>
+ 	<form action="beerReview.do">
+<input type="hidden" name="beerId" value="${beer.id }">
+<input type="submit" value="Review">
+</form>
 
 
+<c:choose>
+<c:when test = "${not empty beerReviews}">
+<c:forEach var="beerReview" items = "${beerReviews}" >
 <ul>
-<li> <b>Beer Name:</b>${rating.name }</li>
-<li> <b>Taste:</b>${rating.taste }</li>
-<li> <b>Body:</b>${rating.feel }</li>
-<li> <b>Overall Rating:</b>${rating.rating }</li>
-<li> <b>Would you drink again:</b>${rating.drink}</li>
+<li> <b>Taste:</b>${beerReview.taste }</li>
+<li> <b>Body:</b>${beerReview.body }</li>
+<li> <b>Overall Rating:</b>${beerReview.rating }</li>
+<li> <b>Would you drink again:</b>${beerReview.again}</li>
 </ul>
+</c:forEach>
+</c:when>
+<c:otherwise>
+<p> No Reviews </p>
+</c:otherwise>
+</c:choose>
 
 
 </body>

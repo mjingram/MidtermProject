@@ -9,24 +9,27 @@ import com.skilldistillery.jpabuzzfinder.entities.BreweryReview;
 
 public interface ReviewDAO {
 	
-	List<BreweryReview> findByBreweryId( int breweryId);
+	List<BreweryReview> findReviewByBreweryId( int breweryId);
 	
-	List<BreweryReview> findByBrewery(Brewery brewery);
+	List<BreweryReview> findReviewByBrewery(Brewery brewery);
 	
-	BreweryReview addBrewComment(BreweryReview brewRev);
+	BreweryReview addBreweryReview(BreweryReview brewRev);
 	
-	BreweryReview editBrewComment(BreweryReview brewRev, int id);
+	BreweryReview editBreweryReview(BreweryReview brewRev, int id);
 	
-	boolean deleteBrewComment(int reviewId);
+	boolean deleteBreweryReview(int reviewId);
 	
-	List<BeerReview> findByBeerId(int beerId);
+	List<BeerReview> findReviewByBeerId(int beerId);
 	
-	List<BeerReview> findByBeer(Beer beer);
+	BeerReview addBeerReview(BeerReview beerRev);
 	
-	BeerReview addBeerComment(BeerReview beerRev);
+	BeerReview editBeerReview(BeerReview beRev, int id);
 	
-	BeerReview editBeerComment(BeerReview beRev, int id);
+	boolean deleteBeerReview(int beerId);
 	
-	boolean deleteBeerComment(int beerId);
+	public List<BeerReview> findReviewByBeer(Beer beer);
+
+	
+	
 
 }

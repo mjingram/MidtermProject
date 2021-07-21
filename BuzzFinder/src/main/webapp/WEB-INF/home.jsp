@@ -20,7 +20,9 @@
 <!-- Splash Page  -->
  <div class="splash">
     <h1 class="fade-in splashHead">Welcome to Buzz Finder</h1>
+
   <!--   <iframe src="https://giphy.com/embed/ju0nZjYgnDgPRrwhrg"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
+
  </div>
 <!-- Header -->
 <div class="headerSection">
