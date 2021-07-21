@@ -103,6 +103,46 @@ public class BeerReview {
 		this.beer = beer;
 	}
 
+	public String getTaste() {
+		return taste;
+	}
+
+
+	public void setTaste(String taste) {
+		this.taste = taste;
+	}
+
+
+	public String getBody() {
+		return body;
+	}
+
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+
+	public int getRating() {
+		return rating;
+	}
+
+
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+
+
+	public String getAgain() {
+		return again;
+	}
+
+
+	public void setAgain(String again) {
+		this.again = again;
+	}
+
+
 	@Override
 	public String toString() {
 		return "BeerReview [id=" + id + ", reviewDate=" + reviewDate + ", comment=" + comment + ", user=" + user + "]";

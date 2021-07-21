@@ -115,15 +115,22 @@
 </form>
 
 
-<:c foreach var="beerReview" items = "beers" >
+<c:choose>
+<c:when test = "${not empty beerReviews}">
+<c:forEach var="beerReview" items = "${beerReviews}" >
 <ul>
-<li> <b>Beer Name:</b>${beer.name }</li>
-<li> <b>Taste:</b>${beerRev.taste }</li>
-<li> <b>Body:</b>${beerRev.body }</li>
-<li> <b>Overall Rating:</b>${beerRev.rating }</li>
-<li> <b>Would you drink again:</b>${beerRev.again}</li>
+<li> <b>Taste:</b>${beerReview.taste }</li>
+<li> <b>Body:</b>${beerReview.body }</li>
+<li> <b>Overall Rating:</b>${beerReview.rating }</li>
+<li> <b>Would you drink again:</b>${beerReview.again}</li>
 </ul>
-</:c>
+</c:forEach>
+</c:when>
+<c:otherwise>
+<p> No Reviews </p>
+</c:otherwise>
+</c:choose>
+
 
 </body>
 </html>

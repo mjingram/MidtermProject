@@ -33,7 +33,7 @@ public class UserController {
 		User newUser = userDao.login(username, password);
 		session.setAttribute("accountInfo", newUser.getAccountInfo());
 		session.setAttribute("addressInfo", newUser.getAccountInfo().getAddress());
-		session.setAttribute("user", newUser.getId());
+		session.setAttribute("user", newUser);
 		
 		return "profile";
 	}

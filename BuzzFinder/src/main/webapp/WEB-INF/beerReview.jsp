@@ -97,6 +97,7 @@
 
 
 <form action="createBeerReview.do">
+<input type = "hidden" name = "beerId" value="${beerId }">
 		<label for="name">Beer Name: </label><input type="text" name="name" value="${beer.name }" id="name" readonly><br>
 		<label for="taste">Taste: </label>
 		<select id="taste" name="taste">
