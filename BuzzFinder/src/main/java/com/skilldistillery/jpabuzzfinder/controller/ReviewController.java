@@ -50,7 +50,7 @@ public class ReviewController {
 	public String createBrewReview(Model model, LocalDate reviewDate,String comment, Brewery brewery, int rating, String again, String feature, String favoriteBeer  ) {
 		BreweryReview newReview = new BreweryReview( brewery.getId(), reviewDate,  comment,  brewery,  favoriteBeer,
 				 rating,  again,  feature);
-		BreweryReview dbAddedReview = reviewDao.addBrewComment(newReview);
+		BreweryReview dbAddedReview = reviewDao.addBreweryReview(newReview);
 		
 		model.addAttribute("newBreweryReview", dbAddedReview);
 		model.addAttribute("breweryId", breweryDao.findBreweryById(brewery.getId()));
@@ -61,7 +61,7 @@ return "singleBreweryResult";
 	
 	@RequestMapping(path = "deleteBreweryReview.do")
 	public String deleteBreweryReview(Model model, int reviewId, int breweryId) {
-		reviewDao.deleteBrewComment(reviewId);
+		reviewDao.deleteBreweryReview(reviewId);
 		model.addAttribute("breweryId", breweryDao.findBreweryById(breweryId));
 		
 		return "singleBreweryResult";
@@ -72,7 +72,7 @@ return "singleBreweryResult";
 	public String createBeerReview(Model model, LocalDate reviewDate, String comment, Beer beer, String taste, String body, int rating, String again) {
 		BeerReview newReview = new BeerReview( beer.getId(),  reviewDate,  comment,  beer,  taste,  body,  rating,
 				 again );
-		BeerReview dbAddedReview = reviewDao.addBeerComment(newReview);
+		BeerReview dbAddedReview = reviewDao.addBeerReview(newReview);
 		
 		model.addAttribute("newBeerReview", dbAddedReview);
 		model.addAttribute("beer", beerDao.findBeerById(beer.getId()));
@@ -80,7 +80,7 @@ return "singleBeerResult";	}
 	
 	@RequestMapping(path = "deleteBeerReview.do")
 	public String deleteBeerReview(Model model, int reviewId, int beerId) {
-		reviewDao.deleteBeerComment(beerId);
+		reviewDao.deleteBeerReview(beerId);
 		model.addAttribute("beerId", beerDao.findBeerById(beerId));
 		
 		return "singleBeerResult";
