@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+            <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,9 @@
 <!-- Font Awesome Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
+<link rel="stylesheet" href='<c:url value="/css/globalStyles.css" />'>
+         <link href ="css/review.css" type ="text/css" rel ="stylesheet"></link>
+
 </head>
 <body>
 <!-- Splash Page  -->
@@ -86,19 +90,22 @@
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
 
-<p><a href="home.do">Home</a></p>
+<div class = "navigation">
+<form action="home.do"> <!--Login Page  -->
+<button type="submit">Home</button>
+</form> <br>
 <form action="search.do"> <!--Login Page  -->
 <button type="submit">Search</button>
-</form><form action="login.do"> <!--Login Page  -->
-<button type="submit">Login</button>
-</form><br>
+</form> <br>
 
-<h1>Fill out this form for valuable feedback, our brewers appreciate hearing from you!</h1>
+</div>
+
+<center><h2>Submit this form to post a review, our brewers appreciate hearing from you!</h2></center>
 
 
 <form action="createBeerReview.do">
 <input type = "hidden" name = "beerId" value="${beerId }">
-		<label for="name">Beer Name: </label><input type="text" name="name" value="${beer.name }" id="name" readonly><br>
+		<label for="name">Beer Name: </label><input type="text" name="name" size = "30" value="${beer.name }" id="name" readonly><br>
 		<label for="taste">Taste: </label>
 		<select id="taste" name="taste">
 		<option value="fruity" >Fruity</option>
@@ -119,20 +126,20 @@
     			<option value="rich">Rich</option>
     			<option value="thick">Thick</option>
     		</select><br>
-		<label for="rating">Overall Rating: (5 is the highest)</label><br>
+		<label for="rating">Overall Rating: (5 is the highest)</label>
 			<input type="radio" id = "rating" name="rating" value="0"> 0
 			<input type="radio" id = "rating" name="rating" value="1"> 1
 			<input type="radio" id = "rating" name="rating" value="2"> 2
 			<input type="radio" id = "rating" name="rating" value="3"> 3
 			<input type="radio" id = "rating" name="rating" value="4"> 4
 			<input type="radio" id = "rating" name="rating" value="5"> 5
-			
-		<label for="again">Would you drink it again? </label><br>
+			<br>
+		<label for="again">Would you drink it again? </label>
 		<input type="radio" id = "again" name="again" value="yes"> 10/10 Yes times two
 			<input type="radio" id = "again" name="again" value="no"> 1/10 Heck No techno
+			<br>
 			
-			
-					<input type="submit" value="Confirm and Review" />
+					<input type="submit" value="Add Review" />
 			
 </form>
 

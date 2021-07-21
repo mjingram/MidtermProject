@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+form{
+	margin-left: 200px;
+}
+
+
+h2{
+	font-style: italic;
+}
+
+.navigation{
+	height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
