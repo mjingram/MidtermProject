@@ -38,6 +38,13 @@ public class UserController {
 		return "profile";
 	}
 	
+	@RequestMapping(path="logout.do")
+	public String doLogout(HttpSession session) {
+		
+		session.removeAttribute("user");
+		
+		return "home";
+	}
 	
 	@RequestMapping("createUserProfile.do")
 	public String createUserProfile(User user, Model model, HttpSession session) {
