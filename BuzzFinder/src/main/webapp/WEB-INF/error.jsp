@@ -17,33 +17,44 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Otomanopee+One&family=Zen+Loop&display=swap" rel="stylesheet"> 
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
+<link rel="stylesheet" href="<c:url value="/css/updateAndDelete.css" />">
 </head>
 <body>
 <canvas id="canvas1"></canvas>
-<!-- Splash Page  -->
-<div class="splashPage"></div>
 <!-- Header -->
-<div class="headerSection">
-<div class="row ">
-  <div class="col col-lg-4">
-    <h1 class="title">
-    <a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a></h1>
-  </div>
-  <div class="col col-lg-4">
-  </div>
-  <div class="col col-lg-4">
-    <form action="signup.do">
-    <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
-    </form>
-    <form action="login.do" >
-    <button type="submit" class="btn btn-light login-button" >Login</button>
-    </form>
-    <form action="search.do">
-    <button type="submit" class="btn btn-light search-button">Search</button>
-    </form>
-  </div>
-</div>
-</div>
+	<div class="headerSection">
+		<div class="row headerRow">
+			<div class="col col-lg-4 leftDiv">
+
+				<h1 class="title">
+					<a href="home.do"> <i class="fas fa-beer"></i>Buzz Finder
+					</a>
+				</h1>
+			</div>
+			<div class="col col-lg-4 middleDiv"></div>
+			<div class="col col-lg-4 rightDiv">
+				<c:if test="${empty sessionScope.user }">
+					<form action="signup.do">
+						<button type="submit" class="btn btn-light sign-up-button">Sign
+							Up</button>
+					</form>
+
+					<form action="login.do">
+						<button type="submit" class="btn btn-light login-button">Login</button>
+					</form>
+				</c:if>
+				<c:if test="${not empty sessionScope.user }">
+					<form action="logout.do">
+						<button type="submit" class="btn btn-light login-button">Logout</button>
+					</form>
+				</c:if>
+				<form action="search.do">
+					<button type="submit" class="btn btn-light search-button">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
 <!-- Beer Fizz -->
 <div class="fizz f1"></div>
 <div class="fizz f2"></div>
@@ -95,9 +106,12 @@
 <div class="fizz f48"></div>
 
 </head>
-<body>
 
-<h3>Whoops! Something went wrong, please return home and try again.</h3>
+<div class="mainContent">
+	<div class="innerContent">
+<h1>Whoops! Something went wrong, please return home and try again.</h1>
+</div>
+</div>
 <script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>

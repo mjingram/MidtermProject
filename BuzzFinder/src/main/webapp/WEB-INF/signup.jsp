@@ -116,7 +116,7 @@
 		<input type="text" class="form-control" name="username" size="20"/>
 		
 		<label for = "password">Password:</label>
-		<input type="text" class ="form-control" name="password" size="27"/>
+		<input type="password" class ="form-control" name="password" size="27"/>
 		
 		
 		<label>Select your favorite style of beer:</label>

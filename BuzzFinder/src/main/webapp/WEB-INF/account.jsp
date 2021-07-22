@@ -16,31 +16,43 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Otomanopee+One&family=Zen+Loop&display=swap" rel="stylesheet"> 
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
+<link rel="stylesheet" href="<c:url value="/css/account.css" />">
 </head>
 <body>
 <canvas id="canvas1"></canvas>
 <!-- Header -->
-<div class="headerSection">
-<div class="row headerRow">
-  <div class="col col-lg-4 leftDiv">
-    <h1 class="title">
-    <a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a></h1>
-  </div>
-  <div class="col col-lg-4 middleDiv">
-  </div>
-  <div class="col col-lg-4 rightDiv">
-    <form action="signup.do">
-    <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
-    </form>
-    <form action="login.do" >
-    <button type="submit" class="btn btn-light login-button" >Login</button>
-    </form>
-    <form action="search.do">
-    <button type="submit" class="btn btn-light search-button">Search</button>
-    </form>
-  </div>
-</div>
-</div>
+	<div class="headerSection">
+		<div class="row headerRow">
+			<div class="col col-lg-4 leftDiv">
+
+				<h1 class="title">
+					<a href="home.do"> <i class="fas fa-beer"></i>Buzz Finder
+					</a>
+				</h1>
+			</div>
+			<div class="col col-lg-4 middleDiv"></div>
+			<div class="col col-lg-4 rightDiv">
+				<c:if test="${empty sessionScope.user }">
+					<form action="signup.do">
+						<button type="submit" class="btn btn-light sign-up-button">Sign
+							Up</button>
+					</form>
+
+					<form action="login.do">
+						<button type="submit" class="btn btn-light login-button">Login</button>
+					</form>
+				</c:if>
+				<c:if test="${not empty sessionScope.user }">
+					<form action="logout.do">
+						<button type="submit" class="btn btn-light login-button">Logout</button>
+					</form>
+				</c:if>
+				<form action="search.do">
+					<button type="submit" class="btn btn-light search-button">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
 <!-- Beer Fizz -->
 <div class="fizz f1"></div>
 <div class="fizz f2"></div>
@@ -97,13 +109,19 @@
 <form action="sendAccountCreate.do">
 <input type="hidden" name="username" value="${user.username }">
 <input type="hidden" name="password" value="${user.password }">
-<input type="text" name="firstName" placeholder="First Name">
-<input type="text" name="lastName" placeholder="Last Name">
-<input type="text" name="street" placeholder="Address">
-<input type="text" name="city" placeholder="City">
-<input type="text" name="state" placeholder="State">
-<input type="text" name="zipcode" placeholder="Zip">
-<input type="submit" value="Send">
+<label>First Name:</label>
+<input type="text" name="firstName" class="form-control" placeholder="First Name">
+<label>Last Name:</label>
+<input type="text" name="lastName" class="form-control" placeholder="Last Name">
+<label>Street:</label>
+<input type="text" name="street" class="form-control" placeholder="Address">
+<label>City:</label>
+<input type="text" name="city" class="form-control" placeholder="City">
+<label>State:</label>
+<input type="text" name="state" class="form-control" maxlength="2" placeholder="State">
+<label>Zipcode:</label>
+<input type="text" pattern="[0-9]{5}" name="zipcode" class="form-control" placeholder="Zip">
+<input type="submit" value="Send" class="btn btn-light sendCreateAccountBtn">
 </form>
 	</div>
 </div>
