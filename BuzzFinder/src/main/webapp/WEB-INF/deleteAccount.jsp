@@ -42,6 +42,7 @@
 			<div class="col col-lg-4 leftDiv">
 
 				<h1 class="title">
+					<a href="home.do">
 					<a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a>
 				</h1>
 			</div>
