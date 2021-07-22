@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
 <body>
+<canvas id="canvas1"></canvas>
 <!-- Splash Page  -->
 <div class="splashPage"></div>
 <!-- Header -->
@@ -93,6 +94,6 @@
 <body>
 
 <h3>Whoops! Something went wrong, please return home and try again.</h3>
-
+<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>

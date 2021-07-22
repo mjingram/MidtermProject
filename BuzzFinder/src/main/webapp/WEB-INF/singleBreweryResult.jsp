@@ -16,6 +16,7 @@
 
 </head>
 <body>
+<canvas id="canvas1"></canvas>
 <!-- Splash Page  -->
 <div class="splashPage"></div>
 <!-- Header -->
@@ -146,5 +147,6 @@
 </c:choose>
 </div>
 </div>
+<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>
