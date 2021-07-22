@@ -110,7 +110,8 @@
 <h3>Details:</h3>
 <ul>
 <li>${brewery.name }</li>
-<li>${brewery.address }</li>
+<li>${brewery.address.city }</li>
+<li>${brewery.address.state }</li>
 <li>${brewery.beer }</li>
  <!--  Menu items-->
 </ul>
