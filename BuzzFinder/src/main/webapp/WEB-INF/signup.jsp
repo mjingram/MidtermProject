@@ -108,14 +108,15 @@
 <h3>Enter your Info Here:</h3>
 	<form action="createUserProfile.do" method="POST">
 	
-		<p><label for = "username">Username:</label>
-		<input type="text" class="form-control" name="username" size="20"/></p>
+		<label for = "username">Username:</label>
+		<input type="text" class="form-control" name="username" size="20"/>
 		
-		<p><label for = "password">Password:</label>
-		<input type="text" class ="form-control" name="password" size="27"/></p>
+		<label for = "password">Password:</label>
+		<input type="text" class ="form-control" name="password" size="27"/>
 		
 		
-		<p>Select your favorite style of beer: <select name="beerStyle">
+		<label>Select your favorite style of beer:</label>
+		<select class="form-control" name="beerStyle">
           <option value="none">Don't know yet</option>
           <option value="beerStyle1">Ale</option>
           <option value="beerStyle2">Lager</option>
@@ -126,7 +127,7 @@
 
         </select>
 		
-		<p><input type="submit" value = "Create Now!"/></p>
+		<input type="submit" value = "Create Now!" class="btn btn-light"/>
 	</form> 
 	
 
