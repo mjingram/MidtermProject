@@ -23,8 +23,8 @@
 	integrity="sha512-0x7/VCkKLLt4wnkFqI8Cgv6no+AaS1TDgmHLOoU3hy/WVtYta2J6gnOIHhYYDJlDxPqEqAYLPS4gzVex4mGJLw=="
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <!-- CSS -->
-<link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
-<link rel="stylesheet" href="<c:url value="/css/home.css" />">
+<link rel="stylesheet" href='<c:url value="/css/globalStyles.css" />'>
+<link rel="stylesheet" href='<c:url value="/css/home.css" />'>
 </head>
 <body>
 <!-- bubbles canvas -->

@@ -1,18 +1,8 @@
 @charset "UTF-8";
-
-.innerContent {
+.innerContent{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
 	text-align: center;
-}
-
-#accountInfoDisplay {
-	display: inline;
-	position: absolute;
-	
-}
-
-#accountButtons {
-	display: inline;
-	position: absolute;
-	top: 250px;
-	right: 200px;
 }
