@@ -108,17 +108,18 @@ public class UserController {
 		model.addAttribute("breweryRemove", breweryDAO.removeFavoriteBrewery(id));
 		return "profile";
 	}
+	
+	
 	@RequestMapping("breweryFavorites.do")
-	public String favoriteBreweries(int id, HttpSession session) {
-		session.setAttribute("faveBreweries", breweryDAO.favoriteList(id));
+	public String favoriteBreweries(int userId, int id, HttpSession session) {
+		session.setAttribute("faveBreweries", breweryDAO.addToFavoriteList(userId, id));
 		return "profile";
 	}
 	
 	
-	
 	@RequestMapping("beerFavorites.do")
-	public String favoriteBeers(int id, HttpSession session) {
-		session.setAttribute("faveBeers", beerDAO.faveBeerList(id));
+	public String favoriteBeers(int userId, int id, HttpSession session) {
+		session.setAttribute("faveBeers", beerDAO.addToFaveBeerList( userId, id));
 
 		return "profile";
 	}

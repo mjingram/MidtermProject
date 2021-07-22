@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
 </head>
 <body>
+<canvas id="canvas1"></canvas>
 <!-- Header -->
 <div class="headerSection">
 <div class="row headerRow">
@@ -105,6 +106,7 @@
 <li><b>Beer Abv:</b> ${beer.abv }</li>
 <li><b>Beer IBU:</b> ${beer.ibu }</li>
 <li><b>Beer Ounces:</b> ${beer.ounces }</li> 
+<li> <img src="${beer.imageUrl }"></li> 
 </ul>
 <form action = "beerDetails.do">
 <input type=hidden name="id" value="${beer.id}"> 
@@ -121,6 +123,6 @@
 	</div>
 </div>
 
-
+<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>
