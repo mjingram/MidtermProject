@@ -112,7 +112,7 @@
 <label>Username:</label>
 <input type="text" class="form-control" name="username" placeholder="User Name">
 <label>Password:</label>
-<input type="text" class="form-control" name="password" placeholder="Password">
+<input type="password" class="form-control" name="password" placeholder="Password">
 
 <input type="submit" value = "Send" class="btn btn-light loginPageBtn">
 </form>

@@ -104,15 +104,19 @@
 			<div class="row">
 
 				<div class="col">
+									<c:if test="${not empty sessionScope.user }">
 					<form action="beerFavorites.do">
-						<input type="hidden" name="id" value="${beer.id }"> <input
-							type="hidden" name="userId" value="${user.id }"> <input
-							type="submit" value="Favorite">
+						<input type="hidden" name="id" value="${beer.id }"> 
+						<input type="hidden" name="userId" value="${user.id }"> 
+						<input type="submit" value="Favorite">
 					</form>
+					</c:if>
+									<c:if test="${not empty sessionScope.user }">
 					<form action="beerReview.do">
 						<input type="hidden" name="beerId" value="${beer.id }"> <input
 							type="submit" value="Review">
 					</form>
+					</c:if>
 					
 					
 									<c:if test="${not empty sessionScope.user }">
