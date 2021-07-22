@@ -145,16 +145,15 @@
 						<input type="hidden" name="id" value="${b.id }" /> <input
 							type="submit" value="Remove Beer" />
 					</form>
-				</c:forEach>
-			</div>
 
 			<br />
 
-			<div id="reviewButton">
 				<form action="beerReview.do">
-					<input type="hidden" name="beerId" value="${beer.id }"> <input
+					<input type="hidden" name="beerId" value="${b.id }"> <input
 						type="submit" value="New Beer Review">
 				</form>
+			
+				</c:forEach>
 			</div>
 
 			<br />
@@ -171,19 +170,20 @@
 						<input type="hidden" name="id" value="${brew.id }" /> <input
 							type="submit" value="Remove Brewery" />
 					</form>
-				</c:forEach>
-			</div>
 
 			<br />
 
 			<div id="reviewButton">
 				<form action="breweryReview.do">
-					<input type="hidden" name="breweryId" value="${brewery.id }">
+					<input type="hidden" name="breweryId" value="${brew.id }">
 					<input type="submit" value="New Brewery Review">
 				</form>
 			</div>
 			<br/>
 			<br/>
+				</c:forEach>
+			</div>
+			
 			<div id="searchButton">
 				<form action="search.do">
 					<!--Login Page  -->
