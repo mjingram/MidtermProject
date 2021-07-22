@@ -27,11 +27,63 @@
 <link rel="stylesheet" href="<c:url value="/css/home.css" />">
 </head>
 <body>
+<!-- bubbles canvas -->
+<canvas id="canvas1"></canvas>
+
+
 <c:if test="${empty sessionScope.user }">
 	<!-- Splash Page  -->
 	<div class="splash">
 		<h1 class="fade-in splashHead">Welcome to Buzz Finder</h1>
-
+		<div class="fizzSplash f1"></div>
+	<div class="fizzSplash f2"></div>
+	<div class="fizzSplash f3"></div>
+	<div class="fizzSplash f4"></div>
+	<div class="fizzSplash f5"></div>
+	<div class="fizzSplash f6"></div>
+	<div class="fizzSplash f7"></div>
+	<div class="fizzSplash f8"></div>
+	<div class="fizzSplash f9"></div>
+	<div class="fizzSplash f10"></div>
+	<div class="fizzSplash f11"></div>
+	<div class="fizzSplash f12"></div>
+	<div class="fizzSplash f13"></div>
+	<div class="fizzSplash f14"></div>
+	<div class="fizzSplash f15"></div>
+	<div class="fizzSplash f16"></div>
+	<div class="fizzSplash f17"></div>
+	<div class="fizzSplash f18"></div>
+	<div class="fizzSplash f19"></div>
+	<div class="fizzSplash f20"></div>
+	<div class="fizzSplash f21"></div>
+	<div class="fizzSplash f22"></div>
+	<div class="fizzSplash f23"></div>
+	<div class="fizzSplash f24"></div>
+	<div class="fizzSplash f25"></div>
+	<div class="fizzSplash f26"></div>
+	<div class="fizzSplash f27"></div>
+	<div class="fizzSplash f28"></div>
+	<div class="fizzSplash f29"></div>
+	<div class="fizzSplash f30"></div>
+	<div class="fizzSplash f31"></div>
+	<div class="fizzSplash f32"></div>
+	<div class="fizzSplash f33"></div>
+	<div class="fizzSplash f34"></div>
+	<div class="fizzSplash f35"></div>
+	<div class="fizzSplash f36"></div>
+	<div class="fizzSplash f37"></div>
+	<div class="fizzSplash f38"></div>
+	<div class="fizzSplash f39"></div>
+	<div class="fizzSplash f40"></div>
+	<div class="fizzSplash f41"></div>
+	<div class="fizzSplash f42"></div>
+	<div class="fizzSplash f43"></div>
+	<div class="fizzSplash f44"></div>
+	<div class="fizzSplash f45"></div>
+	<div class="fizzSplash f46"></div>
+	<div class="fizzSplash f47"></div>
+	<div class="fizzSplash f48"></div>
+	<div class="beerSplash"></div>
 		<!--   <iframe src="https://giphy.com/embed/ju0nZjYgnDgPRrwhrg"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
 
 	</div>
@@ -48,21 +100,21 @@
 			<div class="col col-lg-4 middleDiv"></div>
 			<div class="col col-lg-4 rightDiv">
 			<c:if test="${empty sessionScope.user }">
-				<form action="signup.do">
+				<form action="signup.do" class="headerForm">
 					<button type="submit" class="btn btn-light sign-up-button">Sign
 						Up</button>
 				</form>
 				
-					<form action="login.do">
+					<form action="login.do" class="headerForm">
 						<button type="submit" class="btn btn-light login-button">Login</button>
 					</form>
 				</c:if>
 				<c:if test="${not empty sessionScope.user }">
-					<form action="logout.do">
+					<form action="logout.do" class="headerForm">
 						<button type="submit" class="btn btn-light login-button">Logout</button>
 					</form>
 				</c:if>
-				<form action="search.do">
+				<form action="search.do" class="headerForm">
 					<button type="submit" class="btn btn-light search-button">Search</button>
 				</form>
 			</div>
@@ -141,6 +193,6 @@
 	<script src="<c:url value="/js/home.js"/>"></script>
 	<script src="<c:url value="/js/beerByState.js"/>"></script>
 	<script src="<c:url value="/js/beerByStyle.js"/>"></script>
-	<script src="<c:url value="/js/logoutButton.js"/>"></script>
+	<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>
