@@ -33,7 +33,7 @@ private BeerStyle beerStyle;
 	@Test
 	void test_beerStyle_mapping() {
 		assertNotNull(beerStyle);
-		assertEquals("India Pale Ale", beerStyle.getName());
+		assertEquals("Unknown", beerStyle.getName());
 	}
 	@Test
 	void test_beerlist_mapping() {

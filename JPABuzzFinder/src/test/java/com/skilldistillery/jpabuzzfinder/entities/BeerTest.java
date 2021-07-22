@@ -46,23 +46,23 @@ class BeerTest {
 	@DisplayName("testing beer mapping")
 	void testName() {
 		assertNotNull(beer);
-		assertEquals("Devil's Cup", beer.getName());
+		assertEquals("Dale's Pale Ale", beer.getName());
 	}
 	
 	@Test
 	@DisplayName("testing beer to brewery mapping")
 	void testBeerToBrew() {
 		assertNotNull(beer);
-		assertEquals("NorthGate Brewing", beer.getBrewery().getName());
-		assertEquals(1 , beer.getBrewery().getId());
+		assertEquals("Oskar Blues Brewery", beer.getBrewery().getName());
+		assertEquals(166 , beer.getBrewery().getId());
 	}
 	
 	@Test
 	@DisplayName("testing beer to beer style mapping")
 	void testBeerToStyle() {
 		assertNotNull(beer);
-		assertEquals("India Pale Ale", beer.getBeerStyle().getName());
-		assertEquals(1 , beer.getBeerStyle().getId());
+		assertEquals("American Pale Ale (APA)", beer.getBeerStyle().getName());
+		assertEquals(18 , beer.getBeerStyle().getId());
 	}
 
 }

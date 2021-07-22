@@ -48,7 +48,7 @@ class BreweryTest {
 	@DisplayName("testing brewery mapping")
 	void test() {
 		assertNotNull(bt);
-		assertEquals("NorthGate Brewing", bt.getName());
+		assertEquals("Against the Grain Brewery", bt.getName());
 		
 		/*SELECT * FROM brewery;
 +----+-------------------+------------+-----------+----------------+
@@ -66,9 +66,8 @@ class BreweryTest {
 	@DisplayName("testing brewery to address mapping")
 	void test1() {
 		assertNotNull(bt);
-		assertEquals("Minneapolis", bt.getAddress().getCity());
-		assertEquals("MN", bt.getAddress().getState());
-		assertEquals("55111", bt.getAddress().getZipcode());
+		assertEquals("Louisville", bt.getAddress().getCity());
+		assertEquals(" KY", bt.getAddress().getState());
 	}
 	
 	
