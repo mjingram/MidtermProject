@@ -91,24 +91,20 @@
 <div class="mainContent">
 
 	<div class="innerContent">
-<div class = "navigation">
+<div class = "row">
 
-<form action="home.do">
-		<input type="submit" name="home" value="Home" />
-	</form>
-
-	<form action="search.do">
-		<!--Login Page  -->
-		<button type="submit">Search Beers and Breweries</button>
-	</form>
+<div class = "col">
 <form action="breweryFavorites.do">
 <input type="hidden" name="id" value="${brewery.id }">
 <input type="submit" value="Favorite">
-</form>
+</form> 
+	</div>
+<div class = "col">
 <form action="breweryReview.do">
 <input type="hidden" name="breweryId" value="${brewery.id }">
 <input type="submit" value="Review">
 </form>
+	</div>
 </div>
 <h3>Details:</h3>
 <ul>

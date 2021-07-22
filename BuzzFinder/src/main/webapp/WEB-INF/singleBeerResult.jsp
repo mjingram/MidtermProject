@@ -103,15 +103,6 @@
 	<div class="innerContent">
 <div class = "navigation">
 
-	<form action="home.do">
-		<input type="submit" name="home" value="Home" />
-	</form>
-
-	<form action="search.do">
-		<!--Login Page  -->
-		<button type="submit">Search Beers and Breweries</button>
-	</form>
-
 	<form action="beerFavorites.do">
 		<input type="hidden" name="id" value="${beer.id }"> <input
 			type="submit" value="Favorite">
@@ -121,6 +112,7 @@
 			type="submit" value="Review">
 	</form>
 	</div>
+	
 <h3>Details:</h3>
 	<ul>
 		<li><b>Beer Name:</b> ${beer.name }</li>
