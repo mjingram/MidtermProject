@@ -10,7 +10,16 @@ body{
   color: #fff;
   height:100%;
 }
-
+a{
+	color: white;
+	text-decoration: none;
+}
+a:hover{
+color:  #925208;
+}
+a:visited{
+color:  #fff;
+}
 /* Header Section */
 .headerSection{
   background: #000;
