@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabuzzfinder.entities.Brewery;
+import com.skilldistillery.jpabuzzfinder.entities.User;
 
 @Service
 @Transactional
@@ -104,9 +105,11 @@ public class BreweryDAOImpl implements BreweryDAO {
 
 ///////// Add Brewery to Favorites List //////
 	@Override
-	public List<Brewery> favoriteList(int id) {
+	public List<Brewery> addToFavoriteList(int userId, int id) {
+		User user = em.find(User.class, userId);
 		Brewery brewery = em.find(Brewery.class, id);
-		faveBreweries.add(brewery);
+		user.addFavBrewery(brewery);
+		faveBreweries = user.getFavBreweries();
 		return faveBreweries;
 
 	}

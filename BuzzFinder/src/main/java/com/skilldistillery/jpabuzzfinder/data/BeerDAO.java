@@ -21,7 +21,7 @@ public interface BeerDAO {
 	
 	boolean deleteBeerFromProfile(int id);
 	
-	List<Beer> faveBeerList(int id);
+	List<Beer> addToFaveBeerList(int userId, int id);
 	
 	List<Beer> removeFavoriteBeer(int id);
 	

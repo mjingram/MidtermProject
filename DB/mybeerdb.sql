@@ -1549,7 +1549,7 @@ COMMIT;
 START TRANSACTION;
 USE `mybeerdb`;
 INSERT INTO `beer` (`id`, `abv`, `ibu`, `name`, `ounces`, `brewery_id`, `beer_style_id`, `image_url`) VALUES (1436, 0.05, 0, 'Pub Beer', 12, 408, 19, '');
-INSERT INTO `beer` (`id`, `abv`, `ibu`, `name`, `ounces`, `brewery_id`, `beer_style_id`, `image_url`) VALUES (2265, 0.066, 0, 'Devil\'s Cup', 12, 177, 18, '');
+INSERT INTO `beer` (`id`, `abv`, `ibu`, `name`, `ounces`, `brewery_id`, `beer_style_id`, `image_url`) VALUES (2265, 0.066, 0, 'Devil\'s Cup', 12, 177, 18, 'https://cdn.icon-icons.com/icons2/2510/PNG/512/party_happy_alcohol_cheers_beer_drink_celebration_icon_150768.png');
 INSERT INTO `beer` (`id`, `abv`, `ibu`, `name`, `ounces`, `brewery_id`, `beer_style_id`, `image_url`) VALUES (2264, 0.071, 0, 'Rise of the Phoenix', 12, 177, 16, '');
 INSERT INTO `beer` (`id`, `abv`, `ibu`, `name`, `ounces`, `brewery_id`, `beer_style_id`, `image_url`) VALUES (2263, 0.09, 0, 'Sinister', 12, 177, 12, '');
 INSERT INTO `beer` (`id`, `abv`, `ibu`, `name`, `ounces`, `brewery_id`, `beer_style_id`, `image_url`) VALUES (2262, 0.075, 0, 'Sex and Candy', 12, 177, 16, '');

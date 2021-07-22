@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.jpabuzzfinder.entities.Beer;
-import com.skilldistillery.jpabuzzfinder.entities.Brewery;
+import com.skilldistillery.jpabuzzfinder.entities.User;
 
 
 @Service
@@ -107,14 +107,11 @@ public class BeerDAOImpl implements BeerDAO {
 	}
 ///////// Add Beer to Favorite List //////////
 	@Override
-	public List<Beer> faveBeerList(int id) {
+	public List<Beer> addToFaveBeerList(int userId, int id) {
+		User user = em.find(User.class, userId);
 		Beer beer = em.find(Beer.class, id);
-		System.out.println("Found Beer: " + beer);
-		faveBeers.add(beer);
-		for (Beer b : faveBeers) {
-			System.out.println("List Item: " + b);
-		} 
-		faveBeers.size();
+		user.addFavBeer(beer);
+		faveBeers = user.getFavBeers();
 		
 		return faveBeers;
 
