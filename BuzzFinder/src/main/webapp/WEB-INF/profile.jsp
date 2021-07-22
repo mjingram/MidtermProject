@@ -28,7 +28,8 @@
 		<div class="row headerRow">
 			<div class="col col-lg-4 leftDiv">
 				<h1 class="title">
-					<i class="fas fa-beer"></i>Buzz Finder
+					<a href="home.do"><i class="fas fa-beer"></i>Buzz Finder
+					</a>
 				</h1>
 			</div>
 			<div class="col col-lg-4 middleDiv"></div>

@@ -23,7 +23,9 @@
 <div class="headerSection">
 <div class="row ">
   <div class="col col-lg-4">
-    <h1 class="title"><i class="fas fa-beer"></i>Buzz Finder</h1>
+    <h1 class="title">
+    <a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a></h1>
+    
   </div>
   <div class="col col-lg-4">
   </div>
@@ -89,6 +91,7 @@
 <div class="fizz f46"></div>
 <div class="fizz f47"></div>
 <div class="fizz f48"></div>
+
 <div class="mainContent">
 
 	<div class="innerContent">

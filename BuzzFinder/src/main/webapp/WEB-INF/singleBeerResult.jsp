@@ -30,7 +30,7 @@
 		<div class="row ">
 			<div class="col col-lg-4">
 				<h1 class="title">
-					<i class="fas fa-beer"></i>Buzz Finder
+					<a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a>
 				</h1>
 			</div>
 			<div class="col col-lg-4"></div>
@@ -103,15 +103,6 @@
 	<div class="innerContent">
 <div class = "navigation">
 
-	<form action="home.do">
-		<input type="submit" name="home" value="Home" />
-	</form>
-
-	<form action="search.do">
-		<!--Login Page  -->
-		<button type="submit">Search Beers and Breweries</button>
-	</form>
-
 	<form action="beerFavorites.do">
 		<input type="hidden" name="id" value="${beer.id }"> <input
 			type="submit" value="Favorite">
@@ -121,6 +112,7 @@
 			type="submit" value="Review">
 	</form>
 	</div>
+	
 <h3>Details:</h3>
 	<ul>
 		<li><b>Beer Name:</b> ${beer.name }</li>

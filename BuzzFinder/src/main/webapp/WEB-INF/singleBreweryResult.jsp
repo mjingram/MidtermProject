@@ -22,7 +22,8 @@
 <div class="headerSection">
 <div class="row ">
   <div class="col col-lg-4">
-    <h1 class="title"><i class="fas fa-beer"></i>Buzz Finder</h1>
+    <h1 class="title">
+    <a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a></h1>
   </div>
   <div class="col col-lg-4">
   </div>
@@ -91,24 +92,20 @@
 <div class="mainContent">
 
 	<div class="innerContent">
-<div class = "navigation">
+<div class = "row">
 
-<form action="home.do">
-		<input type="submit" name="home" value="Home" />
-	</form>
-
-	<form action="search.do">
-		<!--Login Page  -->
-		<button type="submit">Search Beers and Breweries</button>
-	</form>
+<div class = "col">
 <form action="breweryFavorites.do">
 <input type="hidden" name="id" value="${brewery.id }">
 <input type="submit" value="Favorite">
-</form>
+</form> 
+	</div>
+<div class = "col">
 <form action="breweryReview.do">
 <input type="hidden" name="breweryId" value="${brewery.id }">
 <input type="submit" value="Review">
 </form>
+	</div>
 </div>
 <h3>Details:</h3>
 <ul>
