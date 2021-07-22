@@ -113,19 +113,19 @@
 
 
 <form action="createBreweryReview.do">
-<input type = "hidden" name = "breweryId" value = "${breweryId }">
+<input type = "hidden" name = "breweryId" value = "${brewery.id }">
 		<label for="name">Brewery Name: </label><input type="text" name="name" size = "30" value="${brewery.name}" id="name" readonly><br>
 <label for="favorite">Favorite Beer I had: </label>
 			<select id="favorite" name="favorite">
-    			<option value="light">Light Lager</option>
-    			<option value="sweet">Sweet Cider</option>
-    			<option value="thin">Thin Kolsch</option>
-    			<option value="dry">Dry Wheat</option>
-    			<option value="full">Full Wit</option>
-    			<option value="creamy">Creamy Ale</option>
-    			<option value="heavy">Heavy Stout</option>
-    			<option value="rich">Rich Porter</option>
-    			<option value="thick">Thick IPA</option>
+    			<option value="Light Lager">Light Lager</option>
+    			<option value="Sweet Cider">Sweet Cider</option>
+    			<option value="Thin Kolsch">Thin Kolsch</option>
+    			<option value="Dry Wheat">Dry Wheat</option>
+    			<option value="Full Wit">Full Wit</option>
+    			<option value="Creamy Ale">Creamy Ale</option>
+    			<option value="Heavy Stout">Heavy Stout</option>
+    			<option value="Rich Porter">Rich Porter</option>
+    			<option value="Thick IPA">Thick IPA</option>
     		</select><br>
 		<label for="rating">Overall Rating: (5 is the highest)</label>
 			<input type="radio" id = "rating" name="rating" value="0"> 0
@@ -141,16 +141,16 @@
 <br>
 <label for="feature">Favorite Feature: </label>
 			<select id="feature" name="feature">
-    			<option value="beer">The beer is just good!</option>
-    			<option value="space">Super Spacious</option>
-    			<option value="modern">Fresh and New</option>
-    			<option value="clean">Squeaky Clean</option>
-    			<option value="outdoor">It's Like We Are Camping</option>
-    			<option value="view">I can see downtown from here!</option>
-    			<option value="dogs">My dog was right there with me</option>
-    			<option value="staff">Friendly Staff</option>
-    			<option value="location">It is close to my house</option>
-    			<option value="location">Didn't like a dang thing</option>
+    			<option value="The beer is just good!">The beer is just good!</option>
+    			<option value="Super Spacious">Super Spacious</option>
+    			<option value="Fresh and New">Fresh and New</option>
+    			<option value="Squeaky Clean">Squeaky Clean</option>
+    			<option value="It's Like We Are Camping">It's Like We Are Camping</option>
+    			<option value="I can see downtown from here!">I can see downtown from here!</option>
+    			<option value="My dog was right there with me">My dog was right there with me</option>
+    			<option value="Friendly Staff">Friendly Staff</option>
+    			<option value="It is close to my house">It is close to my house</option>
+    			<option value="Didn't like a dang thing">Didn't like a dang thing</option>
     		</select><br>
 			
 			

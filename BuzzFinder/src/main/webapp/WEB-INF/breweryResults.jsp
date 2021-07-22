@@ -120,10 +120,16 @@
 			<table>
 				
 					<tr>
-					<th width="70%">Brewery Name:</th><th width="10%">City:</th><th width="10%">State: </th><th width="10%"></th>
+					<th width="70%">Brewery Name:</th>
+					<th width="10%">City:</th>
+					<th width="10%">State: </th>
+					<th width="10%"></th>
 					</tr>
 					<tr>
-					<td> ${brewery.name}</td><td>${brewery.address.city}</td><td>${brewery.address.state}</td><td class="imageCell">
+					<td> ${brewery.name}</td>
+					<td>${brewery.address.city}</td>
+					<td>${brewery.address.state}</td>
+					<td class="imageCell">
 					 <i class="fas fa-beer"></i>
 					<form action="breweryDetails.do">
 					<input type=hidden name="id" value="${brewery.id}"> 
