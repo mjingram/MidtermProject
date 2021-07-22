@@ -26,7 +26,7 @@
 			<div class="col col-lg-4 leftDiv">
 
 				<h1 class="title">
-					<a href="home.do"> <i class="fas fa-beer"></i>Buzz Finder
+					<a href="home.do"> <i class="fas fa-beer headerBeerIcon"></i>Buzz Finder
 					</a>
 				</h1>
 			</div>
@@ -117,7 +117,7 @@
 		<c:forEach var = "beer" items = "${beers }">
 			
 			<table>
-			<tr><th>Beer Name:</th><th>Beer Style:</th><th>Brewery:</th><th>Beer Abv:</th><th>Beer IBU:</th><th>Beer Ounces:</th>
+			<tr><th width="20%">Beer Name:</th><th width="10%">Beer Style:</th><th width="40%">Brewery:</th><th width="7%">Beer Abv:</th><th width="7%">Beer IBU:</th><th width="8%">Beer Ounces:</th><th width="8%"></th>
 			</tr>
 			<tr>
 			<td>${beer.name }</td><td> ${beer.beerStyle }</td><td>${beer.brewery.name}<br>${ beer.brewery.address.city}, ${ beer.brewery.address.state}</td><td> ${beer.abv }</td><td> ${beer.ibu }</td><td> ${beer.ounces }</td>

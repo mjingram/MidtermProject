@@ -12,31 +12,44 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
+<link rel="stylesheet" href="<c:url value="/css/beerAndBreweryResults.css" />">
 </head>
 <body>
 <canvas id="canvas1"></canvas>
 <!-- Header -->
-<div class="headerSection">
-<div class="row headerRow">
-  <div class="col col-lg-4 leftDiv">
-    <h1 class="title">
-    <a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a></h1>
-  </div>
-  <div class="col col-lg-4 middleDiv">
-  </div>
-  <div class="col col-lg-4 rightDiv">
-    <form action="signup.do">
-    <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
-    </form>
-    <form action="login.do" >
-    <button type="submit" class="btn btn-light login-button" >Login</button>
-    </form>
-    <form action="search.do">
-    <button type="submit" class="btn btn-light search-button">Search</button>
-    </form>
-  </div>
-</div>
-</div>
+	<!-- Header -->
+	<div class="headerSection">
+		<div class="row headerRow">
+			<div class="col col-lg-4 leftDiv">
+
+				<h1 class="title">
+					<a href="home.do"> <i class="fas fa-beer headerBeerIcon"></i>Buzz Finder
+					</a>
+				</h1>
+			</div>
+			<div class="col col-lg-4 middleDiv"></div>
+			<div class="col col-lg-4 rightDiv">
+				<c:if test="${empty sessionScope.user }">
+					<form action="signup.do">
+						<button type="submit" class="btn btn-light sign-up-button">Sign
+							Up</button>
+					</form>
+
+					<form action="login.do">
+						<button type="submit" class="btn btn-light login-button">Login</button>
+					</form>
+				</c:if>
+				<c:if test="${not empty sessionScope.user }">
+					<form action="logout.do">
+						<button type="submit" class="btn btn-light login-button">Logout</button>
+					</form>
+				</c:if>
+				<form action="search.do">
+					<button type="submit" class="btn btn-light search-button">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
 <!-- Beer Fizz -->
 <div class="fizz f1"></div>
 <div class="fizz f2"></div>
@@ -100,17 +113,23 @@
 	<c:choose>
 		<c:when test="${!empty breweries}">
 			<c:forEach var="brewery" items="${breweries}">
-				<ul>
-				<form action="breweryDetails.do">
-					<%-- <li><b></b> ${brewery.logo} --%>
-					<li><b>Brewery Name:</b> ${brewery.name}
-					<li><b>City: </b> ${brewery.address.city}</li>
-					<li><b>State: </b> ${brewery.address.state}</li>
-					<%-- <li><b>Id:</b> ${brewery.id}</li> --%>
+			<table>
+				
+					<tr>
+					<th width="70%">Brewery Name:</th><th width="10%">City:</th><th width="10%">State: </th><th width="10%"></th>
+					</tr>
+					<tr>
+					<td> ${brewery.name}</td><td>${brewery.address.city}</td><td>${brewery.address.state}</td><td class="imageCell">
+					 <i class="fas fa-beer"></i>
+					<form action="breweryDetails.do">
 					<input type=hidden name="id" value="${brewery.id}"> 
 					<input type="submit" value="Details">
-				</form>
-				</ul>
+					</form>
+					</td>
+					</tr>
+					
+					
+			</table>	
 			</c:forEach>
 		</c:when>
 		<c:otherwise>
