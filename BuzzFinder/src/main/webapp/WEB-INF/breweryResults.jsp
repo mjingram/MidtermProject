@@ -100,10 +100,11 @@
 			<c:forEach var="brewery" items="${breweries}">
 				<ul>
 				<form action="breweryDetails.do">
-					<li><b></b> ${brewery.logo}
+					<%-- <li><b></b> ${brewery.logo} --%>
 					<li><b>Brewery Name:</b> ${brewery.name}
-					<li><b>Address:</b> ${brewery.address}</li>
-					<li><b>Id:</b> ${brewery.id}</li>
+					<li><b>City: </b> ${brewery.address.city}</li>
+					<li><b>State: </b> ${brewery.address.state}</li>
+					<%-- <li><b>Id:</b> ${brewery.id}</li> --%>
 					<input type=hidden name="id" value="${brewery.id}"> 
 					<input type="submit" value="Details">
 				</form>
