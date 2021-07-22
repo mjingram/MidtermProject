@@ -22,12 +22,14 @@
 <link rel="stylesheet" href='<c:url value="css/profile.css" />'>
 </head>
 <body>
+<canvas id="canvas1"></canvas>
 	<!-- Header -->
 	<div class="headerSection">
 		<div class="row headerRow">
 			<div class="col col-lg-4 leftDiv">
 				<h1 class="title">
-					<i class="fas fa-beer"></i>Buzz Finder
+					<a href="home.do"><i class="fas fa-beer"></i>Buzz Finder
+					</a>
 				</h1>
 			</div>
 			<div class="col col-lg-4 middleDiv"></div>
@@ -191,6 +193,6 @@
 
 		</div>
 	</div>
-
+<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>
