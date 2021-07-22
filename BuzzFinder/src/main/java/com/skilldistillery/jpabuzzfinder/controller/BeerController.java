@@ -11,41 +11,40 @@ import com.skilldistillery.jpabuzzfinder.data.BeerDAO;
 
 @Controller
 public class BeerController {
-	
+
 	@Autowired
 	private BeerDAO beerDao;
-	
-	
-	@RequestMapping(path ="displayBeer.do")
+
+	@RequestMapping(path = "displayBeer.do")
 	public String showBeer(HttpSession session, String name) {
 		session.setAttribute("beers", beerDao.findBeerByName(name));
-		
+
 		return "beerResults";
 	}
-	
-	@RequestMapping(path ="getBeerByStyle.do")
+
+	@RequestMapping(path = "getBeerByStyle.do")
 	public String showBeerByStyle(HttpSession session, String beerStyle) {
 		session.setAttribute("beers", beerDao.findBeerByStyle(beerStyle));
-		
+
 		return "beerResults";
 	}
-	
+
 	@RequestMapping(path = "rateBeer.do")
 	public String rateBeer(Model model, int beerId) {
-		
-model.addAttribute("review", beerDao.findBeerById(beerId));
-	return "profile";
-}
-	
-	@RequestMapping(path={"beerDetails.do"})
+
+		model.addAttribute("review", beerDao.findBeerById(beerId));
+		return "profile";
+	}
+
+	@RequestMapping(path = { "beerDetails.do" })
 	public String getBeerDetails(HttpSession session, int id) {
 		System.out.println("Id: " + id);
-		session.setAttribute("beer" , beerDao.findBeerById(id));
-		
+		session.setAttribute("beer", beerDao.findBeerById(id));
+
 		return "singleBeerResult";
-		
+
 	}
-	
+
 //	@RequestMapping(path = "getBeerByName")
 //	public String getBeerByName(String name, HttpSession session) {
 //		
@@ -59,10 +58,5 @@ model.addAttribute("review", beerDao.findBeerById(beerId));
 //		
 //		return "singleBeerResult";
 //	}
-	
-	
-	
 
-//	getBeerByStyle.do shows a list of beers
-	
 }
