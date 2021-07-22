@@ -20,7 +20,7 @@ public interface BreweryDAO {
     
     boolean removeBrewery(int id);
     
-    List<Brewery> addToFavoriteList(int userId, int id);
+    List<Brewery> addToFavoriteList(Integer userId, int id);
     
     List<Brewery> removeFavoriteBrewery(int id);
 }

@@ -104,8 +104,9 @@
 <div class = "navigation">
 
 	<form action="beerFavorites.do">
-		<input type="hidden" name="id" value="${beer.id }"> <input
-			type="submit" value="Favorite">
+		<input type="hidden" name="id" value="${beer.id }"> 
+		<input type="hidden" name="userId" value="${user.id }">
+		<input type="submit" value="Favorite">
 	</form>
 	<form action="beerReview.do">
 		<input type="hidden" name="beerId" value="${beer.id }"> <input

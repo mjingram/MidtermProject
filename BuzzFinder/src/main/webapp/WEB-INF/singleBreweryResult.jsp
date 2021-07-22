@@ -97,6 +97,7 @@
 <div class = "col">
 <form action="breweryFavorites.do">
 <input type="hidden" name="id" value="${brewery.id }">
+<input type="hidden" name="userId" value="${user.id }">
 <input type="submit" value="Favorite">
 </form> 
 	</div>
