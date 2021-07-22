@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="<c:url value="/css/loginAndSignup.css" />">
 </head>
 <body>
+<canvas id="canvas1"></canvas> 
 	<!-- Header -->
 	<div class="headerSection">
 		<div class="row headerRow">
@@ -132,6 +133,6 @@
 
 
 
-
+<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>
