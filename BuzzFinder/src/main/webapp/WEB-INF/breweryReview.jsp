@@ -98,9 +98,7 @@
 	<div class="innerContent">
 
 <div class = "navigation">
-<form action="home.do"> <!--Login Page  -->
-<button type="submit">Home</button>
-</form> <br>
+
 <form action="search.do"> <!--Login Page  -->
 <button type="submit">Search Beers and Breweries</button>
 </form> <br>

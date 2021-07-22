@@ -106,6 +106,14 @@
 <input type="hidden" name="breweryId" value="${brewery.id }">
 <input type="submit" value="Review">
 </form>
+				<c:if test="${not empty sessionScope.user }">
+
+<form action="profile.do">
+		<input type="hidden" name="beerId" value="${beer.id }"> 
+<input type="hidden" name="userId" value="${user.id }"><input
+			type="submit" value="My Profile">
+	</form>
+	</c:if>
 	</div>
 </div>
 <h3>Details:</h3>
