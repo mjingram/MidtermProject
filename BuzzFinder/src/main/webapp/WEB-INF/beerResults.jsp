@@ -126,7 +126,7 @@
 			<br>
 			<form action = "beerDetails.do">
 			<input type=hidden name="id" value="${beer.id}"> 
-					<input type="submit" value="Details">
+					<input type="submit" value="Details" class="btn btn-light">
 			</form>
 			</td>
 			</tr>
