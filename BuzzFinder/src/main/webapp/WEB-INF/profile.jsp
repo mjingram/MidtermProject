@@ -41,6 +41,7 @@
 			</div>
 			<div class="col col-lg-4 middleDiv"></div>
 			<div class="col col-lg-4 rightDiv">
+			<c:if test="${empty sessionScope.user }">
 				<form action="signup.do">
 					<button type="submit" class="btn btn-light sign-up-button">Sign
 						Up</button>
@@ -48,9 +49,12 @@
 				<form action="login.do">
 					<button type="submit" class="btn btn-light login-button">Login</button>
 				</form>
+				</c:if>
+				<c:if test="${not empty sessionScope.user }">
 				<form action="search.do">
 					<button type="submit" class="btn btn-light search-button">Search</button>
 				</form>
+				</c:if>
 			</div>
 		</div>
 	</div>
@@ -107,14 +111,7 @@
 	<div class="mainContent">
 		<div class="innerContent">
 
-			<form action="home.do">
-				<input type="submit" name="home" value="Home" />
-			</form>
-
-			<form action="logout.do">
-				<input type="hidden" name="user" value="${user}" /> <input
-					type="submit" value="Logout" />
-			</form>
+			
 
 			<br />
 
@@ -152,6 +149,8 @@
 						<input type="hidden" name="id" value="${b.id }" /> <input
 							type="submit" value="Remove Beer" />
 					</form>
+				</c:forEach>
+			</div>
 
 					<br />
 
@@ -160,8 +159,6 @@
 							type="submit" value="New Beer Review">
 					</form>
 
-				</c:forEach>
-			</div>
 
 			<br />
 
@@ -178,6 +175,8 @@
 							type="submit" value="Remove Brewery" />
 					</form>
 
+				</c:forEach>
+			</div>
 					<br />
 
 					<div id="reviewButton">
@@ -188,8 +187,6 @@
 					</div>
 					<br />
 					<br />
-				</c:forEach>
-			</div>
 
 			<div id="searchButton">
 				<form action="search.do">
