@@ -54,7 +54,7 @@ class UserTest {
 	@DisplayName("testing user to beer style mapping")
 	void test1() {
 		assertNotNull(user);
-		assertEquals("India Pale Ale", user.getFavoriteStyle().getName());
+		assertEquals("Unknown", user.getFavoriteStyle().getName());
 	}
 	
 	@Test

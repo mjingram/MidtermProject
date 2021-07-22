@@ -65,8 +65,8 @@ class BreweryReviewTest {
 	@DisplayName("testing brewery_review to brewery mapping")
 	void test2() {
 		assertNotNull(br);
-		assertEquals("NorthGate Brewing", br.getBrewery().getName());
-		assertEquals( "Minneapolis", br.getBrewery().getAddress().getCity());
+		assertEquals("Against the Grain Brewery", br.getBrewery().getName());
+		assertEquals( "Louisville", br.getBrewery().getAddress().getCity());
 		
 	}
 

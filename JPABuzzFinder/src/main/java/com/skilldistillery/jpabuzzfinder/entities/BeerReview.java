@@ -36,7 +36,7 @@ public class BeerReview {
 	
 	private String body;
 	
-	private int rating;
+	private Integer rating;
 	
 	private String again;
 	
@@ -123,12 +123,12 @@ public class BeerReview {
 	}
 
 
-	public int getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 

@@ -53,9 +53,8 @@ class AccountInfoTest {
 	@DisplayName("testing accountInfo to address mapping")
 	void test1() {
 		assertNotNull(ai);
-		assertEquals("Minneapolis", ai.getAddress().getCity());
-		assertEquals("MN", ai.getAddress().getState());
-		assertEquals("55111", ai.getAddress().getZipcode());
+		assertEquals("Louisville", ai.getAddress().getCity());
+		assertEquals(" KY", ai.getAddress().getState());
 	}
 	
 	@Test

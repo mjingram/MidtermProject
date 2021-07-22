@@ -64,9 +64,9 @@ class BeerReviewTest {
 	@DisplayName("testing beer_review to brewery mapping")
 	void test2() {
 		assertNotNull(br);
-		assertEquals("Devil's Cup", br.getBeer().getName());
-		assertEquals( 0.066, br.getBeer().getAbv());
-		assertEquals( "NorthGate Brewing", br.getBeer().getBrewery().getName());
+		assertEquals("Dale's Pale Ale", br.getBeer().getName());
+		assertEquals( 0.065, br.getBeer().getAbv());
+		assertEquals( "Oskar Blues Brewery", br.getBeer().getBrewery().getName());
 		
 	}
 

@@ -47,9 +47,8 @@ class AddressTest {
 	@DisplayName("testing address mapping")
 	void test1() {
 		assertNotNull(addr);
-		assertEquals("Minneapolis", addr.getCity());
-		assertEquals("MN", addr.getState());
-		assertEquals("55111", addr.getZipcode());
+		assertEquals("Louisville", addr.getCity());
+		assertEquals(" KY", addr.getState());
 	}
 
 }

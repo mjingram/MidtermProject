@@ -35,7 +35,7 @@ public class BreweryReview {
 	@Column(name = "favorite_beer")
 	private String favoriteBeer;
 	
-	private int rating;
+	private Integer rating;
 	
 	private String again;
 	
@@ -140,14 +140,14 @@ public class BreweryReview {
 
 
 
-	public int getRating() {
+	public Integer getRating() {
 		return rating;
 	}
 
 
 
 
-	public void setRating(int rating) {
+	public void setRating(Integer rating) {
 		this.rating = rating;
 	}
 
