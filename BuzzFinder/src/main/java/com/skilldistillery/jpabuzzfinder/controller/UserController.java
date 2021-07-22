@@ -59,7 +59,7 @@ public class UserController {
 	
 	
 	@RequestMapping("updateUserProfile.do")
-	public String updateUserProfile(int userId, String password, Model model) {
+	public String updateUserProfile(Integer userId, String password, Model model) {
 		
 		model.addAttribute("user", userDao.updateUsernameAndPassword(password, userId));
 		
@@ -68,7 +68,7 @@ public class UserController {
 	
 	
 	@RequestMapping("deleteUserProfile.do")
-	public String deleteUserProfile(int userId, Model model) {
+	public String deleteUserProfile(Integer userId, Model model) {
 		
 		model.addAttribute("user", userDao.deleteUser(userId));
 		
@@ -77,7 +77,7 @@ public class UserController {
 	
 	
 	@RequestMapping("addFavoriteBeer.do")
-	public String addFavoriteBeer(Beer beer, int userId, Model model) {
+	public String addFavoriteBeer(Beer beer, Integer userId, Model model) {
 		
 		model.addAttribute("beer", userDao.addFavBeer(userId, beer));
 		
@@ -86,7 +86,7 @@ public class UserController {
 	
 	
 	@RequestMapping("addFavoriteBrewery.do")
-	public String addFavoriteBrewery(Brewery brewery, int userId, Model model) {
+	public String addFavoriteBrewery(Brewery brewery, Integer userId, Model model) {
 		
 		model.addAttribute("beer", userDao.addFavBrewery(userId, brewery));
 		
@@ -111,18 +111,20 @@ public class UserController {
 	
 	
 	@RequestMapping("breweryFavorites.do")
-	public String favoriteBreweries(int userId, int id, HttpSession session) {
+	public String favoriteBreweries(Integer userId, int id, HttpSession session) {
 		session.setAttribute("faveBreweries", breweryDAO.addToFavoriteList(userId, id));
 		return "profile";
 	}
 	
 	
 	@RequestMapping("beerFavorites.do")
-	public String favoriteBeers(int userId, int id, HttpSession session) {
+	public String favoriteBeers(Integer userId, int id, HttpSession session) {
 		session.setAttribute("faveBeers", beerDAO.addToFaveBeerList( userId, id));
 
 		return "profile";
 	}
+	
+	
 	@RequestMapping("removeFaveBrewery.do")
 	public String removeFaveBrewery(int id, HttpSession session) {
 		

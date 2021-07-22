@@ -107,7 +107,7 @@ public class BeerDAOImpl implements BeerDAO {
 	}
 ///////// Add Beer to Favorite List //////////
 	@Override
-	public List<Beer> addToFaveBeerList(int userId, int id) {
+	public List<Beer> addToFaveBeerList(Integer userId, int id) {
 		User user = em.find(User.class, userId);
 		Beer beer = em.find(Beer.class, id);
 		user.addFavBeer(beer);
