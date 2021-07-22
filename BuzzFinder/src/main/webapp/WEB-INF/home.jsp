@@ -22,6 +22,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.0.0/d3.min.js"
 	integrity="sha512-0x7/VCkKLLt4wnkFqI8Cgv6no+AaS1TDgmHLOoU3hy/WVtYta2J6gnOIHhYYDJlDxPqEqAYLPS4gzVex4mGJLw=="
 	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Otomanopee+One&family=Zen+Loop&display=swap" rel="stylesheet">
 <!-- CSS -->
 <link rel="stylesheet" href='<c:url value="/css/globalStyles.css" />'>
 <link rel="stylesheet" href='<c:url value="/css/home.css" />'>

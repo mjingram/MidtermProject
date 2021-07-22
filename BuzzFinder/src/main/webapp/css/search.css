@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.innerContent{
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+form{
+	width: 100%;
+}
+
+.form-control{
+	width:85%;
+	margin: 20px auto 15px auto;
+}
+
+.getBeerBtn{
+	margin-bottom: 20px;
+	width: 20%;
+}
+
+.getBreweryBtn{
+	margin-bottom: 20px;
+	width: 20%;
+}
+
+
+label{
+	margin-top: 20px;
+}
+
+.stateLabel{
+	margin-top: 0;
+}

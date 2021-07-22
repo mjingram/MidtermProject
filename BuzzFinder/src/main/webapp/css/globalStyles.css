@@ -9,6 +9,7 @@ body{
   background-color: #925208;
   color: #fff;
   height:100%;
+  font-family: 'Merriweather', serif;
 }
 #canvas1{
   position: absolute;
@@ -365,7 +366,7 @@ animation: fizzUp 5s linear infinite;
 .splashHead{
   z-index: 300;
   color: #fff;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Zen Loop', cursive;
   font-weight: 900;
 }
 iframe{
