@@ -117,10 +117,12 @@
 		
 		<p>Select your favorite style of beer: <select name="beerStyle">
           <option value="none">Don't know yet</option>
-          <option value="beerStyle1">American Amber Ale</option>
-          <option value="beerStyle2">American Amber Lager</option>
-          <option value="beerStyle3">American Barley Wine</option>
-          <option value="beerStyle4">American Black Ale</option>
+          <option value="beerStyle1">Ale</option>
+          <option value="beerStyle2">Lager</option>
+          <option value="beerStyle3">India Pale Ale</option>
+          <option value="beerStyle4">Stout</option>
+          <option value="beerStyle4">Pilsner</option>
+          <option value="beerStyle4">Porter</option>
 
         </select>
 		
