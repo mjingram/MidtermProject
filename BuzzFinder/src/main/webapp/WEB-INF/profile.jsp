@@ -51,10 +51,13 @@
 				</form>
 				</c:if>
 				<c:if test="${not empty sessionScope.user }">
+				<form action="logout.do">
+						<button type="submit" class="btn btn-light login-button">Logout</button>
+					</form>
+				</c:if>
 				<form action="search.do">
 					<button type="submit" class="btn btn-light search-button">Search</button>
 				</form>
-				</c:if>
 			</div>
 		</div>
 	</div>
@@ -155,8 +158,8 @@
 					<br />
 
 					<form action="beerReview.do">
-						<input type="hidden" name="beerId" value="${b.id }"> <input
-							type="submit" value="New Beer Review">
+						<input type="hidden" name="beerId" value="${beer.id }"> <input
+							type="submit" value="Review New Favorite Beer">
 					</form>
 
 
@@ -181,8 +184,8 @@
 
 					<div id="reviewButton">
 						<form action="breweryReview.do">
-							<input type="hidden" name="breweryId" value="${brew.id }">
-							<input type="submit" value="New Brewery Review">
+							<input type="hidden" name="breweryId" value="${brewery.id }">
+							<input type="submit" value="Leave A Review For ${brewery.name }">
 						</form>
 					</div>
 					<br />
