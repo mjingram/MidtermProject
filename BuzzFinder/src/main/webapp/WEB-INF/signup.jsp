@@ -109,10 +109,10 @@
 	<form action="createUserProfile.do" method="POST">
 	
 		<p><label for = "username">Username:</label>
-		<input type="text" name="username" size="20"/></p>
+		<input type="text" class="form-control" name="username" size="20"/></p>
 		
 		<p><label for = "password">Password:</label>
-		<input type="text" name="password" size="27"/></p>
+		<input type="text" class ="form-control" name="password" size="27"/></p>
 		
 		
 		<p>Select your favorite style of beer: <select name="beerStyle">

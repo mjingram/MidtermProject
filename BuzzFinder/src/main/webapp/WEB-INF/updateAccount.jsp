@@ -27,15 +27,7 @@
 <link rel="stylesheet" href="<c:url value="/css/updateAndDelete.css" />">
 </head>
 <body>
-	<c:if test="${empty sessionScope.user }">
-		<!-- Splash Page  -->
-		<div class="splash">
-			<h1 class="fade-in splashHead">Welcome to Buzz Finder</h1>
-
-			<!--   <iframe src="https://giphy.com/embed/ju0nZjYgnDgPRrwhrg"  frameBorder="0" class="giphy-embed" allowFullScreen></iframe> -->
-
-		</div>
-	</c:if>
+<canvas id="canvas1"></canvas>
 	<!-- Header -->
 	<div class="headerSection">
 		<div class="row headerRow">
@@ -149,5 +141,7 @@
 
 		</div>
 	</div>
+	
+<script src="<c:url value="/js/bubbles.js"/>"></script>	
 </body>
 </html>
