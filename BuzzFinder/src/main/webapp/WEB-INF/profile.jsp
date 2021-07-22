@@ -17,19 +17,26 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 	integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Merriweather&family=Otomanopee+One&family=Zen+Loop&display=swap"
+	rel="stylesheet">
 <!-- CSS -->
 <link rel="stylesheet" href='<c:url value="css/globalStyles.css" />'>
 <link rel="stylesheet" href='<c:url value="css/profile.css" />'>
+
 </head>
 <body>
-<canvas id="canvas1"></canvas>
+	<canvas id="canvas1"></canvas>
 	<!-- Header -->
 	<div class="headerSection">
 		<div class="row headerRow">
 			<div class="col col-lg-4 leftDiv">
 				<h1 class="title">
-					<a href="home.do"><i class="fas fa-beer"></i>Buzz Finder
-					</a>
+					<a href="home.do"><i class="fas fa-beer"></i>Buzz Finder </a>
 				</h1>
 			</div>
 			<div class="col col-lg-4 middleDiv"></div>
@@ -146,13 +153,13 @@
 							type="submit" value="Remove Beer" />
 					</form>
 
-			<br />
+					<br />
 
-				<form action="beerReview.do">
-					<input type="hidden" name="beerId" value="${b.id }"> <input
-						type="submit" value="New Beer Review">
-				</form>
-			
+					<form action="beerReview.do">
+						<input type="hidden" name="beerId" value="${b.id }"> <input
+							type="submit" value="New Beer Review">
+					</form>
+
 				</c:forEach>
 			</div>
 
@@ -171,19 +178,19 @@
 							type="submit" value="Remove Brewery" />
 					</form>
 
-			<br />
+					<br />
 
-			<div id="reviewButton">
-				<form action="breweryReview.do">
-					<input type="hidden" name="breweryId" value="${brew.id }">
-					<input type="submit" value="New Brewery Review">
-				</form>
-			</div>
-			<br/>
-			<br/>
+					<div id="reviewButton">
+						<form action="breweryReview.do">
+							<input type="hidden" name="breweryId" value="${brew.id }">
+							<input type="submit" value="New Brewery Review">
+						</form>
+					</div>
+					<br />
+					<br />
 				</c:forEach>
 			</div>
-			
+
 			<div id="searchButton">
 				<form action="search.do">
 					<!--Login Page  -->
@@ -193,6 +200,6 @@
 
 		</div>
 	</div>
-<script src="<c:url value="/js/bubbles.js"/>"></script>
+	<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>
