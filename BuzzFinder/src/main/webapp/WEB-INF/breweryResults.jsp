@@ -109,7 +109,7 @@
 	
 	<h1>Brewery Search Complete!</h1>
 	<br/>
-		<h3>Click on a brewery name to view more information, and what to drink there!</h3>
+		<h3>Click 'Details' to view more information, and what to drink there!</h3>
 		
 		<h2>Brewery Finder Results: </h2>
 	<h4>${breweries.size()} Breweries Found</h4>

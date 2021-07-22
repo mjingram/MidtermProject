@@ -113,19 +113,23 @@
 				<div class="col">
 					<c:if test="${not empty sessionScope.user }">
 						<form action="beerFavorites.do">
-							<input type="hidden" name="id" value="${beer.id }"> <input
-								type="hidden" name="userId" value="${user.id }"> <input
-								type="submit" value="Favorite">
+							<input type="hidden" name="id" value="${beer.id }"> 
+							<input type="hidden" name="userId" value="${user.id }"> 
+							<input	type="submit" value="Favorite">
 						</form>
 					</c:if>
+				</div>
+				<div class="col">
 					<c:if test="${not empty sessionScope.user }">
 						<form action="beerReview.do">
 							<input type="hidden" name="beerId" value="${beer.id }"> <input
 								type="submit" value="Review">
 						</form>
 					</c:if>
+					</div>
 
 
+				<div class="col">
 					<c:if test="${not empty sessionScope.user }">
 
 						<form action="profile.do">
@@ -134,7 +138,7 @@
 								type="submit" value="My Profile">
 						</form>
 					</c:if>
-				</div>
+					</div>
 			</div>
 
 			<h3>Details:</h3>
