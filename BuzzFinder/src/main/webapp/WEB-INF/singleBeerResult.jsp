@@ -17,12 +17,19 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
 	integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Merriweather&family=Otomanopee+One&family=Zen+Loop&display=swap"
+	rel="stylesheet">
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
-         <link href ="css/singleResult.css" type ="text/css" rel ="stylesheet"></link>
+<link href="css/singleResult.css" type="text/css" rel="stylesheet"></link>
 
 </head>
 <body>
+	<canvas id="canvas1"></canvas>
 	<!-- Splash Page  -->
 	<div class="splashPage"></div>
 	<!-- Header -->
@@ -97,53 +104,70 @@
 	<div class="fizz f46"></div>
 	<div class="fizz f47"></div>
 	<div class="fizz f48"></div>
-	
+
 	<div class="mainContent">
-	
-	<div class="innerContent">
-<div class = "navigation">
 
-	<form action="beerFavorites.do">
-		<input type="hidden" name="id" value="${beer.id }"> 
-		<input type="hidden" name="userId" value="${user.id }">
-		<input type="submit" value="Favorite">
-	</form>
-	<form action="beerReview.do">
-		<input type="hidden" name="beerId" value="${beer.id }"> <input
-			type="submit" value="Review">
-	</form>
+		<div class="innerContent">
+			<div class="row">
+
+				<div class="col">
+					<c:if test="${not empty sessionScope.user }">
+						<form action="beerFavorites.do">
+							<input type="hidden" name="id" value="${beer.id }"> <input
+								type="hidden" name="userId" value="${user.id }"> <input
+								type="submit" value="Favorite">
+						</form>
+					</c:if>
+					<c:if test="${not empty sessionScope.user }">
+						<form action="beerReview.do">
+							<input type="hidden" name="beerId" value="${beer.id }"> <input
+								type="submit" value="Review">
+						</form>
+					</c:if>
+
+
+					<c:if test="${not empty sessionScope.user }">
+
+						<form action="profile.do">
+							<input type="hidden" name="beerId" value="${beer.id }"> <input
+								type="hidden" name="userId" value="${user.id }"> <input
+								type="submit" value="My Profile">
+						</form>
+					</c:if>
+				</div>
+			</div>
+
+			<h3>Details:</h3>
+			<ul>
+				<li><b>Beer Name:</b> ${beer.name }</li>
+				<li><b>Beer Style:</b> ${beer.beerStyle }</li>
+				<li><b>Brewery:</b> ${beer.brewery }</li>
+				<li><b>Beer Abv:</b> ${beer.abv }</li>
+				<li><b>Beer IBU:</b> ${beer.ibu }</li>
+				<li><b>Beer Ounces:</b> ${beer.ounces }</li>
+			</ul>
+
+
+			<h3>Reviews:</h3>
+			<c:choose>
+				<c:when test="${not empty beerReviews}">
+					<c:forEach var="beerReview" items="${beerReviews}">
+						<ul>
+							<li><b>Taste:</b>${beerReview.taste }</li>
+							<li><b>Body:</b>${beerReview.body }</li>
+							<li><b>Overall Rating:</b>${beerReview.rating }</li>
+							<li><b>Would you drink again:</b>${beerReview.again}</li>
+						</ul>
+					</c:forEach>
+				</c:when>
+
+				<c:otherwise>
+					<p>No Reviews</p>
+				</c:otherwise>
+			</c:choose>
+
+		</div>
 	</div>
-	
-<h3>Details:</h3>
-	<ul>
-		<li><b>Beer Name:</b> ${beer.name }</li>
-		<li><b>Beer Style:</b> ${beer.beerStyle }</li>
-		<li><b>Brewery:</b> ${beer.brewery }</li>
-		<li><b>Beer Abv:</b> ${beer.abv }</li>
-		<li><b>Beer IBU:</b> ${beer.ibu }</li>
-		<li><b>Beer Ounces:</b> ${beer.ounces }</li>
-	</ul>
-
-
-<h3>Reviews:</h3>
-	<c:choose>
-		<c:when test="${not empty beerReviews}">
-			<c:forEach var="beerReview" items="${beerReviews}">
-				<ul>
-					<li><b>Taste:</b>${beerReview.taste }</li>
-					<li><b>Body:</b>${beerReview.body }</li>
-					<li><b>Overall Rating:</b>${beerReview.rating }</li>
-					<li><b>Would you drink again:</b>${beerReview.again}</li>
-				</ul>
-			</c:forEach>
-		</c:when>
-		
-		<c:otherwise>
-			<p>No Reviews</p>
-		</c:otherwise>
-	</c:choose>
-
-</div>
-</div>
+	<script src="<c:url value="/js/bubbles.js"/>"></script>
 </body>
 </html>
