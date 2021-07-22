@@ -110,11 +110,15 @@ public class BeerDAOImpl implements BeerDAO {
 	public List<Beer> addToFaveBeerList(Integer userId, int id) {
 		User user = em.find(User.class, userId);
 		Beer beer = em.find(Beer.class, id);
+		if(user.getFavBeers().contains(beer)) {
+			return faveBeers;
+		}
+		else {
 		user.addFavBeer(beer);
 		faveBeers = user.getFavBeers();
-		
 		return faveBeers;
-
+		}
+		
 	}
 	
 //////// Remove beer from Favorite List //////

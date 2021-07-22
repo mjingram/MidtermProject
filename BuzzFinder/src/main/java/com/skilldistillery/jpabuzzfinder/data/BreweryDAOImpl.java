@@ -108,11 +108,17 @@ public class BreweryDAOImpl implements BreweryDAO {
 	public List<Brewery> addToFavoriteList(Integer userId, int id) {
 		User user = em.find(User.class, userId);
 		Brewery brewery = em.find(Brewery.class, id);
+		if(user.getFavBreweries().contains(brewery)) {
+			return faveBreweries;
+		}
+		else {
 		user.addFavBrewery(brewery);
 		faveBreweries = user.getFavBreweries();
 		return faveBreweries;
-
+		}
 	}
+	
+	
 	@Override
 	public List<Brewery> removeFavoriteBrewery(int id){
 		Brewery brewery = em.find(Brewery.class, id);
