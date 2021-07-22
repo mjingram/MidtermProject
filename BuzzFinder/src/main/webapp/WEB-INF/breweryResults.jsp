@@ -133,7 +133,7 @@
 					 <i class="fas fa-beer"></i>
 					<form action="breweryDetails.do">
 					<input type=hidden name="id" value="${brewery.id}"> 
-					<input type="submit" value="Details">
+					<input type="submit" value="Details" class="btn btn-light">
 					</form>
 					</td>
 					</tr>
