@@ -29,6 +29,10 @@ table{
 	text-align: center;
 	margin: 0;
 }
+
+.headerBeerIcon{
+	margin-right: 20px;
+}
 .imageCell{
 	margin-left: auto;
 	margin-right: auto; 
