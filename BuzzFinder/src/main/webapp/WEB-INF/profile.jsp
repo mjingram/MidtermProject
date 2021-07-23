@@ -116,34 +116,56 @@
 
 			
 
-			<br />
 
-			<div id="accountInfoDisplay">
+			
 				<h1>Account Information:</h1>
 				<!-- TODO: Show Account Info -->
-				${accountInfo.firstName}<br> ${accountInfo.lastName}<br>
-				${addressInfo.street}<br> ${addressInfo.city}<br>
-				${addressInfo.state}<br> ${addressInfo.zipcode}<br>
-			</div>
+				
+				<table>
+				<tr>
+				<th>First Name</th><th>Last Name</th><th>Street</th><th>City</th><th>State</th><th>Zip</th>
+				</tr>
+				<tr>
+				
+				<td>${accountInfo.firstName}</td>
+				<td>${accountInfo.lastName}</td>
+				<td>${addressInfo.street}</td> 
+				<td>${addressInfo.city}</td>
+				<td>${addressInfo.state}</td> 
+				<td>${addressInfo.zipcode}</td>
+				</tr>
+				
+				
+				</table>
+				
+		
 			<!-- Update/Delete Account Buttons -->
-			<div id="accountButtons">
+			<div class="updateAndDeleteBtn">
 				<form action="deleteAccountPage.do" method="GET">
 					<input type="hidden" name="id" value="${accountInfo.id }" /> <input
-						type="submit" value="Delete Account" />
+						type="submit" value="Delete Account" class="btn btn-light accountBtnProfile"/>
 				</form>
-				<br />
+		
 				<form action="updateAccountPage.do" method="GET">
 					<input type="hidden" name="id" value="${accountInfo.id }" /> <input
-						type="submit" value="Update Account" />
+						type="submit" value="Update Account" class="btn btn-light accountBtnProfile" />
 				</form>
 			</div>
 
 
 			<!-- Show Favorite Beers/Breweries -->
-			<br />
-
-			<div id=favBeer>
-				<h3>Favorite Beers</h3>
+		
+		
+		
+			<c:if test="${not empty faveBeers }">
+				<h1 class="favBeerHeader">Favorite Beers</h1>
+				</c:if>
+				<table class="favoriteBeerTable">
+				<c:if test="${not empty faveBeers }">
+				<tr>
+				<th>Name:</th><th>Brewery</th><th>ABV</th><th>IBU</th><th></th><th></th>
+				</tr>
+				</c:if>
 				<c:forEach var="b" items="${faveBeers}">
 					<ul>
 						<li>${b.name}</li>
@@ -152,51 +174,102 @@
 						<input type="hidden" name="id" value="${b.id }" /> 
 						<input type="submit" value="Remove Beer" />
 					</form>
+				<c:if test="${not empty b.id }">
+					
+						<tr>
+						<td width="20%">${b.name}</td>
+						<td width="30%">${b.brewery.name}</td>
+						<td width="10%">${b.abv}</td>
+						<td width="10%">${b.ibu}</td>
+						<td width="15%">
+						<form action="removeFavoriteBeer.do" method="GET">
+						<input type="hidden" name="id" value="${b.id }" /> <input
+							type="submit" value="Remove Beer" class="btn btn-light favBrewTableBtn" />
+						</form>
+						</td>
+						<td width="15%">
+						<form action = "beerDetails.do">
+			<input type=hidden name="id" value="${b.id}"> 
+					<input type="submit" value="Details" class="btn btn-light favBrewTableBtn">
+			</form>
+						</td>
+						</tr>
+					
+					
+						
+					
+					
+					
+					</c:if>
 				</c:forEach>
-			</div>
+			</table>
 
-					<br />
-
+					<%-- <c:if test="${not empty faveBeers }">
 					<form action="beerReview.do">
+<<<<<<< HEAD
 						<input type="hidden" name="beerId" value="${beer.id }"> 
 						<input type="submit" value="Review New Favorite Beer">
+=======
+						<input type="hidden" name="beerId" value="${beer.id }"> <input
+							type="submit" value="Leave a Review for ${beer.name}" class="btn btn-light">
+>>>>>>> fbb447311d2845029bdacb2ce78e18ebd0b0ac26
 					</form>
+					</c:if> --%>
 
+		
 
-			<br />
-
-			<div id="favBreweries">
-				<h3>Favorite Breweries</h3>
+			
+			<c:if test="${not empty faveBreweries }">
+				<h1 class="favBreweryHeader">Favorite Breweries</h1>
+				</c:if>
+				<table class="favoriteBreweryTable">
+				<c:if test="${not empty faveBreweries }">
+				<tr>
+				<th>Name:</th><th>City</th><th>State</th><th></th><th></th>
+				</tr>
+				</c:if>
 				<c:forEach var="brew" items="${faveBreweries}">
-					<ul>
-						<li>${brew.name}</li>
-						<li>${brew.address.city}</li>
-						<li>${brew.address.state}</li>
-					</ul>
+				<c:if test="${not empty brew.id }">
+					<tr>
+					<td width="30%">${brew.name}</td>
+					<td width="25%">${brew.address.city}</td>
+					<td width="15%">${brew.address.state}</td>
+					<td width="15%">
 					<form action="removeFavoriteBrewery.do" method="GET">
 						<input type="hidden" name="id" value="${brew.id }" /> <input
-							type="submit" value="Remove Brewery" />
+							type="submit" value="Remove Brewery" class="btn btn-light favBreweryTableBtn"/>
 					</form>
-
+					</td>
+					<td width="15%">
+					<form action="breweryDetails.do">
+					<input type=hidden name="id" value="${brew.id}"> 
+					<input type="submit" value="Details" class="btn btn-light favBreweryTableBtn">
+					</form>
+					</td>
+						
+						
+						
+				
+					
+					
+					</tr>
+				</c:if>
 				</c:forEach>
-			</div>
-					<br />
-
-					<div id="reviewButton">
+			
+				</table>
+		
+					
+					<%-- <c:if test="${not empty faveBreweries }">
 						<form action="breweryReview.do">
 							<input type="hidden" name="breweryId" value="${brewery.id }">
-							<input type="submit" value="Leave A Review For ${brewery.name }">
+							<input type="submit" class="btn btn-light" value="Leave A Review For ${brewery.name }">
 						</form>
-					</div>
-					<br />
-					<br />
+						</c:if> --%>
+				
+				
 
-			<div id="searchButton">
-				<form action="search.do">
-					<!--Login Page  -->
-					<button type="submit">Search For More Beer or Breweries!</button>
-				</form>
-			</div>
+		
+		
 
 		</div>
 	</div>

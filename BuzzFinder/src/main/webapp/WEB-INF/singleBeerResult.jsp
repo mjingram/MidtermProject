@@ -25,7 +25,7 @@
 	rel="stylesheet">
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
-<link rel="stylesheet" href="<c:url value="/css/singlResult.css" />">
+<link rel="stylesheet" href="<c:url value="/css/singleResult.css" />">
 
 </head>
 <body>
@@ -121,9 +121,9 @@
 				<div class="col">
 					<c:if test="${not empty sessionScope.user }">
 						<form action="beerFavorites.do">
-							<input type="hidden" name="id" value="${beer.id }"> 
-							<input type="hidden" name="userId" value="${user.id }"> 
-							<input	type="submit" value="Favorite" class="btn btn-light">
+							<input type="hidden" name="id" value="${beer.id }"> <input
+								type="hidden" name="userId" value="${user.id }"> <input
+								type="submit" value="Favorite" class="btn btn-light">
 						</form>
 					</c:if>
 				</div>
@@ -134,7 +134,7 @@
 								type="submit" value="Review" class="btn btn-light">
 						</form>
 					</c:if>
-					</div>
+				</div>
 
 
 				<div class="col">
@@ -146,10 +146,29 @@
 								type="submit" value="My Profile" class="btn btn-light">
 						</form>
 					</c:if>
-					</div>
+				</div>
 			</div>
+			<table>
 
-			<h3>Details:</h3>
+				<tr>
+					<th width="30%">Name</th>
+					<th width="30%">Brewery</th>
+					<th width="20%">Style</th>
+					<th width="5%">ABV</th>
+					<th width="5%">IBU</th>
+					<th width="10%">Ounces</th>
+				</tr>
+				<tr>
+					<td>${beer.name}</td>
+					<td>${beer.brewery }</td>
+					<td>${beer.beerStyle }</td>
+					<td>${beer.abv }</td>
+					<td>${beer.ibu }</td>
+					<td>${beer.ounces}</td>
+
+				</tr>
+			</table>
+			<%-- <h3>Details:</h3>
 			<ul>
 				<li><b>Beer Name:</b> ${beer.name }</li>
 				<li><b>Beer Style:</b> ${beer.beerStyle }</li>
@@ -157,19 +176,28 @@
 				<li><b>Beer Abv:</b> ${beer.abv }</li>
 				<li><b>Beer IBU:</b> ${beer.ibu }</li>
 				<li><b>Beer Ounces:</b> ${beer.ounces }</li>
-			</ul>
+			</ul> --%>
 
 
 			<h3>Reviews:</h3>
 			<c:choose>
 				<c:when test="${not empty beerReviews}">
 					<c:forEach var="beerReview" items="${beerReviews}">
-						<ul>
-							<li><b>Taste:</b>${beerReview.taste }</li>
-							<li><b>Body:</b>${beerReview.body }</li>
-							<li><b>Overall Rating:</b>${beerReview.rating }</li>
-							<li><b>Would you drink again:</b>${beerReview.again}</li>
-						</ul>
+						<table>
+							<tr>
+								<th width="20%">Rating</th>
+								<th width="20%">Body Type</th>
+								<th width="20%">Best Feature</th>
+								<th width="40%">Would you drink it again?</th>
+							</tr>
+							<tr>
+								<td>${beerReview.rating }</td>
+								<td>${beerReview.body }</td>
+								<td>${beerReview.taste}</td>
+								<td>${beerReview.again}</td>
+							</tr>
+						</table>
+						
 					</c:forEach>
 				</c:when>
 
