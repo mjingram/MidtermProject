@@ -150,9 +150,9 @@
 			<table>
 
 				<tr>
-					<th width="70%">Brewery Name</th>
-					<th width="10%">City</th>
-					<th width="10%">State</th>
+					<th width="50%">Brewery Name</th>
+					<th width="25%">City</th>
+					<th width="25%">State</th>
 				</tr>
 				<tr>
 					<td>${brewery.name}</td>
@@ -161,6 +161,7 @@
 
 				</tr>
 			</table>
+			
 
 			<!-- Add this to my favorites -->
 
