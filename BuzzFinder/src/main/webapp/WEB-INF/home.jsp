@@ -177,15 +177,21 @@
 	<!-- Content -->
 	<div class="mainContent">
 		<div class="innerContent">
-			<h1>Buzz Finder Contains Data on 558 Breweries and 2,410 Beers!</h1>
-			<h3>Search the database for information on your favorite brews
+			<h1 class="infoHeader">Buzz Finder Contains Data on 558 Breweries and 2,410 Beers!</h1>
+			<h3 class="aboutHeader">Search the database for information on your favorite brews
 				and brewerys. Add your favorites to your profile so you won't
 				forget. See the charts below for more information on the beers in
 				our database.</h3>
+			<div class="row">
+			<div class="col">
 			<h5>Breweries by State</h5>
 			<canvas id="beerByStateChart"></canvas>
+			</div>
+			<div class="col">
 			<h5>Beers by Style</h5>
 			<canvas id="beerByStyles"></canvas>
+			</div>
+			</div>
 		</div>
 	</div>
 
