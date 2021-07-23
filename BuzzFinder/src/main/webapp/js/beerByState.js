@@ -19,7 +19,6 @@ var ctx = document.getElementById('beerByStateChart').getContext('2d');
 var chart = new Chart(ctx, {
     type: "bar",
     options: {
-      indexAxis: 'y',
       legend: {
         display: true,
 		fontColor: '#fff',
@@ -33,7 +32,7 @@ var chart = new Chart(ctx, {
           data: data,
           backgroundColor: '#FFA500',
           borderWidth: 1,
-          barThickness: 3,
+          barThickness: 15,
 		  fontColor: '#fff',
         }
       ]

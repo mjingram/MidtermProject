@@ -17,114 +17,116 @@
 <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Otomanopee+One&family=Zen+Loop&display=swap" rel="stylesheet"> 
 <!-- CSS -->
 <link rel="stylesheet" href='<c:url value="/css/globalStyles.css" />'>
-         <link href ="css/review.css" type ="text/css" rel ="stylesheet"></link>
-
+<link rel="stylesheet" href='<c:url value="/css/review.css" />'>
 </head>
 <body>
 <canvas id="canvas1"></canvas>
-<!-- Splash Page  -->
-<div class="splashPage"></div>
-<!-- Header -->
-<div class="headerSection">
-<div class="row ">
-  <div class="col col-lg-4">
-    <h1 class="title">
-    <a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a></h1>
-    
-  </div>
-  <div class="col col-lg-4">
-  </div>
-  <div class="col col-lg-4">
-    <form action="signup.do">
-    <button type="submit" class="btn btn-light sign-up-button">Sign Up</button>
-    </form>
-    <form action="login.do" >
-    <button type="submit" class="btn btn-light login-button" >Login</button>
-    </form>
-    <form action="search.do">
-    <button type="submit" class="btn btn-light search-button">Search</button>
-    </form>
-  </div>
-</div>
-</div>
-<!-- Beer Fizz -->
-<div class="fizz f1"></div>
-<div class="fizz f2"></div>
-<div class="fizz f3"></div>
-<div class="fizz f4"></div>
-<div class="fizz f5"></div>
-<div class="fizz f6"></div>
-<div class="fizz f7"></div>
-<div class="fizz f8"></div>
-<div class="fizz f9"></div>
-<div class="fizz f10"></div>
-<div class="fizz f11"></div>
-<div class="fizz f12"></div>
-<div class="fizz f13"></div>
-<div class="fizz f14"></div>
-<div class="fizz f15"></div>
-<div class="fizz f16"></div>
-<div class="fizz f17"></div>
-<div class="fizz f18"></div>
-<div class="fizz f19"></div>
-<div class="fizz f20"></div>
-<div class="fizz f21"></div>
-<div class="fizz f22"></div>
-<div class="fizz f23"></div>
-<div class="fizz f24"></div>
-<div class="fizz f25"></div>
-<div class="fizz f26"></div>
-<div class="fizz f27"></div>
-<div class="fizz f28"></div>
-<div class="fizz f29"></div>
-<div class="fizz f30"></div>
-<div class="fizz f31"></div>
-<div class="fizz f32"></div>
-<div class="fizz f33"></div>
-<div class="fizz f34"></div>
-<div class="fizz f35"></div>
-<div class="fizz f36"></div>
-<div class="fizz f37"></div>
-<div class="fizz f38"></div>
-<div class="fizz f39"></div>
-<div class="fizz f40"></div>
-<div class="fizz f41"></div>
-<div class="fizz f42"></div>
-<div class="fizz f43"></div>
-<div class="fizz f44"></div>
-<div class="fizz f45"></div>
-<div class="fizz f46"></div>
-<div class="fizz f47"></div>
-<div class="fizz f48"></div>
+	<!-- Header -->
+	<div class="headerSection">
+		<div class="row headerRow">
+			<div class="col col-lg-4 leftDiv">
+
+				<h1 class="title">
+					<a href="home.do"> <i class="fas fa-beer"></i>Buzz Finder
+					</a>
+				</h1>
+			</div>
+			<div class="col col-lg-4 middleDiv"></div>
+			<div class="col col-lg-4 rightDiv">
+				<c:if test="${empty sessionScope.user }">
+					<form action="signup.do">
+						<button type="submit" class="btn btn-light sign-up-button">Sign
+							Up</button>
+					</form>
+
+					<form action="login.do">
+						<button type="submit" class="btn btn-light login-button">Login</button>
+					</form>
+				</c:if>
+				<c:if test="${not empty sessionScope.user }">
+					<form action="logout.do">
+						<button type="submit" class="btn btn-light login-button">Logout</button>
+					</form>
+				</c:if>
+				<form action="search.do">
+					<button type="submit" class="btn btn-light search-button">Search</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<!-- Beer Fizz -->
+	<div class="fizz f1"></div>
+	<div class="fizz f2"></div>
+	<div class="fizz f3"></div>
+	<div class="fizz f4"></div>
+	<div class="fizz f5"></div>
+	<div class="fizz f6"></div>
+	<div class="fizz f7"></div>
+	<div class="fizz f8"></div>
+	<div class="fizz f9"></div>
+	<div class="fizz f10"></div>
+	<div class="fizz f11"></div>
+	<div class="fizz f12"></div>
+	<div class="fizz f13"></div>
+	<div class="fizz f14"></div>
+	<div class="fizz f15"></div>
+	<div class="fizz f16"></div>
+	<div class="fizz f17"></div>
+	<div class="fizz f18"></div>
+	<div class="fizz f19"></div>
+	<div class="fizz f20"></div>
+	<div class="fizz f21"></div>
+	<div class="fizz f22"></div>
+	<div class="fizz f23"></div>
+	<div class="fizz f24"></div>
+	<div class="fizz f25"></div>
+	<div class="fizz f26"></div>
+	<div class="fizz f27"></div>
+	<div class="fizz f28"></div>
+	<div class="fizz f29"></div>
+	<div class="fizz f30"></div>
+	<div class="fizz f31"></div>
+	<div class="fizz f32"></div>
+	<div class="fizz f33"></div>
+	<div class="fizz f34"></div>
+	<div class="fizz f35"></div>
+	<div class="fizz f36"></div>
+	<div class="fizz f37"></div>
+	<div class="fizz f38"></div>
+	<div class="fizz f39"></div>
+	<div class="fizz f40"></div>
+	<div class="fizz f41"></div>
+	<div class="fizz f42"></div>
+	<div class="fizz f43"></div>
+	<div class="fizz f44"></div>
+	<div class="fizz f45"></div>
+	<div class="fizz f46"></div>
+	<div class="fizz f47"></div>
+	<div class="fizz f48"></div>
 
 <div class="mainContent">
 
 	<div class="innerContent">
 
-<div class = "navigation">
 
-<form action="search.do"> <!--Login Page  -->
-<button type="submit">Search Beers and Breweries</button>
-</form> <br>
-
-</div>
-
-<center><h2>Submit this form to post a review, our brewers appreciate hearing from you!</h2></center>
+<h1 class="reviewMainHeader">Submit this form to post a review, our brewers appreciate hearing from you!</h1>
 
 
 <form action="createBeerReview.do">
 <input type = "hidden" name = "beerId" value="${beerId }">
-		<label for="name">Beer Name: </label><input type="text" name="name" size = "30" value="${beer.name }" id="name" readonly><br>
-		<label for="taste">Taste: </label>
-		<select id="taste" name="taste">
+		<label class="headerLabel" for="name">Beer Name: </label>
+		<input class="form-control" type="text" name="name" size = "30" value="${beer.name }" id="name" readonly>
+		<label class="headerLabel" for="taste">Taste: </label>
+		<select id="taste" name="taste" class="form-control">
 		<option value="fruity" >Fruity</option>
 		<option value="bitter" >Bitter</option>
 		<option value="malty" >Malty</option>
 		<option value="dark" >Dark</option>
 		<option value="hoppy" >Hoppy</option>
 		<option value="crisp" >Crisp</option></select><br>
-<label for="body">Body: </label>
-			<select id="body" name="body">
+<label class="headerLabel" for="body">Body: </label>
+			<select id="body" name="body" class="form-control">
     			<option value="light">Light</option>
     			<option value="sweet">Sweet</option>
     			<option value="thin">Thin</option>
@@ -134,21 +136,22 @@
     			<option value="heavy">Heavy</option>
     			<option value="rich">Rich</option>
     			<option value="thick">Thick</option>
-    		</select><br>
-		<label for="rating">Overall Rating: (5 is the highest)</label>
-			<input type="radio" id = "rating" name="rating" value="0"> 0
-			<input type="radio" id = "rating" name="rating" value="1"> 1
-			<input type="radio" id = "rating" name="rating" value="2"> 2
-			<input type="radio" id = "rating" name="rating" value="3"> 3
-			<input type="radio" id = "rating" name="rating" value="4"> 4
-			<input type="radio" id = "rating" name="rating" value="5"> 5
-			<br>
-		<label for="again">Would you drink it again? </label>
-		<input type="radio" id = "again" name="again" value="yes"> 10/10 Yes times two
-			<input type="radio" id = "again" name="again" value="no"> 1/10 Heck No techno
-			<br>
-			
-					<input type="submit" value="Add Review" />
+    		</select>
+    		<div class="rating">
+		<label >Overall Rating: (5 is the highest)</label><br>
+			<input type="radio" id = "rating1" name="rating" value="0" class="form-check-input" checked>  <label class="form-check-label" for="rating1">0</label>
+			<input type="radio" id = "rating2" name="rating" value="1" class="form-check-input"> <label class="form-check-label" for="rating2">1</label>
+			<input type="radio" id = "rating3" name="rating" value="2" class="form-check-input"> <label class="form-check-label" for="rating3">2</label>
+			<input type="radio" id = "rating4" name="rating" value="3" class="form-check-input"> <label class="form-check-label" for="rating4">3</label>
+			<input type="radio" id = "rating5" name="rating" value="4" class="form-check-input"> <label class="form-check-label" for="rating5">4</label>
+			<input type="radio" id = "rating6" name="rating" value="5" class="form-check-input"> <label class="form-check-label" for="rating6">5</label>
+		</div>
+		<div class="again">
+		<label >Would you drink it again? </label><br>
+		<input type="radio" id = "again1" name="again" value="yes" class="form-check-input"><label class="form-check-label" for="again1">10/10 Yes Times Two</label><br>
+			<input type="radio" id = "again2" name="again" value="no" class="form-check-input" checked> <label class="form-check-label" for="again2">1/10 Heck No Techno</label>
+		</div>
+					<input type="submit" value="Add Review" class="btn btn-light reviewBtn"/>
 			
 </form>
 </div>

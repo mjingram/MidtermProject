@@ -25,30 +25,38 @@
 	rel="stylesheet">
 <!-- CSS -->
 <link rel="stylesheet" href="<c:url value="/css/globalStyles.css" />">
-<link href="css/singleResult.css" type="text/css" rel="stylesheet"></link>
+<link rel="stylesheet" href="<c:url value="/css/singleResult.css" />">
 
 </head>
 <body>
 	<canvas id="canvas1"></canvas>
-	<!-- Splash Page  -->
-	<div class="splashPage"></div>
 	<!-- Header -->
 	<div class="headerSection">
-		<div class="row ">
-			<div class="col col-lg-4">
+		<div class="row headerRow">
+			<div class="col col-lg-4 leftDiv">
+
 				<h1 class="title">
-					<a href="home.do"><i class="fas fa-beer"></i>Buzz Finder</a>
+					<a href="home.do"> <i class="fas fa-beer"></i>Buzz Finder
+					</a>
 				</h1>
 			</div>
-			<div class="col col-lg-4"></div>
-			<div class="col col-lg-4">
-				<form action="signup.do">
-					<button type="submit" class="btn btn-light sign-up-button">Sign
-						Up</button>
-				</form>
-				<form action="login.do">
-					<button type="submit" class="btn btn-light login-button">Login</button>
-				</form>
+			<div class="col col-lg-4 middleDiv"></div>
+			<div class="col col-lg-4 rightDiv">
+				<c:if test="${empty sessionScope.user }">
+					<form action="signup.do">
+						<button type="submit" class="btn btn-light sign-up-button">Sign
+							Up</button>
+					</form>
+
+					<form action="login.do">
+						<button type="submit" class="btn btn-light login-button">Login</button>
+					</form>
+				</c:if>
+				<c:if test="${not empty sessionScope.user }">
+					<form action="logout.do">
+						<button type="submit" class="btn btn-light login-button">Logout</button>
+					</form>
+				</c:if>
 				<form action="search.do">
 					<button type="submit" class="btn btn-light search-button">Search</button>
 				</form>
@@ -107,6 +115,8 @@
 	<div class="mainContent">
 
 		<div class="innerContent">
+		<h1 class="beerNameHeader">Brewery: ${brewery.name}</h1>
+		
 			<div class="row">
 
 				<div class="col">
@@ -114,7 +124,7 @@
 						<form action="breweryFavorites.do">
 							<input type="hidden" name="id" value="${brewery.id }"> <input
 								type="hidden" name="userId" value="${user.id }"> <input
-								type="submit" value="Favorite">
+								type="submit" value="Favorite" class="btn btn-light singleResultBtn">
 						</form>
 					</c:if>
 				</div>
@@ -122,7 +132,7 @@
 					<c:if test="${not empty sessionScope.user }">
 						<form action="breweryReview.do">
 							<input type="hidden" name="breweryId" value="${brewery.id }">
-							<input type="submit" value="Review">
+							<input type="submit" value="Review" class="btn btn-light singleResultBtn">
 						</form>
 					</c:if>
 				</div>
@@ -132,7 +142,7 @@
 						<form action="profile.do">
 							<input type="hidden" name="beerId" value="${beer.id }"> <input
 								type="hidden" name="userId" value="${user.id }"><input
-								type="submit" value="My Profile">
+								type="submit" value="My Profile" class="btn btn-light singleResultBtn">
 						</form>
 					</c:if>
 				</div>
@@ -150,9 +160,9 @@
 			<table>
 
 				<tr>
-					<th width="50%">Brewery Name</th>
-					<th width="25%">City</th>
-					<th width="25%">State</th>
+					<th width="33%">Brewery Name</th>
+					<th width="33%">City</th>
+					<th width="33%">State</th>
 				</tr>
 				<tr>
 					<td>${brewery.name}</td>
@@ -165,10 +175,11 @@
 
 			<!-- Add this to my favorites -->
 
-			<h3>Reviews:</h3>
+			
 
 			<c:choose>
 				<c:when test="${not empty breweryReviews}">
+				<h2 class="reviewHeader" >Reviews:</h2>
 					<c:forEach var="breweryReview" items="${breweryReviews}">
 						<table>
 							<tr>
@@ -188,7 +199,7 @@
 				</c:when>
 
 				<c:otherwise>
-					<p>No Reviews</p>
+					<h2 class="reviewHeader" >Reviews: No Reviews</h2>
 				</c:otherwise>
 			</c:choose>
 		</div>
