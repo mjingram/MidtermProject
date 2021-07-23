@@ -167,13 +167,6 @@
 				</tr>
 				</c:if>
 				<c:forEach var="b" items="${faveBeers}">
-					<ul>
-						<li>${b.name}</li>
-					</ul>
-					<form action="removeFavoriteBeer.do" method="GET">
-						<input type="hidden" name="id" value="${b.id }" /> 
-						<input type="submit" value="Remove Beer" />
-					</form>
 				<c:if test="${not empty b.id }">
 					
 						<tr>
@@ -204,18 +197,7 @@
 				</c:forEach>
 			</table>
 
-					<%-- <c:if test="${not empty faveBeers }">
-					<form action="beerReview.do">
-<<<<<<< HEAD
-						<input type="hidden" name="beerId" value="${beer.id }"> 
-						<input type="submit" value="Review New Favorite Beer">
-=======
-						<input type="hidden" name="beerId" value="${beer.id }"> <input
-							type="submit" value="Leave a Review for ${beer.name}" class="btn btn-light">
->>>>>>> fbb447311d2845029bdacb2ce78e18ebd0b0ac26
-					</form>
-					</c:if> --%>
-
+				
 		
 
 			
@@ -257,14 +239,6 @@
 				</c:forEach>
 			
 				</table>
-		
-					
-					<%-- <c:if test="${not empty faveBreweries }">
-						<form action="breweryReview.do">
-							<input type="hidden" name="breweryId" value="${brewery.id }">
-							<input type="submit" class="btn btn-light" value="Leave A Review For ${brewery.name }">
-						</form>
-						</c:if> --%>
 				
 				
 

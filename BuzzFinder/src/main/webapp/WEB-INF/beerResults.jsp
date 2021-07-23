@@ -121,8 +121,8 @@
 			</tr>
 			<tr>
 			<td>${beer.name }</td><td> ${beer.beerStyle }</td><td>${beer.brewery.name}<br>${ beer.brewery.address.city}, ${ beer.brewery.address.state}</td><td> ${beer.abv }</td><td> ${beer.ibu }</td><td> ${beer.ounces }</td>
-			<td class="imageCell"><c:if test="${not empty beer.imageUrl}"> <img src="${beer.imageUrl }"></c:if>
-			<c:if test="${empty beer.imageUrl}"><i class="fas fa-beer"></i> </c:if>
+			<td class="imageCell">
+			<i class="fas fa-beer"></i>
 			<br>
 			<form action = "beerDetails.do">
 			<input type=hidden name="id" value="${beer.id}"> 

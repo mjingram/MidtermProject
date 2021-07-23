@@ -116,6 +116,7 @@
 	<div class="mainContent">
 
 		<div class="innerContent">
+		<h1 class="beerNameHeader">Beer: ${beer.name}</h1>
 			<div class="row">
 
 				<div class="col">
@@ -123,7 +124,7 @@
 						<form action="beerFavorites.do">
 							<input type="hidden" name="id" value="${beer.id }"> <input
 								type="hidden" name="userId" value="${user.id }"> <input
-								type="submit" value="Favorite" class="btn btn-light">
+								type="submit" value="Favorite" class="btn btn-light singleResultBtn">
 						</form>
 					</c:if>
 				</div>
@@ -131,7 +132,7 @@
 					<c:if test="${not empty sessionScope.user }">
 						<form action="beerReview.do">
 							<input type="hidden" name="beerId" value="${beer.id }"> <input
-								type="submit" value="Review" class="btn btn-light">
+								type="submit" value="Review" class="btn btn-light singleResultBtn">
 						</form>
 					</c:if>
 				</div>
@@ -143,24 +144,24 @@
 						<form action="profile.do">
 							<input type="hidden" name="beerId" value="${beer.id }"> <input
 								type="hidden" name="userId" value="${user.id }"> <input
-								type="submit" value="My Profile" class="btn btn-light">
+								type="submit" value="My Profile" class="btn btn-light singleResultBtn">
 						</form>
 					</c:if>
 				</div>
 			</div>
-			<table>
+			<table class="singleBeerTable">
 
 				<tr>
-					<th width="30%">Name</th>
 					<th width="30%">Brewery</th>
+					<th width="30%">Location</th>
 					<th width="20%">Style</th>
 					<th width="5%">ABV</th>
 					<th width="5%">IBU</th>
 					<th width="10%">Ounces</th>
 				</tr>
 				<tr>
-					<td>${beer.name}</td>
-					<td>${beer.brewery }</td>
+					<td>${beer.brewery.name}</td>
+					<td>${beer.brewery.address.city }, ${beer.brewery.address.state }</td>
 					<td>${beer.beerStyle }</td>
 					<td>${beer.abv }</td>
 					<td>${beer.ibu }</td>
@@ -178,10 +179,13 @@
 				<li><b>Beer Ounces:</b> ${beer.ounces }</li>
 			</ul> --%>
 
-
-			<h3>Reviews:</h3>
+			
+			
+			
 			<c:choose>
+			
 				<c:when test="${not empty beerReviews}">
+				<h2 class="reviewHeader" >Reviews:</h2>
 					<c:forEach var="beerReview" items="${beerReviews}">
 						<table>
 							<tr>
@@ -202,7 +206,7 @@
 				</c:when>
 
 				<c:otherwise>
-					<p>No Reviews</p>
+					<h2 class="reviewHeader" >Reviews: No Reviews</h2>
 				</c:otherwise>
 			</c:choose>
 
