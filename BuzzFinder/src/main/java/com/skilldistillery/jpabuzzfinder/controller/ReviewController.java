@@ -49,8 +49,7 @@ public class ReviewController {
 	@RequestMapping(path = "createBreweryReview.do")
 	public String createBrewReview(HttpSession session, LocalDate reviewDate, String comment, Brewery brewery, int rating,
 			String again, String feature, String favorite, Integer breweryId) {
-		System.out.println("*_*_*_*_*_*_*_*_*_*__*_*_*_*_*_*_*");
-		System.out.println(breweryId);
+		
 		brewery = breweryDao.findBreweryById(breweryId);
 		BreweryReview newReview = new BreweryReview(0, reviewDate, comment, brewery, favorite, rating,
 				again, feature);
@@ -60,9 +59,10 @@ public class ReviewController {
 		BreweryReview dbAddedReview = reviewDao.addBreweryReview(newReview);
 
 		session.setAttribute("newBreweryReview", dbAddedReview);
+		brewery = breweryDao.findBreweryById(breweryId);
 		session.setAttribute("brewery", brewery);
 		session.setAttribute("breweryReviews", reviewDao.findReviewByBreweryId(brewery.getId()));
-		return "singleBreweryResult";
+		return "redirect:breweryDetails.do?id="+breweryId;
 	}
 
 	@RequestMapping(path = "createBeerReview.do")
@@ -76,7 +76,7 @@ public class ReviewController {
 		session.setAttribute("newBeerReview", dbAddedReview);
 		session.setAttribute("beer", beer);
 		session.setAttribute("beerReviews", reviewDao.findReviewByBeerId(beer.getId()));
-		return "singleBeerResult";
+		return "redirect:beerDetails.do?id="+beerId;
 
 	}
 	@RequestMapping(path = "deleteBreweryReview.do")
