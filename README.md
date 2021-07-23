@@ -1,9 +1,9 @@
 # BuzzFinder
 
-Michael Ingram (Developer, Scrum Master, Repo Owner)
-Alex Lopez (Developer)
-Kim Nettleton (Developer)
-Rachel Richardson (Developer, DBA)
+- Michael Ingram (Developer, Scrum Master, Repo Owner)
+- Alex Lopez (Developer)
+- Kim Nettleton (Developer)
+- Rachel Richardson (Developer, DBA)
 
 ## Overview
 
