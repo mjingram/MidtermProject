@@ -149,8 +149,8 @@
 						<li>${b.name}</li>
 					</ul>
 					<form action="removeFavoriteBeer.do" method="GET">
-						<input type="hidden" name="id" value="${b.id }" /> <input
-							type="submit" value="Remove Beer" />
+						<input type="hidden" name="id" value="${b.id }" /> 
+						<input type="submit" value="Remove Beer" />
 					</form>
 				</c:forEach>
 			</div>
@@ -158,8 +158,8 @@
 					<br />
 
 					<form action="beerReview.do">
-						<input type="hidden" name="beerId" value="${beer.id }"> <input
-							type="submit" value="Review New Favorite Beer">
+						<input type="hidden" name="beerId" value="${beer.id }"> 
+						<input type="submit" value="Review New Favorite Beer">
 					</form>
 
 
